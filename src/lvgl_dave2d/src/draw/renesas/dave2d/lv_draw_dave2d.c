@@ -26,8 +26,8 @@
 #endif
 
 static void execute_drawing(lv_draw_dave2d_unit_t * u);
-static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_area_t * dest_area,
-                 void * src_buf, uint32_t src_stride, const lv_area_t * src_area, lv_color_format_t color_format);
+static  void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
+        void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format);
 
 static int32_t _dave2d_evaluate(lv_draw_unit_t * draw_unit, lv_draw_task_t * task);
 
@@ -115,20 +115,13 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 }
 
 
-static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_area_t * dest_area,
-                 void * src_buf, uint32_t src_stride, const lv_area_t * src_area, lv_color_format_t color_format)
+static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
+                 void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format)
 {
     lv_area_t  clip;
     lv_area_t  clipped;
     lv_area_t  screen;
     d2_s32     result;
-    lv_coord_t dst_width;
-    lv_coord_t dst_height;
-    lv_coord_t src_width;
-    lv_coord_t src_height;
-
-    lv_area_t * local_dest_area;
-    lv_area_t * local_src_area;
 
 #if LV_USE_OS
     lv_result_t  status;
@@ -140,78 +133,12 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
     }
 #endif
 
-    local_src_area = (lv_area_t *)src_area;
-    local_dest_area = (lv_area_t *)dest_area;
-
-    //LV_LOG_USER("db = 0x%x ds = %d X1 = %d Y1 = %d X2 = %d Y2 = %d sb = 0x%x\r\n"  , (unsigned int)dest_buf, (unsigned int)dest_stride, dest_area->x1, dest_area->y1, dest_area->x2, dest_area->y2, (unsigned int)src_buf);
-
-
+#if CHECK_RENDERING_TO_VISABLE_FB
     if (R_GLCDC->GR[0].FLM2 == (uint32_t)dest_buf)
     {
         __BKPT(0); //Are we copying into the visable framebuffer?
     }
-
-    src_stride = src_stride/lv_color_format_get_size(color_format); //D2 needs pixels, not bytes
-
-    if (src_area->x1 != dest_area->x1)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->x2 != dest_area->x2)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->y1 != dest_area->y1)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->y2 != dest_area->y2)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->x1 != dest_area->x1)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->x2 != dest_area->x2)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->y1 != dest_area->y1)
-    {
-        __BKPT(0);
-    }
-
-    if (src_area->y2 != dest_area->y2)
-    {
-        __BKPT(0);
-    }
-
-//    if (DISPLAY_IN_FORMAT_16BITS_RGB565 == lv_draw_dave2d_cf_fb_get())
-//    {
-//        local_src_area->x1 = 0;
-//        local_src_area->x2 = 479;
-//
-//        local_src_area->y1 = 0;
-//        local_src_area->y2 = 853;
-//
-//        local_dest_area->x1 = 0;
-//        local_dest_area->x2 = 479;
-//
-//        local_dest_area->y1 = 0;
-//        local_dest_area->y2 = 853;
-//    }
-
-    clip.x1 = LV_MIN(local_src_area->x1, local_src_area->x2);
-    clip.x2 = LV_MAX(local_src_area->x1, local_src_area->x2) ;
-    clip.y1 = LV_MIN(local_src_area->y1, local_src_area->y2) ;
-    clip.y2 = LV_MAX(local_src_area->y1, local_src_area->y2);
+#endif
 
     screen.x1 = 0;
     screen.y1 = 0;
@@ -221,22 +148,6 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
     if(!_lv_area_intersect(&clipped, &clip, &screen))
     {
         __NOP();
-    }
-
-    dst_width = lv_area_get_width(local_dest_area);
-    dst_height = lv_area_get_height(local_dest_area);
-
-    src_width = lv_area_get_width(local_src_area);
-    src_height = lv_area_get_height(local_src_area);
-
-    if (src_width + local_src_area->x1 > DISPLAY_HSIZE_INPUT0)
-    {
-        __BKPT(0);
-    }
-
-    if (src_height + local_src_area->y1 > DISPLAY_VSIZE_INPUT0)
-    {
-        __BKPT(0);
     }
 
     result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
@@ -258,20 +169,20 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
         __BKPT(0);
     }
 
-    result = d2_cliprect(_d2_handle, clipped.x1, clipped.y1, clipped.x2, clipped.y2);
+    result = d2_cliprect(_d2_handle, screen.x1, screen.y1, screen.x2, screen.y2);
     if (D2_OK != result)
     {
         __BKPT(0);
     }
 
-    result = d2_setblitsrc(_d2_handle, (void *) src_buf, (d2_s32)src_stride,  src_width, src_height, lv_draw_dave2d_lv_colour_fmt_to_d2_fmt(color_format));
+    result = d2_setblitsrc(_d2_handle, (void *) src_buf, (d2_s32)src_w,  DISPLAY_BUFFER_STRIDE_PIXELS_INPUT0, (d2_s32)src_h, lv_draw_dave2d_lv_colour_fmt_to_d2_fmt(color_format));
     if (D2_OK != result)
     {
         __BKPT(0);
     }
 
-    result = d2_blitcopy(_d2_handle, src_width, src_height, (d2_blitpos)local_src_area->x1, (d2_blitpos)local_src_area->y1, D2_FIX4(dst_width), D2_FIX4(dst_height),
-                D2_FIX4(local_dest_area->x1), D2_FIX4(local_dest_area->y1), 0);
+    result = d2_blitcopy(_d2_handle, (d2_s32)src_w, (d2_s32)src_h, (d2_blitpos)src_area->x1, (d2_blitpos)src_area->y1, D2_FIX4(dest_w), D2_FIX4(dest_h),
+                D2_FIX4(dest_area->x1), D2_FIX4(dest_area->y1), 0);
     if (D2_OK != result)
     {
         __BKPT(0);

@@ -10,13 +10,12 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
     d2_u32      flags = 0;
     lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
 
-
-
+#if CHECK_RENDERING_TO_VISABLE_FB
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
-       __BKPT(0); //Are we copying into the visable framebuffer?
+        __BKPT(0); //Are we copying into the visable framebuffer?
     }
-
+#endif
     lv_area_t tri_area;
     tri_area.x1 = LV_MIN3(dsc->p[0].x, dsc->p[1].x, dsc->p[2].x);
     tri_area.y1 = LV_MIN3(dsc->p[0].y, dsc->p[1].y, dsc->p[2].y);

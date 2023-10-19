@@ -11,16 +11,12 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
     int32_t cos_end;
     lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
 
-    //LV_LOG_USER("db = 0x%x FB = 0x%lx\r\n",  (unsigned int)draw_unit->target_layer->buf, R_GLCDC->GR[0].FLM2);
-
-
-
-
-
+#if CHECK_RENDERING_TO_VISABLE_FB
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
         __BKPT(0); //Are we copying into the visable framebuffer?
     }
+#endif
 
     lv_area_t clipped_area;
 
