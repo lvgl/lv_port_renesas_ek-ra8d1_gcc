@@ -8,6 +8,8 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
     FSP_PARAMETER_NOT_USED(dsc);
     lv_area_t clipped_area;
     d2_u32      flags = 0;
+    lv_color_t  colour;
+    lv_grad_t * grad = NULL;
     lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
 
 #if CHECK_RENDERING_TO_VISABLE_FB
@@ -79,7 +81,15 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
         }
     }
 
-    lv_grad_t * grad = lv_gradient_get(&dsc->bg_grad, lv_area_get_width(&tri_area), lv_area_get_height(&tri_area));
+    if (LV_GRAD_DIR_NONE != dsc->bg_grad.dir)
+    {
+        grad = lv_gradient_get(&dsc->bg_grad, lv_area_get_width(&tri_area), lv_area_get_height(&tri_area));
+        colour = grad->color_map[0];
+    }
+    else
+    {
+        colour = dsc->bg_color;
+    }
 
     d2_framebuffer(draw_dave2d_unit->d2_handle,
                    draw_unit->target_layer->buf,
@@ -91,7 +101,7 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
     d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
     d2_setalpha( draw_dave2d_unit->d2_handle, dsc->bg_opa  );
 
-    d2_setcolor(draw_dave2d_unit->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(grad->color_map[0]));
+    d2_setcolor(draw_dave2d_unit->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(colour));
 
     d2_cliprect(draw_dave2d_unit->d2_handle, clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
 

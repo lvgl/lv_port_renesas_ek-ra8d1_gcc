@@ -118,8 +118,6 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
                  void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format)
 {
-    lv_area_t  clip;
-    lv_area_t  clipped;
     lv_area_t  screen;
     d2_s32     result;
 
@@ -136,7 +134,7 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
 #if CHECK_RENDERING_TO_VISABLE_FB
     if (R_GLCDC->GR[0].FLM2 == (uint32_t)dest_buf)
     {
-        __BKPT(0); //Are we copying into the visable framebuffer?
+        __BKPT(0); //Are we copying into the visible framebuffer?
     }
 #endif
 
@@ -145,18 +143,8 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
     screen.x2 = DISPLAY_HSIZE_INPUT0;
     screen.y2 = DISPLAY_VSIZE_INPUT0;
 
-    if(!_lv_area_intersect(&clipped, &clip, &screen))
-    {
-        __NOP();
-    }
-
     result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
     if (D2_OK != result)
-    {
-        __BKPT(0);
-    }
-
-    if ((dest_buf != &fb_background[0]) && (dest_buf != &fb_background[1]))
     {
         __BKPT(0);
     }
