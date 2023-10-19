@@ -11,6 +11,8 @@ void lv_draw_dave2d_line(lv_draw_unit_t * draw_unit, const lv_draw_line_dsc_t * 
 
     //LV_LOG_USER("db = 0x%x FB = 0x%lx\r\n",  (unsigned int)draw_unit->target_layer->buf, R_GLCDC->GR[0].FLM2);
 
+
+
     clip_line.x1 = LV_MIN(dsc->p1.x, dsc->p2.x) - dsc->width / 2;
     clip_line.x2 = LV_MAX(dsc->p1.x, dsc->p2.x) + dsc->width / 2;
     clip_line.y1 = LV_MIN(dsc->p1.y, dsc->p2.y) - dsc->width / 2;
@@ -19,6 +21,15 @@ void lv_draw_dave2d_line(lv_draw_unit_t * draw_unit, const lv_draw_line_dsc_t * 
     bool is_common;
     is_common = _lv_area_intersect(&clip_line, &clip_line, draw_unit->clip_area);
     if(!is_common) return;
+
+#if LV_USE_OS
+    lv_result_t  status;
+    status = lv_mutex_lock(draw_dave2d_unit->pd2Mutex);
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
@@ -72,6 +83,14 @@ void lv_draw_dave2d_line(lv_draw_unit_t * draw_unit, const lv_draw_line_dsc_t * 
     //
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
+
+#if LV_USE_OS
+    status = lv_mutex_unlock(draw_dave2d_unit->pd2Mutex);
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 }
 
 #endif /*LV_USE_DRAW_DAVE2D*/

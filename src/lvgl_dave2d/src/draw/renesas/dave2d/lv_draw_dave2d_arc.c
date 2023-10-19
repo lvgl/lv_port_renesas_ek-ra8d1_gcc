@@ -16,6 +16,7 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
 
 
 
+
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
         __BKPT(0); //Are we copying into the visable framebuffer?
@@ -32,6 +33,15 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
     {
         return;                      // Nothing to do, no angle - no arc
     }
+
+#if LV_USE_OS
+    lv_result_t  status;
+    status = lv_mutex_lock(draw_dave2d_unit->pd2Mutex);
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
     //
     // Generate render operations
@@ -121,6 +131,14 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
     //
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
+
+#if LV_USE_OS
+    status = lv_mutex_unlock(draw_dave2d_unit->pd2Mutex);
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 }
 
 #endif /*LV_USE_DRAW_DAVE2D*/

@@ -10,9 +10,11 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
     d2_u32      flags = 0;
     lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
 
+
+
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
-        __BKPT(0); //Are we copying into the visable framebuffer?
+       __BKPT(0); //Are we copying into the visable framebuffer?
     }
 
     lv_area_t tri_area;
@@ -23,6 +25,15 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
 
 
     if(!_lv_area_intersect(&clipped_area, &tri_area, draw_unit->clip_area)) return;
+
+#if LV_USE_OS
+    lv_result_t  status;
+    status = lv_mutex_lock(draw_dave2d_unit->pd2Mutex );
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
     lv_point_t p[3];
     p[0] = dsc->p[0];
@@ -103,6 +114,14 @@ void lv_draw_dave2d_triangle(lv_draw_unit_t * draw_unit, const lv_draw_triangle_
     if(grad) {
         lv_gradient_cleanup(grad);
     }
+
+#if LV_USE_OS
+    status = lv_mutex_unlock(draw_dave2d_unit->pd2Mutex);
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
 }
 

@@ -48,6 +48,11 @@ static void lv_draw_buf_dave2d_init_handlers(void);
 d2_device * _d2_handle;
 d2_renderbuffer * _renderbuffer;
 
+#if LV_USE_OS
+lv_mutex_t xd2Semaphore;
+#endif
+
+
 /**********************
  *      MACROS
  **********************/
@@ -62,6 +67,8 @@ void lv_draw_dave2d_init(void)
 
     lv_draw_buf_dave2d_init_handlers();
 
+
+
     lv_draw_dave2d_unit_t * draw_dave2d_unit = lv_draw_create_unit(sizeof(lv_draw_dave2d_unit_t));
     draw_dave2d_unit->base_unit.dispatch_cb = lv_draw_dave2d_dispatch;
     draw_dave2d_unit->base_unit.evaluate_cb = _dave2d_evaluate;
@@ -73,9 +80,21 @@ void lv_draw_dave2d_init(void)
         __BKPT(0);
     }
 
+#if LV_USE_OS
+    lv_result_t res;
+    res =  lv_mutex_init( &xd2Semaphore );
+    if (LV_RESULT_OK != res)
+    {
+        __BKPT(0);
+    }
+
+    draw_dave2d_unit->pd2Mutex    = &xd2Semaphore;
+#endif
+
 
     draw_dave2d_unit->d2_handle = _d2_handle;
     draw_dave2d_unit->renderbuffer = _renderbuffer;
+
 
 #if LV_USE_OS
     lv_thread_init(&draw_dave2d_unit->thread, LV_THREAD_PRIO_HIGH, _dave2d_render_thread_cb, 8 * 1024, draw_dave2d_unit);
@@ -111,12 +130,15 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
     lv_area_t * local_dest_area;
     lv_area_t * local_src_area;
 
-    static void * p_last_dest_buff = NULL;
+#if LV_USE_OS
+    lv_result_t  status;
 
-//    if (dest_buf != p_last_dest_buff)
-//    {
-//
-//        p_last_dest_buff = dest_buf;
+    status = lv_mutex_lock( &xd2Semaphore );
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
     local_src_area = (lv_area_t *)src_area;
     local_dest_area = (lv_area_t *)dest_area;
@@ -131,22 +153,22 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
 
     src_stride = src_stride/lv_color_format_get_size(color_format); //D2 needs pixels, not bytes
 
-    if (src_area->x1 > src_area->x2)
+    if (src_area->x1 != dest_area->x1)
     {
         __BKPT(0);
     }
 
-    if (src_area->y1> src_area->y2)
+    if (src_area->x2 != dest_area->x2)
     {
         __BKPT(0);
     }
 
-    if (dest_area->x1 > dest_area->x2)
+    if (src_area->y1 != dest_area->y1)
     {
         __BKPT(0);
     }
 
-    if (dest_area->y1 > dest_area->y2)
+    if (src_area->y2 != dest_area->y2)
     {
         __BKPT(0);
     }
@@ -267,6 +289,14 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_stride, const lv_are
     {
         __BKPT(0);
     }
+
+#if LV_USE_OS
+    status = lv_mutex_unlock( &xd2Semaphore );
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
 
 }
 

@@ -32,6 +32,9 @@ typedef struct {
     uint32_t idx;
     d2_device * d2_handle;
     d2_renderbuffer * renderbuffer;
+#if LV_USE_OS
+    lv_mutex_t *pd2Mutex;
+#endif
 } lv_draw_dave2d_unit_t;
 
 
