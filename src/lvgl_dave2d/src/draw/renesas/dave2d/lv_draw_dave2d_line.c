@@ -31,7 +31,7 @@ void lv_draw_dave2d_line(lv_draw_unit_t * draw_unit, const lv_draw_line_dsc_t * 
     }
 #endif
 
-#if CHECK_RENDERING_TO_VISABLE_FB
+#if CHECK_RENDERING_TO_VISIBLE_FB
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
     {
         __BKPT(0); //Are we copying into the visable framebuffer?

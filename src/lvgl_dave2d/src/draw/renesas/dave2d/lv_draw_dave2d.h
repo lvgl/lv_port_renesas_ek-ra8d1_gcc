@@ -78,7 +78,7 @@ void lv_draw_dave2d_transform(lv_draw_unit_t * draw_unit, const lv_area_t * dest
 /**********************
  *      MACROS
  **********************/
-#define CHECK_RENDERING_TO_VISABLE_FB (1)
+#define CHECK_RENDERING_TO_VISIBLE_FB (1)
 
 #endif /*LV_USE_DRAW_DAVE2D*/
 

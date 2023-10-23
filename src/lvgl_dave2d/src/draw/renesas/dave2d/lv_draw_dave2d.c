@@ -131,7 +131,7 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
     }
 #endif
 
-#if CHECK_RENDERING_TO_VISABLE_FB
+#if CHECK_RENDERING_TO_VISIBLE_FB
     if (R_GLCDC->GR[0].FLM2 == (uint32_t)dest_buf)
     {
         __BKPT(0); //Are we copying into the visible framebuffer?
