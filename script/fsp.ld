@@ -266,16 +266,12 @@ SECTIONS
     /* If ITCM is present, this will be the absolute address that follows the ITCM ROM location. */
     . = (SIZEOF(.itcm_data) > 0) ? __itcm_data_init_end : __itcm_data_pre_location;
 
-    .ARM.extab :
+    __exidx_start = .;
+    /DISCARD/ :
     {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
-    } > FLASH
-
-    __exidx_start = .;
-    .ARM.exidx :
-    {
         *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > FLASH
+    }
     __exidx_end = .;
 
     /* To copy multiple ROM to RAM sections,
