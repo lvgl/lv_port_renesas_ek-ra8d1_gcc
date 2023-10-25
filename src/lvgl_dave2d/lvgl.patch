@@ -1,0 +1,36 @@
+diff --git a/src/core/lv_refr.c b/src/core/lv_refr.c
+index dbbc7af..4a9846e 100644
+--- a/src/core/lv_refr.c
++++ b/src/core/lv_refr.c
+@@ -992,16 +992,23 @@
+ 
+     bool flushing_last = disp->flushing_last;
+ 
+-    if(disp->flush_cb) {
+-        /*Rotate the buffer to the display's native orientation if necessary*/
+-        if(disp->rotation != LV_DISPLAY_ROTATION_0 && disp->sw_rotate) {
+-            LV_LOG_WARN("SW rotation is not supported now");
+-            call_flush_cb(disp, &disp->refreshed_area, layer->buf);
+-        }
+-        else {
+-            call_flush_cb(disp, &disp->refreshed_area, layer->buf);
++    if(lv_display_is_double_buffered(disp) && (disp->render_mode != LV_DISPLAY_RENDER_MODE_DIRECT || flushing_last)) {
++        if(disp->flush_cb) {
++            /*Rotate the buffer to the display's native orientation if necessary*/
++            if(disp->rotation != LV_DISPLAY_ROTATION_0 && disp->sw_rotate) {
++                LV_LOG_WARN("SW rotation is not supported now");
++                call_flush_cb(disp, &disp->refreshed_area, layer->buf);
++            }
++            else {
++                call_flush_cb(disp, &disp->refreshed_area, layer->buf);
++            }
+         }
+     }
++    else
++    {
++        disp->flushing = 0;
++    }
++
+     /*If there are 2 buffers swap them. With direct mode swap only on the last area*/
+     if(lv_display_is_double_buffered(disp) && (disp->render_mode != LV_DISPLAY_RENDER_MODE_DIRECT || flushing_last)) {
+         if(disp->buf_act == disp->buf_1) {
