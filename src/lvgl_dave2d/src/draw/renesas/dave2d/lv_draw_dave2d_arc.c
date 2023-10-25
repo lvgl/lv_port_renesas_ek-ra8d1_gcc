@@ -1,7 +1,7 @@
 #include <renesas/dave2d/lv_draw_dave2d.h>
 #if LV_USE_DRAW_DAVE2D
 
-void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * dsc, const lv_area_t * coords)
+void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_arc_dsc_t * dsc, const lv_area_t * coords)
 {
 
     uint32_t                flags = 0;
@@ -9,18 +9,18 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
     int32_t cos_start;
     int32_t sin_end;
     int32_t cos_end;
-    lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
+   // lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
 
 #if CHECK_RENDERING_TO_VISIBLE_FB
-    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_unit->target_layer->buf))
+    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf))
     {
-        __BKPT(0); //Are we copying into the visable framebuffer?
+        __BKPT(0); //Are we copying into the visible framebuffer?
     }
 #endif
 
     lv_area_t clipped_area;
 
-    if(!_lv_area_intersect(&clipped_area, coords, draw_unit->clip_area)) return;
+    if(!_lv_area_intersect(&clipped_area, coords, draw_dave2d_unit->base_unit.clip_area)) return;
 
     //
     // If both angles are equal (e.g. 0 and 0 or 180 and 180) nothing has to be done
@@ -43,10 +43,10 @@ void lv_draw_dave2d_arc(lv_draw_unit_t * draw_unit, const lv_draw_arc_dsc_t * ds
     // Generate render operations
     //
     d2_framebuffer(draw_dave2d_unit->d2_handle,
-                   draw_unit->target_layer->buf,
-                   lv_area_get_width(&draw_unit->target_layer->buf_area),
-                   (d2_u32)lv_area_get_width(&draw_unit->target_layer->buf_area),
-                   (d2_u32)lv_area_get_height(&draw_unit->target_layer->buf_area),
+            draw_dave2d_unit->base_unit.target_layer->buf,
+                   lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
+                   (d2_u32)lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
+                   (d2_u32)lv_area_get_height(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    lv_draw_dave2d_cf_fb_get());
 
     d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);

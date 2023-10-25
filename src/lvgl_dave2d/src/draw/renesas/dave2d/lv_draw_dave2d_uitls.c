@@ -1,7 +1,7 @@
 #include <renesas/dave2d/lv_draw_dave2d.h>
 #if LV_USE_DRAW_DAVE2D
 
-
+#if 1
 d2_color  lv_draw_dave2d_lv_colour_to_d2_colour(lv_color_t color)
 {
     uint8_t alpha, red, green, blue;
@@ -32,6 +32,7 @@ d2_color  lv_draw_dave2d_lv_colour_to_d2_colour(lv_color_t color)
            | (green) << 8UL
            | (blue) << 0UL;
 }
+#endif
 
 d2_s32 lv_draw_dave2d_cf_fb_get(void)
 {

@@ -712,7 +712,7 @@
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/EK_RA8D1_LVGL"/>
+			<resource resourceType="PROJECT" workspacePath="/EK_RA8D1_LVGL9_Porting"/>
 		</configuration>
 		<configuration configurationName="Release"/>
 	</storageModule>

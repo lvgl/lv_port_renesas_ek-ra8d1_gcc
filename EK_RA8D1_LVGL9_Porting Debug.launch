@@ -22,17 +22,16 @@
     <stringAttribute key="com.renesas.cdt.core.secondGDBExe" value="green_dsp-elf-gdb"/>
     <booleanAttribute key="com.renesas.cdt.core.secondGDBSupport" value="false"/>
     <intAttribute key="com.renesas.cdt.core.secondGdbPortNumber" value="61237"/>
-    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R7FA8D1BH -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;25000&quot; -uResetBeginConnection= 1 -uNoReset= 1 -uResetBefDownload= 1 -uResetPreRun= 1 -uResetCon= 1 -uReleaseCM3= 0 -uDisconnectionMode= &quot;1&quot; -uSWOcoreClock= &quot;60000000&quot; -uEnableSciBoot=  0 -uAuthLevel= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uProgReWriteIRom= 0 -uCPUFrequency= &quot;480000000&quot; -uCECycle= 1 -uResetBehavior= &quot;Reset&quot;"/>
-    <booleanAttribute key="com.renesas.cdt.core.setResume" value="true"/>
+    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R7FA8D1BH -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;4000&quot; -uResetBeginConnection= 1 -uNoReset= 1 -uReleaseCM3= 0 -uDisconnectionMode= &quot;1&quot; -uSWOcoreClock= &quot;0&quot; -uEnableSciBoot=  1 -uAuthLevel= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uProgReWriteIRom= 0 -uCPUFrequency= &quot;0&quot; -uCECycle= 1 -uResetBehavior= &quot;Reset&quot;"/>
     <booleanAttribute key="com.renesas.cdt.core.startServer" value="true"/>
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R7FA8D1BH"/>
     <booleanAttribute key="com.renesas.cdt.core.useRemoteTarget" value="true"/>
-    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;selectedRegisterList ioFilePath=&quot;C:\Users\a5094302\.eclipse\com.renesas.platform_1534499526\DebugComp\RA\IoFiles\R7FA8D1BH.svd&quot;/&gt;&#13;&#10;"/>
+    <booleanAttribute key="com.renesas.cdt.core.verboseMode" value="false"/>
     <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;selectedRegisterList ioFilePath=&quot;C:\Users\a5094302\.eclipse\com.renesas.platform_1376775417\DebugComp\RA\IoFiles\R7FA8D1BH.svd&quot;/&gt;&#13;&#10;"/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}"/>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.USE_DEFAULT_IO_MAP" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.downloadImages">
-        <listEntry value="|true|true|true||true|No core|INTERNAL_MEMORY||false"/>
+        <listEntry value="|true|true|true|0|true|No core|INTERNAL_MEMORY||false"/>
     </listAttribute>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.downloadImagesUpgradedV30" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.externalFlashDestinationAddresses"/>
@@ -40,17 +39,55 @@
     <stringAttribute key="com.renesas.cdt.launch.dsf.launchSeqType" value="com.renesas.cdt.launch.dsf.launchSequence.e2GdbServer"/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}\e2-server-gdb"/>
     <listAttribute key="com.renesas.cdt.launch.ui.address.mruList.memoryMonitorExpression">
-        <listEntry value="0x2200a76c"/>
-        <listEntry value="&amp;fb_background[1][0]"/>
         <listEntry value="&amp;fb_background[0][0]"/>
-        <listEntry value="buf_1_1"/>
     </listAttribute>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2.traceMTB" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2.traceSizeMTB" value="1024"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.allow.clock.source.internal" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.break.useFlashBreakpoints" value="false"/>
+    <intAttribute key="com.renesas.hardwaredebug.arm.e2lite.clock_source" value="0"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.disconnectionMode" value="1"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.id_code.format.big_endian" value="false"/>
+    <intAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.id_code.input_type" value="0"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.id_code2" value="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.reset" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.resetAfterDownload" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.resetBeginConnection" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.resetCon" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.resetPreRun" value="true"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.connection.type" value="SWD"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.enable.hot.plug" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.enable_dwt" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.eraseDataRomOnDownload" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.eraseRomOnDownload" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_Stop_func" value=""/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_enable_Stop" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_enable_start" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_start_func" value=""/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_work_ram_Addr" value=""/>
+    <intAttribute key="com.renesas.hardwaredebug.arm.e2lite.hook_work_ram_Size" value="1024"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.inputclock" value=""/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.interface.speed" value="auto"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.lowPowerHandling" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.memory.isLittleEndian" value="true"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.operating.freq" value=""/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.options.ArmE2LiteDebugToolSettingsTree.resetAfterReload" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.prog_rewrite_dflash" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.prog_rewrite_irom" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.pwr" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.rtosIntegrationInDebugView" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.rtosintegrationthreadsrunning" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.serial_number" value=""/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.setTZAuthKey" value=""/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.setTZAuthLevel" value="0"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.setTZBoundaries" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.supply.voltage" value="3.3"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.e2litecom.renesas.hardwaredebug.timemeasurement" value="true"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2liteworkRam.startAddr" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.break.allowSimulation" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.break.useFlashBreakpoints.resetorrepurposed" value="true"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.enable" value="false"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.endAddr" value="0x0"/>
-    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.flashBusType" value="SPIBSC"/>
-    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.flashMemoryType" value="SerialFlash"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.startAddr" value="0x0"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.workRam.endAddr" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.cfiFlash.workRam.startAddr" value=""/>
@@ -58,19 +95,18 @@
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.id_code.format.big_endian" value="false"/>
     <intAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.id_code.input_type" value="0"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.id_code2" value="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"/>
-    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.jlinkScript" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.registerInit" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.reset" value="false"/>
-    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetAfterDownload" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetAfterDownload" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetBeginConnection" value="true"/>
-    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetCon" value="true"/>
-    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetPreRun" value="true"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetCon" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetPreRun" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.setArMModeAfterDownload" value="false"/>
-    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.swv.coreClockSpeed" value="60"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.swv.coreClockSpeed" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.enable.hot.plug" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.eraseDataRomOnDownload" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.eraseRomOnDownload" value="false"/>
-    <intAttribute key="com.renesas.hardwaredebug.arm.jlink.interface.speed" value="25000"/>
+    <intAttribute key="com.renesas.hardwaredebug.arm.jlink.interface.speed" value="4000"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.interface.type" value="SWD"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.ipConnection.connectionMethod" value="0"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.ipConnection.tunnelIdentifier" value=""/>
@@ -87,7 +123,7 @@
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.memory.isLittleEndian" value="true"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.nonSecureVectorAddress" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.prog_rewrite_irom" value="false"/>
-    <intAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.rbtm" value="480000000"/>
+    <intAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.rbtm" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.rbtm.everycycleenable" value="true"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.resetAfterReload" value="true"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.options.ArmJLinkDebugToolSettingsTree.rtosIntegrationInDebugView" value="false"/>
@@ -103,13 +139,13 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.semihosting.breakpointAddress" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthKey" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthLevel" value="0"/>
-    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZBoundaries" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZBoundaries" value="true"/>
     <booleanAttribute key="com.renesas.hardwaredebug.timemeasurement" value="true"/>
-    <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="3"/>
+    <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\Renesas\Workspaces\e2studio\FSP_5_0_0_beta_2_LVGL_9\EK_RA8D1_LVGL\Debug\EK_RA8D1_LVGL.elf"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\Renesas\git_repos\EK_RA8D1_LVGL9_Porting\EK_RA8D1_LVGL9_Porting\Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value="0"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="true"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadSymbols" value="true"/>
@@ -119,8 +155,8 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\Renesas\Workspaces\e2studio\FSP_5_0_0_beta_2_LVGL_9\EK_RA8D1_LVGL\Debug\EK_RA8D1_LVGL.elf"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value=""/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\Renesas\git_repos\EK_RA8D1_LVGL9_Porting\EK_RA8D1_LVGL9_Porting\Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useProjBinaryForImage" value="true"/>
@@ -128,20 +164,21 @@
     <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="arm-none-eabi-gdb"/>
     <booleanAttribute key="org.eclipse.cdt.dsf.gdb.NON_STOP" value="true"/>
     <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+    <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
+    <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
     <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/EK_RA8D1_LVGL.elf"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="EK_RA8D1_LVGL"/>
-    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="EK_RA8D1_LVGL9_Porting"/>
+    <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.389797102"/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/EK_RA8D1_LVGL"/>
+        <listEntry value="/EK_RA8D1_LVGL9_Porting"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
     </listAttribute>
-    <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
-    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;1744830464&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[0][0]&quot;/&gt;&lt;gdbmemoryBlockExpression address=&quot;1745650304&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[1][0]&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingWidth&quot; value=&quot;480&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingFormat&quot; value=&quot;com.renesas.common.debug.ui.images.Rgb565RawImageFormat&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingPosition&quot; value=&quot;0&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingScanlinePad&quot; value=&quot;64&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingHeight&quot; value=&quot;854&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;gdbmemoryBlockExpression address=&quot;570468204&quot; core_thread_id=&quot;1_i1&quot; label=&quot;0x2200a76c&quot;/&gt;&lt;/memoryBlockExpressionList&gt;"/>
+    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;1744830464&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[0][0]&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;/memoryBlockExpressionList&gt;"/>
     <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>

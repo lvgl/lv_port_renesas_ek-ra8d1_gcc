@@ -89,7 +89,7 @@ void lv_port_disp_init(void)
      * Two buffers screen sized buffer for double buffering.
      * Both LV_DISPLAY_RENDER_MODE_DIRECT and LV_DISPLAY_RENDER_MODE_FULL works, see their comments*/
 
-    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_FULL);
+    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
 #endif
 
 }

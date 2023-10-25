@@ -26,6 +26,10 @@
 #endif
 
 static void execute_drawing(lv_draw_dave2d_unit_t * u);
+
+static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
+        const lv_area_t * area);
+
 static  void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
         void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format);
 
@@ -110,8 +114,19 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 {
     lv_draw_buf_handlers_t * handlers = lv_draw_buf_get_handlers();
 
-    //handlers->invalidate_cache_cb = _invalidate_cache;
+    handlers->invalidate_cache_cb = _dave2d_buf_invalidate_cache_cb;
     handlers->buf_copy_cb = _dave2d_buf_copy;
+}
+
+void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
+                                                const lv_area_t * area)
+{
+    /* TODO */
+    FSP_PARAMETER_NOT_USED(buf);
+    FSP_PARAMETER_NOT_USED(stride);
+    FSP_PARAMETER_NOT_USED(color_format);
+    FSP_PARAMETER_NOT_USED(area);
+    //SCB_CleanInvalidateDCache_by_Addr(addr, dsize);
 }
 
 
@@ -347,38 +362,38 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
     lv_draw_task_t * t = u->task_act;
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL:
-            //lv_draw_dave2d_fill((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_fill(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BORDER:
-            //lv_draw_dave2d_border((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_border(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BOX_SHADOW:
-            //lv_draw_dave2d_box_shadow((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_box_shadow(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BG_IMG:
-            //lv_draw_dave2d_bg_image((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_bg_image(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_LABEL:
-            //lv_draw_dave2d_label((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_label(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_IMAGE:
-            //lv_draw_dave2d_image((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_image(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_LINE:
-            lv_draw_dave2d_line((lv_draw_unit_t *)u, t->draw_dsc);
+            lv_draw_dave2d_line(u, t->draw_dsc);
             break;
         case LV_DRAW_TASK_TYPE_ARC:
-            lv_draw_dave2d_arc((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            lv_draw_dave2d_arc(u, t->draw_dsc, &t->area);
             break;
 
         case LV_DRAW_TASK_TYPE_TRIANGLE:
-            lv_draw_dave2d_triangle((lv_draw_unit_t *)u, t->draw_dsc);
+            lv_draw_dave2d_triangle(u, t->draw_dsc);
             break;
         case LV_DRAW_TASK_TYPE_LAYER:
-            //lv_draw_dave2d_layer((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_layer(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_MASK_RECTANGLE:
-            //lv_draw_dave2d_mask_rect((lv_draw_unit_t *)u, t->draw_dsc, &t->area);
+            //lv_draw_dave2d_mask_rect(u, t->draw_dsc, &t->area);
             break;
         default:
             break;
