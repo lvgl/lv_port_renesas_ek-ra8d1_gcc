@@ -383,6 +383,11 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
 {
     /*Render the draw task*/
     lv_draw_task_t * t = u->task_act;
+    lv_layer_t* layer = &u->base_unit.target_layer;
+
+    /* Invalidate cache */
+    lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &t->area);
+
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL:
             //lv_draw_dave2d_fill(u, t->draw_dsc, &t->area);

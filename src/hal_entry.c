@@ -73,7 +73,7 @@ void R_BSP_WarmStart(bsp_warm_start_event_t event)
 
         /* Mark the framebuffer as Write-Through Cacheable */
 #if defined(RENESAS_CORTEX_M85)
-#if (BSP_CFG_DCACHE_ENABLED)
+#if (0) //(BSP_CFG_DCACHE_ENABLED)
 
         ARM_MPU_Disable();
 

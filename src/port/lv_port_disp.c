@@ -268,21 +268,15 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
 
                 //LV_LOG_USER("to 0x%x\r\n", (unsigned int)px_map);
 
-                if(p_color_last == px_map)
-                {
-                    if (px_map == &fb_background[0][0])
-                    {
-                        px_map = &fb_background[1][0];
-                    }
-                    else
-                    {
-                        px_map = &fb_background[0][0];
-                    }
-                    //LV_LOG_USER("to 0x%x changed\r\n",(unsigned int) px_map);
-                }
 
                 if (p_color_last != px_map)
                 {
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
+                    /* Invalidate cache - so GLCDC can access any data written by the CPU */
+                    SCB_CleanInvalidateDCache_by_Addr(px_map, sizeof(fb_background[0]));
+#endif
+#endif
                     do
                     {
                         err =
@@ -299,8 +293,12 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                 }
                 else
                 {
-                    __NOP();
-                    //LV_LOG_USER("Display Buffer Same as Last time");
+#if (1) //CHECK_RENDERING_TO_VISIBLE_FB
+    if (R_GLCDC->GR[0].FLM2 == (uint32_t)px_map)
+    {
+        __BKPT(0); //Are we copying into the visible framebuffer?
+    }
+#endif
                 }
                 p_color_last = px_map;
         }
