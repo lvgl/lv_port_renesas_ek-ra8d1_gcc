@@ -1,7 +1,7 @@
-diff --git a/src/core/lv_refr.c b/src/core/lv_refr.c
+diff --git a/src/lvgl/src/core/lv_refr.c b/src/lvgl/src/core/lv_refr.c
 index dbbc7af..4a9846e 100644
---- a/src/core/lv_refr.c
-+++ b/src/core/lv_refr.c
+--- a/src/lvgl/src/core/lv_refr.c
++++ b/src/lvgl/src/core/lv_refr.c
 @@ -992,16 +992,23 @@
  
      bool flushing_last = disp->flushing_last;
