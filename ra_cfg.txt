@@ -79,7 +79,7 @@ FSP Configuration
     Clocks: MSTP Change Delays: Enabled
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
-    Cache settings: Data cache: Disabled
+    Cache settings: Data cache: Enabled
     
   RA Common
     Main stack size (bytes): 0x400
@@ -646,7 +646,7 @@ FSP Configuration
     General: Use Preemption: Enabled
     General: Use Port Optimised Task Selection: Disabled
     General: Use Tickless Idle: Disabled
-    Hooks: Use Idle Hook: Enabled
+    Hooks: Use Idle Hook: Disabled
     Hooks: Use Malloc Failed Hook: Enabled
     Hooks: Use Daemon Task Startup Hook: Disabled
     Hooks: Use Tick Hook: Disabled

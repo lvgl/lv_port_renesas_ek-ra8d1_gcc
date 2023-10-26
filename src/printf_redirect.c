@@ -47,6 +47,11 @@ int _write(int file, char *ptr, int len)
 
     if (FSP_SUCCESS == err)
     {
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
+        SCB_CleanInvalidateDCache_by_Addr(ptr, len); //DTC is configured for UART TX
+#endif
+#endif
           err = R_SCI_B_UART_Write(&g_uart0_ctrl, (uint8_t *)ptr, (uint32_t)len);
           if (FSP_SUCCESS == err)
           {

@@ -2,5 +2,6 @@
 /ra_gen
 /ra_cfg
 ra/*
-src/lvgl
+!ra/fsp/src/r_drw/r_drw_memory.c
+src/lvgl/*
 

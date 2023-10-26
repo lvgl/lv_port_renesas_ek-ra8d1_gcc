@@ -114,21 +114,44 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 {
     lv_draw_buf_handlers_t * handlers = lv_draw_buf_get_handlers();
 
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
     handlers->invalidate_cache_cb = _dave2d_buf_invalidate_cache_cb;
+#endif
+#endif
     handlers->buf_copy_cb = _dave2d_buf_copy;
 }
 
-void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
+#if defined(RENESAS_CORTEX_M85)
+static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
                                                 const lv_area_t * area)
 {
+
+
+#if !(BSP_CFG_DCACHE_ENABLED)
     /* TODO */
     FSP_PARAMETER_NOT_USED(buf);
     FSP_PARAMETER_NOT_USED(stride);
     FSP_PARAMETER_NOT_USED(color_format);
     FSP_PARAMETER_NOT_USED(area);
-    //SCB_CleanInvalidateDCache_by_Addr(addr, dsize);
-}
 
+#else
+
+    lv_point_t start;
+    lv_point_t finish;
+    uint8_t * address = buf;
+    int32_t size = 0;
+
+    uint8_t bytes_per_pixel = lv_color_format_get_size(color_format);
+
+
+    address = address + (area->x1 * bytes_per_pixel) + (stride * (uint32_t)area->y1 * bytes_per_pixel);
+    size    = ((stride - area->x1) * bytes_per_pixel) + ((area->y2 - area->y1) * stride * bytes_per_pixel) + (area->x2 * bytes_per_pixel);
+
+    SCB_CleanInvalidateDCache_by_Addr(address, size);
+#endif
+}
+#endif
 
 static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
                  void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format)
