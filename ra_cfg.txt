@@ -79,7 +79,7 @@ FSP Configuration
     Clocks: MSTP Change Delays: Enabled
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
-    Cache settings: Data cache: Enabled
+    Cache settings: Data cache: Disabled
     
   RA Common
     Main stack size (bytes): 0x400

@@ -136,9 +136,6 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
     FSP_PARAMETER_NOT_USED(area);
 
 #else
-
-    lv_point_t start;
-    lv_point_t finish;
     uint8_t * address = buf;
     int32_t size = 0;
 
@@ -383,7 +380,7 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
 {
     /*Render the draw task*/
     lv_draw_task_t * t = u->task_act;
-    lv_layer_t* layer = &u->base_unit.target_layer;
+    lv_layer_t* layer = u->base_unit.target_layer;
 
     /* Invalidate cache */
     lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &t->area);

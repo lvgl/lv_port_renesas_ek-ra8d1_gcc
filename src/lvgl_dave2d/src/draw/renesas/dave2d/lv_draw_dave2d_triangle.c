@@ -19,7 +19,7 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     tri_area.x1 = LV_MIN3(dsc->p[0].x, dsc->p[1].x, dsc->p[2].x);
     tri_area.y1 = LV_MIN3(dsc->p[0].y, dsc->p[1].y, dsc->p[2].y);
     tri_area.x2 = LV_MAX3(dsc->p[0].x, dsc->p[1].x, dsc->p[2].x);
-    tri_area.y2 = LV_MAX3(dsc->p[0].y, dsc->p[1].y, dsc->p[2].y) - 2; /* TODO - Why does the triangle overlap in the wigets demo, Analytics screen, top graph? */
+    tri_area.y2 = LV_MAX3(dsc->p[0].y, dsc->p[1].y, dsc->p[2].y);
 
 
     if(!_lv_area_intersect(&clipped_area, &tri_area, draw_dave2d_unit->base_unit.clip_area)) return;
@@ -33,7 +33,7 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     }
 #endif
 
-    lv_point_t p[3];
+    lv_point_precise_t p[3];
     p[0] = dsc->p[0];
     p[1] = dsc->p[1];
     p[2] = dsc->p[2];

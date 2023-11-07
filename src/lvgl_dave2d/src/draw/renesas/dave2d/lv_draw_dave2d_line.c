@@ -13,10 +13,10 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
 
 
 
-    clip_line.x1 = LV_MIN(dsc->p1.x, dsc->p2.x) - dsc->width / 2;
-    clip_line.x2 = LV_MAX(dsc->p1.x, dsc->p2.x) + dsc->width / 2;
-    clip_line.y1 = LV_MIN(dsc->p1.y, dsc->p2.y) - dsc->width / 2;
-    clip_line.y2 = LV_MAX(dsc->p1.y, dsc->p2.y) + dsc->width / 2;
+    clip_line.x1 = LV_MIN(dsc->p1_x, dsc->p2_x) - dsc->width / 2;
+    clip_line.x2 = LV_MAX(dsc->p1_x, dsc->p2_x) + dsc->width / 2;
+    clip_line.y1 = LV_MIN(dsc->p1_y, dsc->p2_y) - dsc->width / 2;
+    clip_line.y2 = LV_MAX(dsc->p1_y, dsc->p2_y) + dsc->width / 2;
 
     bool is_common;
     is_common = _lv_area_intersect(&clip_line, &clip_line, draw_dave2d_unit->base_unit.clip_area);
@@ -77,8 +77,8 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
     d2_setlinecap( draw_dave2d_unit->d2_handle, mode);
 
 
-    d2_renderline(draw_dave2d_unit->d2_handle, D2_FIX4(dsc->p1.x), D2_FIX4 (dsc->p1.y),D2_FIX4 (dsc->p2.x),
-                     D2_FIX4 (dsc->p2.y), D2_FIX4 (dsc->width), d2_le_exclude_none);
+    d2_renderline(draw_dave2d_unit->d2_handle, D2_FIX4(dsc->p1_x), D2_FIX4 (dsc->p1_y),D2_FIX4 (dsc->p2_x),
+                     D2_FIX4 (dsc->p2_y), D2_FIX4 (dsc->width), d2_le_exclude_none);
 
     //
     // Execute render operations
