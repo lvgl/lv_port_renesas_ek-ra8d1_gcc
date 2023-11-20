@@ -27,8 +27,12 @@
 
 static void execute_drawing(lv_draw_dave2d_unit_t * u);
 
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
 static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
         const lv_area_t * area);
+#endif
+#endif
 
 static  void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
         void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format);
@@ -123,6 +127,7 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 }
 
 #if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
 static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
                                                 const lv_area_t * area)
 {
@@ -149,6 +154,7 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
 #endif
 }
 #endif
+#endif
 
 static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
                  void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format)
@@ -173,6 +179,9 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
     }
 #endif
 
+//    LV_LOG_USER("dest x1 %d y1 %ld x2 %ld y2 %ld\r\n",dest_area->x1, dest_area->y1, dest_area->x2, dest_area->y2);
+//    LV_LOG_USER("src  x1 %d y1 %ld x2 %ld y2 %ld\r\n",src_area->x1,   src_area->y1,  src_area->x2,  src_area->y2);
+
     screen.x1 = 0;
     screen.y1 = 0;
     screen.x2 = DISPLAY_HSIZE_INPUT0;
@@ -192,7 +201,7 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
         __BKPT(0);
     }
 
-    result = d2_cliprect(_d2_handle, screen.x1, screen.y1, screen.x2, screen.y2);
+    result = d2_cliprect(_d2_handle, (d2_border)dest_area->x1, (d2_border)dest_area->y1, (d2_border)dest_area->x2, (d2_border)dest_area->y2);
     if (D2_OK != result)
     {
         __BKPT(0);
@@ -240,6 +249,11 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL: {
+                lv_draw_fill_dsc_t * dsc = t->draw_dsc;
+                if(dsc->grad.dir == LV_GRAD_DIR_NONE && dsc->radius == 0) {
+                    t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+                    t->preference_score = 0;
+                }
 
                 return 0;
             }
@@ -273,6 +287,7 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         case LV_DRAW_TASK_TYPE_LINE: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+            t->preference_score = 0;
             return 1;
 #else
             return 0;
@@ -282,6 +297,7 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         case  LV_DRAW_TASK_TYPE_ARC: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+            t->preference_score = 0;
             return 1;
 #else
             return 0;
@@ -291,6 +307,7 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         case LV_DRAW_TASK_TYPE_TRIANGLE: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+            t->preference_score = 0;
             return 1;
 #else
             return 0;
@@ -382,7 +399,7 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL:
-            //lv_draw_dave2d_fill(u, t->draw_dsc, &t->area);
+            lv_draw_dave2d_fill(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BORDER:
             //lv_draw_dave2d_border(u, t->draw_dsc, &t->area);

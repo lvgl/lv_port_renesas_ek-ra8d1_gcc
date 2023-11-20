@@ -29,12 +29,12 @@
 static void touchpad_init(void);
 static void touchpad_read(lv_indev_t * indev, lv_indev_data_t * data);
 static bool touchpad_is_pressed(void);
-static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y, touch_event_t * touch);
+static void touchpad_get_xy(int32_t * x, int32_t * y, touch_event_t * touch);
 #if 0
 static void mouse_init(void);
 static void mouse_read(lv_indev_t * indev, lv_indev_data_t * data);
 static bool mouse_is_pressed(void);
-static void mouse_get_xy(lv_coord_t * x, lv_coord_t * y);
+static void mouse_get_xy(int32_t * x, int32_t * y);
 
 static void keypad_init(void);
 static void keypad_read(lv_indev_t * indev, lv_indev_data_t * data);
@@ -182,17 +182,15 @@ void lv_port_indev_init(void)
 /*Initialize your touchpad*/
 static void touchpad_init(void)
 {
-    fsp_err_t err;
-
-
 
 }
 
 /*Will be called by the library to read the touchpad*/
 static void touchpad_read(lv_indev_t * indev_drv, lv_indev_data_t * data)
 {
-    static lv_coord_t last_x = 0;
-    static lv_coord_t last_y = 0;
+    FSP_PARAMETER_NOT_USED(indev_drv);
+    static int32_t last_x = 0;
+    static int32_t last_y = 0;
 
     static touch_event_t touch_event = TOUCH_EVENT_NONE;
 
@@ -231,7 +229,7 @@ static bool touchpad_is_pressed(void)
 }
 
 /*Get the x and y coordinates if the touchpad is pressed*/
-static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y, touch_event_t * touch_event)
+static void touchpad_get_xy(int32_t * x, int32_t * y, touch_event_t * touch_event)
 {
     fsp_err_t err;
         uint32_t number_of_coordinates;
@@ -267,7 +265,7 @@ static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y, touch_event_t * touc
                 {
                     *touch_event = TOUCH_EVENT_DOWN;
                 }
-                else if (TOUCH_EVENT_DOWN == touch_event)
+                else if (TOUCH_EVENT_DOWN == *touch_event)
                 {
                     *touch_event = TOUCH_EVENT_MOVE;
                 }
@@ -285,8 +283,8 @@ static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y, touch_event_t * touc
             }
         }
 
-        (*x) = (lv_coord_t)coordinates[0].x;
-        (*y) = (lv_coord_t)coordinates[0].y;
+        (*x) = (int32_t)coordinates[0].x;
+        (*y) = (int32_t)coordinates[0].y;
 }
 #if 0
 /*------------------
@@ -323,7 +321,7 @@ static bool mouse_is_pressed(void)
 }
 
 /*Get the x and y coordinates if the mouse is pressed*/
-static void mouse_get_xy(lv_coord_t * x, lv_coord_t * y)
+static void mouse_get_xy(int32_t * x, int32_t * y)
 {
     /*Your code comes here*/
 

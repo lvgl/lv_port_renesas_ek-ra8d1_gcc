@@ -61,6 +61,10 @@ int _write(int file, char *ptr, int len)
                  err = FSP_ERR_TIMEOUT;
               }
           }
+          else
+          {
+              __BKPT(0);
+          }
     }
 
     if (FSP_SUCCESS != err)

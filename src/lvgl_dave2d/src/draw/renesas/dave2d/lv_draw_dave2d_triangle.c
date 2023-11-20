@@ -33,6 +33,8 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     }
 #endif
 
+    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+
     lv_point_precise_t p[3];
     p[0] = dsc->p[0];
     p[1] = dsc->p[1];
@@ -145,8 +147,6 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
                    (d2_u32)lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    (d2_u32)lv_area_get_height(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    lv_draw_dave2d_cf_fb_get());
-
-    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
 
 
     d2_cliprect(draw_dave2d_unit->d2_handle, clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);

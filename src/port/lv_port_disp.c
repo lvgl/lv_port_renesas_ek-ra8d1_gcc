@@ -89,7 +89,7 @@ void lv_port_disp_init(void)
      * Two buffers screen sized buffer for double buffering.
      * Both LV_DISPLAY_RENDER_MODE_DIRECT and LV_DISPLAY_RENDER_MODE_FULL works, see their comments*/
 
-    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
+    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_FULL);
 #endif
 
 }
@@ -293,7 +293,7 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                 }
                 else
                 {
-#if (1) //CHECK_RENDERING_TO_VISIBLE_FB
+#if CHECK_RENDERING_TO_VISIBLE_FB
     if (R_GLCDC->GR[0].FLM2 == (uint32_t)px_map)
     {
         __BKPT(0); //Are we copying into the visible framebuffer?

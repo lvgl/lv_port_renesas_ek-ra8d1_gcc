@@ -9,7 +9,7 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     int32_t cos_start;
     int32_t sin_end;
     int32_t cos_end;
-   // lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
+    d2_s32 result;
 
 #if CHECK_RENDERING_TO_VISIBLE_FB
     if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf))
@@ -39,6 +39,16 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     }
 #endif
 
+    LV_LOG_USER("clip area x1 %ld y1 %ld x2 %ld y2 %ld\r\n", clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
+    LV_LOG_USER("draw buf  0x%lx\r\n", (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf);
+    LV_LOG_USER("draw buf x1 %ld y1 %ld x2 %ld y2 %ld\r\n",draw_dave2d_unit->base_unit.target_layer->buf_area.x1, draw_dave2d_unit->base_unit.target_layer->buf_area.y1,
+            draw_dave2d_unit->base_unit.target_layer->buf_area.x2, draw_dave2d_unit->base_unit.target_layer->buf_area.y2);
+    LV_LOG_USER("r  %d w %ld x %ld y %ld\r\n",dsc->radius, dsc->width,  dsc->center.x, dsc->center.y);
+
+
+
+    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+
     //
     // Generate render operations
     //
@@ -49,12 +59,16 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
                    (d2_u32)lv_area_get_height(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    lv_draw_dave2d_cf_fb_get());
 
-    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
     d2_setalpha( draw_dave2d_unit->d2_handle, dsc->opa  );
 
     d2_setcolor(draw_dave2d_unit->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(dsc->color));
 
-    d2_cliprect(draw_dave2d_unit->d2_handle, clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
+
+    result = d2_cliprect(draw_dave2d_unit->d2_handle, (d2_border)clipped_area.x1, (d2_border)clipped_area.y1, (d2_border)clipped_area.x2, (d2_border)clipped_area.y2);
+    if (D2_OK != result)
+    {
+        __BKPT(0);
+    }
 
     if (360 <= LV_ABS(dsc->start_angle - dsc->end_angle))
     {
@@ -85,7 +99,7 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
         sin_end   = lv_trigo_sin((int16_t)dsc->end_angle);
         cos_end   = lv_trigo_cos((int16_t)dsc->end_angle);
 
-        d2_renderwedge(draw_dave2d_unit->d2_handle,
+        result = d2_renderwedge(draw_dave2d_unit->d2_handle,
                         (d2_point)D2_FIX4(dsc->center.x),
                         (d2_point) D2_FIX4 (dsc->center.y),
                         (d2_width) D2_FIX4(dsc->radius - dsc->width/2 ),
@@ -95,6 +109,11 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
                         (d2_s32)  (sin_end << 1),
                         -(d2_s32) (cos_end << 1),
                           flags);
+        if (D2_OK != result)
+        {
+            __BKPT(0);
+        }
+
 
         if(dsc->rounded)
         {
@@ -125,6 +144,8 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     //
     // Execute render operations
     //
+
+
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
 

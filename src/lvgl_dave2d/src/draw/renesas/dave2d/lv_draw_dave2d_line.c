@@ -8,10 +8,9 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
     //lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *)draw_unit;
     lv_area_t clip_line;
     d2_u32     mode;
+    d2_s32 result;
 
     //LV_LOG_USER("db = 0x%x FB = 0x%lx\r\n",  (unsigned int)draw_unit->target_layer->buf, R_GLCDC->GR[0].FLM2);
-
-
 
     clip_line.x1 = LV_MIN(dsc->p1_x, dsc->p2_x) - dsc->width / 2;
     clip_line.x2 = LV_MAX(dsc->p1_x, dsc->p2_x) + dsc->width / 2;
@@ -46,17 +45,17 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
        __NOP();
     }
 
-    d2_u32 dest_stride = draw_dave2d_unit->base_unit.target_layer->buf_stride;
+    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
     //
     // Generate render operations
     //
     d2_framebuffer(draw_dave2d_unit->d2_handle,
             draw_dave2d_unit->base_unit.target_layer->buf,
                    lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
-                   lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
+                   (d2_u32)lv_area_get_width(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    (d2_u32)lv_area_get_height(&draw_dave2d_unit->base_unit.target_layer->buf_area),
                    lv_draw_dave2d_cf_fb_get());
-    d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+
     d2_setcolor(draw_dave2d_unit->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(dsc->color));
 
 
