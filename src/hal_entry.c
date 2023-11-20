@@ -79,23 +79,22 @@ void R_BSP_WarmStart(bsp_warm_start_event_t event)
 
         SCB_DisableDCache();
 
-        ARM_MPU_Region_t mpuTable[1][1] =
+        ARM_MPU_Region_t mpuTable[]=
         {
-           {
+
             // BASE SH RO NP XN LIMIT ATTR
-            { .RBAR = ARM_MPU_RBAR((uint32_t)&fb_background[0][0], ARM_MPU_SH_OUTER, READ_WRITE, ANY_PRVILEGE, EXECUTION_PERMITTED),
-              .RLAR = ARM_MPU_RLAR((uint32_t)(&fb_background[1][0] + sizeof(fb_background) - 1), REGION_0_ATTR_IDX) }
-           }
+            { .RBAR = ARM_MPU_RBAR((uint32_t)&fb_background[0][0], ARM_MPU_SH_NON, READ_WRITE, PRIVILEGED_ONLY, EXECUTION_PERMITTED),
+              .RLAR = ARM_MPU_RLAR((uint32_t)(&fb_background[1][0] + sizeof(fb_background) - 1), REGION_0_ATTR_IDX)
+            }
         };
 
 
         /* Disable MPU */
 
         ARM_MPU_Disable();
-        ARM_MPU_Load(0, mpuTable[0], sizeof(mpuTable)/sizeof(ARM_MPU_Region_t));
-        ARM_MPU_SetMemAttr(REGION_0_ATTR_IDX, ARM_MPU_ATTR(ARM_MPU_ATTR_MEMORY_(NON_TRANSIENT, WRITE_THROUGH, READ_ALLOCATE, WRITE_ALLOCATE),
-                                                           ARM_MPU_ATTR_MEMORY_(NON_TRANSIENT, WRITE_THROUGH, READ_ALLOCATE, WRITE_ALLOCATE)));
-
+        ARM_MPU_Load(0, mpuTable, sizeof(mpuTable)/sizeof(ARM_MPU_Region_t));
+        ARM_MPU_SetMemAttr(REGION_0_ATTR_IDX, ARM_MPU_ATTR(ARM_MPU_ATTR_MEMORY_(NON_TRANSIENT, WRITE_BACK, READ_ALLOCATE, WRITE_ALLOCATE),
+                                                           ARM_MPU_ATTR_MEMORY_(NON_TRANSIENT, WRITE_BACK, READ_ALLOCATE, WRITE_ALLOCATE)));
 
         /* Enable MPU, enable default memory map as background, MPU enabled during fault and NMI handlers */
 

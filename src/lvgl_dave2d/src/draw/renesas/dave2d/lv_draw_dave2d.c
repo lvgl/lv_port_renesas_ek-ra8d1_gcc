@@ -147,8 +147,13 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
     uint8_t bytes_per_pixel = lv_color_format_get_size(color_format);
 
 
-    address = address + (area->x1 * bytes_per_pixel) + (stride * (uint32_t)area->y1 * bytes_per_pixel);
-    size    = ((stride - area->x1) * bytes_per_pixel) + ((area->y2 - area->y1) * stride * bytes_per_pixel) + (area->x2 * bytes_per_pixel);
+    /* Stride is in bytes, not pixels */
+    address = address + (area->x1 * bytes_per_pixel) + (stride * (uint32_t)area->y1);
+    size    = (stride - ( area->x1 * bytes_per_pixel)) + ((area->y2 - area->y1) * stride);
+    if (stride > ((area->x2 + 1 )* bytes_per_pixel))
+    {
+        size += ((area->x2 + 1 )* bytes_per_pixel);
+    }
 
     SCB_CleanInvalidateDCache_by_Addr(address, size);
 #endif
@@ -394,8 +399,12 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
     lv_draw_task_t * t = u->task_act;
     lv_layer_t* layer = u->base_unit.target_layer;
 
+    lv_area_t clipped_area;
+
+    _lv_area_intersect(&clipped_area,  &t->area, u->base_unit.clip_area);
+
     /* Invalidate cache */
-    lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &t->area);
+    lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &clipped_area);
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL:

@@ -79,7 +79,7 @@ FSP Configuration
     Clocks: MSTP Change Delays: Enabled
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
-    Cache settings: Data cache: Disabled
+    Cache settings: Data cache: Enabled
     
   RA Common
     Main stack size (bytes): 0x400
@@ -719,7 +719,7 @@ FSP Configuration
   Thread "LVGL Thread"
     Symbol: LVGL_thread
     Name: LVGL Thread
-    Stack size (bytes): 4096
+    Stack size (bytes): 8192
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Static

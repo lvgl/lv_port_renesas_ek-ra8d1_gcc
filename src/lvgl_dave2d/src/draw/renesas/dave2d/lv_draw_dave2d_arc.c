@@ -39,11 +39,11 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     }
 #endif
 
-    LV_LOG_USER("clip area x1 %ld y1 %ld x2 %ld y2 %ld\r\n", clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
-    LV_LOG_USER("draw buf  0x%lx\r\n", (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf);
-    LV_LOG_USER("draw buf x1 %ld y1 %ld x2 %ld y2 %ld\r\n",draw_dave2d_unit->base_unit.target_layer->buf_area.x1, draw_dave2d_unit->base_unit.target_layer->buf_area.y1,
-            draw_dave2d_unit->base_unit.target_layer->buf_area.x2, draw_dave2d_unit->base_unit.target_layer->buf_area.y2);
-    LV_LOG_USER("r  %d w %ld x %ld y %ld\r\n",dsc->radius, dsc->width,  dsc->center.x, dsc->center.y);
+//    LV_LOG_USER("clip area x1 %ld y1 %ld x2 %ld y2 %ld\r\n", clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
+//    LV_LOG_USER("draw buf  0x%lx\r\n", (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf);
+//    LV_LOG_USER("draw buf x1 %ld y1 %ld x2 %ld y2 %ld\r\n",draw_dave2d_unit->base_unit.target_layer->buf_area.x1, draw_dave2d_unit->base_unit.target_layer->buf_area.y1,
+//            draw_dave2d_unit->base_unit.target_layer->buf_area.x2, draw_dave2d_unit->base_unit.target_layer->buf_area.y2);
+//    LV_LOG_USER("r  %d w %ld x %ld y %ld\r\n",dsc->radius, dsc->width,  dsc->center.x, dsc->center.y);
 
 
 
