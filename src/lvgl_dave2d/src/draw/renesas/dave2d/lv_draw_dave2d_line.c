@@ -10,8 +10,6 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
     d2_u32     mode;
     d2_s32 result;
 
-    //LV_LOG_USER("db = 0x%x FB = 0x%lx\r\n",  (unsigned int)draw_unit->target_layer->buf, R_GLCDC->GR[0].FLM2);
-
     clip_line.x1 = LV_MIN(dsc->p1_x, dsc->p2_x) - dsc->width / 2;
     clip_line.x2 = LV_MAX(dsc->p1_x, dsc->p2_x) + dsc->width / 2;
     clip_line.y1 = LV_MIN(dsc->p1_y, dsc->p2_y) - dsc->width / 2;
@@ -45,7 +43,9 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
        __NOP();
     }
 
+#ifdef D2_RENDER_EACH_OPERATION
     d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+#endif
     //
     // Generate render operations
     //
@@ -82,8 +82,10 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
     //
     // Execute render operations
     //
+#ifdef D2_RENDER_EACH_OPERATION
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
+#endif
 
 #if LV_USE_OS
     status = lv_mutex_unlock(draw_dave2d_unit->pd2Mutex);

@@ -16,6 +16,7 @@
 #include "arducam.h"
 #include <stdbool.h>
 #include "lv_port_disp.h"
+#include <renesas/dave2d/lv_draw_dave2d.h>
 
 /*********************
  *      DEFINES
@@ -237,7 +238,11 @@ static void vsync_wait (void)
 }
 #endif
 
- uint8_t * p_color_last = NULL;
+
+
+ extern d2_device * _d2_handle;
+ extern d2_renderbuffer * _renderbuffer;
+
  void lv_port_gpu_blit(lv_color_t * src, lv_color_t * dst, const lv_area_t * fill_area);
 
 /*Flush the content of the internal buffer the specific area on the display.
@@ -250,6 +255,7 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
         /*The most simple case (but also the slowest) to put all pixels to the screen one-by-one*/
 
     static bool enable_backlight = true;
+    static  uint8_t * p_color_last = NULL;
 
     if (true == enable_backlight)
     {
@@ -277,6 +283,29 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                     SCB_CleanInvalidateDCache_by_Addr(px_map, sizeof(fb_background[0]));
 #endif
 #endif
+
+#ifndef D2_RENDER_EACH_OPERATION
+                    d2_s32     result;
+
+                    // Execute render operations
+                    result = d2_executerenderbuffer(_d2_handle, _renderbuffer, 0);
+                    if (D2_OK != result)
+                    {
+                        __BKPT(0);
+                    }
+
+                    result = d2_flushframe(_d2_handle);
+                    if (D2_OK != result)
+                    {
+                        __BKPT(0);
+                    }
+
+                    result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
+                    if (D2_OK != result)
+                    {
+                        __BKPT(0);
+                    }
+#endif
                     do
                     {
                         err =
@@ -294,10 +323,10 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                 else
                 {
 #if CHECK_RENDERING_TO_VISIBLE_FB
-    if (R_GLCDC->GR[0].FLM2 == (uint32_t)px_map)
-    {
-        __BKPT(0); //Are we copying into the visible framebuffer?
-    }
+                    if (R_GLCDC->GR[0].FLM2 == (uint32_t)px_map)
+                    {
+                        __BKPT(0); //Are we copying into the visible framebuffer?
+                    }
 #endif
                 }
                 p_color_last = px_map;

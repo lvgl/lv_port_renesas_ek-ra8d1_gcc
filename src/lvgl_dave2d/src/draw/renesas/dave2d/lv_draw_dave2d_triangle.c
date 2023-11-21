@@ -33,7 +33,9 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     }
 #endif
 
+#ifdef D2_RENDER_EACH_OPERATION
     d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+#endif
 
     lv_point_precise_t p[3];
     p[0] = dsc->p[0];
@@ -163,8 +165,10 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     //
     // Execute render operations
     //
+#ifdef D2_RENDER_EACH_OPERATION
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
+#endif
 
     if (LV_GRAD_DIR_NONE != dsc->bg_grad.dir)
     {

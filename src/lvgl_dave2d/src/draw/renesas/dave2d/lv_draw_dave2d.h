@@ -80,6 +80,8 @@ void lv_draw_dave2d_transform(lv_draw_dave2d_unit_t * draw_unit, const lv_area_t
  **********************/
 #define CHECK_RENDERING_TO_VISIBLE_FB (1)
 
+//#define D2_RENDER_EACH_OPERATION      (1)
+
 #endif /*LV_USE_DRAW_DAVE2D*/
 
 #ifdef __cplusplus

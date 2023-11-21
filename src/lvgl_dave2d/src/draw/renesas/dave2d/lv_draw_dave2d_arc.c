@@ -39,15 +39,9 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     }
 #endif
 
-//    LV_LOG_USER("clip area x1 %ld y1 %ld x2 %ld y2 %ld\r\n", clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
-//    LV_LOG_USER("draw buf  0x%lx\r\n", (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf);
-//    LV_LOG_USER("draw buf x1 %ld y1 %ld x2 %ld y2 %ld\r\n",draw_dave2d_unit->base_unit.target_layer->buf_area.x1, draw_dave2d_unit->base_unit.target_layer->buf_area.y1,
-//            draw_dave2d_unit->base_unit.target_layer->buf_area.x2, draw_dave2d_unit->base_unit.target_layer->buf_area.y2);
-//    LV_LOG_USER("r  %d w %ld x %ld y %ld\r\n",dsc->radius, dsc->width,  dsc->center.x, dsc->center.y);
-
-
-
+#ifdef D2_RENDER_EACH_OPERATION
     d2_selectrenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer);
+#endif
 
     //
     // Generate render operations
@@ -145,9 +139,10 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     // Execute render operations
     //
 
-
+#ifdef D2_RENDER_EACH_OPERATION
     d2_executerenderbuffer(draw_dave2d_unit->d2_handle, draw_dave2d_unit->renderbuffer, 0);
     d2_flushframe(draw_dave2d_unit->d2_handle);
+#endif
 
 #if LV_USE_OS
     status = lv_mutex_unlock(draw_dave2d_unit->pd2Mutex);

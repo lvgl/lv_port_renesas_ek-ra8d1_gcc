@@ -75,8 +75,6 @@ void lv_draw_dave2d_init(void)
 
     lv_draw_buf_dave2d_init_handlers();
 
-
-
     lv_draw_dave2d_unit_t * draw_dave2d_unit = lv_draw_create_unit(sizeof(lv_draw_dave2d_unit_t));
     draw_dave2d_unit->base_unit.dispatch_cb = lv_draw_dave2d_dispatch;
     draw_dave2d_unit->base_unit.evaluate_cb = _dave2d_evaluate;
@@ -99,10 +97,8 @@ void lv_draw_dave2d_init(void)
     draw_dave2d_unit->pd2Mutex    = &xd2Semaphore;
 #endif
 
-
     draw_dave2d_unit->d2_handle = _d2_handle;
     draw_dave2d_unit->renderbuffer = _renderbuffer;
-
 
 #if LV_USE_OS
     lv_thread_init(&draw_dave2d_unit->thread, LV_THREAD_PRIO_HIGH, _dave2d_render_thread_cb, 8 * 1024, draw_dave2d_unit);
@@ -131,32 +127,21 @@ static void lv_draw_buf_dave2d_init_handlers(void)
 static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_color_format_t color_format,
                                                 const lv_area_t * area)
 {
-
-
-#if !(BSP_CFG_DCACHE_ENABLED)
-    /* TODO */
-    FSP_PARAMETER_NOT_USED(buf);
-    FSP_PARAMETER_NOT_USED(stride);
-    FSP_PARAMETER_NOT_USED(color_format);
-    FSP_PARAMETER_NOT_USED(area);
-
-#else
     uint8_t * address = buf;
-    int32_t size = 0;
-
-    uint8_t bytes_per_pixel = lv_color_format_get_size(color_format);
-
+    int32_t i = 0;
+    uint32_t bytes_per_pixel = lv_color_format_get_size(color_format);
+    int32_t width = lv_area_get_width(area);
+    int32_t lines = lv_area_get_height(area);
+    int32_t bytes_to_flush_per_line = (int32_t)width * (int32_t)bytes_per_pixel;
 
     /* Stride is in bytes, not pixels */
-    address = address + (area->x1 * bytes_per_pixel) + (stride * (uint32_t)area->y1);
-    size    = (stride - ( area->x1 * bytes_per_pixel)) + ((area->y2 - area->y1) * stride);
-    if (stride > ((area->x2 + 1 )* bytes_per_pixel))
-    {
-        size += ((area->x2 + 1 )* bytes_per_pixel);
-    }
+    address = address + (area->x1 * (int32_t)bytes_per_pixel) + (stride * (uint32_t)area->y1);
 
-    SCB_CleanInvalidateDCache_by_Addr(address, size);
-#endif
+    for (i = 0; i < lines; i++)
+    {
+        SCB_CleanInvalidateDCache_by_Addr(address, bytes_to_flush_per_line);
+        address += stride;
+    }
 }
 #endif
 #endif
@@ -164,7 +149,6 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
 static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
                  void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format)
 {
-    lv_area_t  screen;
     d2_s32     result;
 
 #if LV_USE_OS
@@ -183,14 +167,6 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
         __BKPT(0); //Are we copying into the visible framebuffer?
     }
 #endif
-
-//    LV_LOG_USER("dest x1 %d y1 %ld x2 %ld y2 %ld\r\n",dest_area->x1, dest_area->y1, dest_area->x2, dest_area->y2);
-//    LV_LOG_USER("src  x1 %d y1 %ld x2 %ld y2 %ld\r\n",src_area->x1,   src_area->y1,  src_area->x2,  src_area->y2);
-
-    screen.x1 = 0;
-    screen.y1 = 0;
-    screen.x2 = DISPLAY_HSIZE_INPUT0;
-    screen.y2 = DISPLAY_VSIZE_INPUT0;
 
     result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
     if (D2_OK != result)
@@ -251,87 +227,123 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
 static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
 {
     LV_UNUSED(u);
+    int32_t ret = 0;
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL: {
-                lv_draw_fill_dsc_t * dsc = t->draw_dsc;
-                if(dsc->grad.dir == LV_GRAD_DIR_NONE && dsc->radius == 0) {
-                    t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
-                    t->preference_score = 0;
-                }
-
-                return 0;
+            lv_draw_fill_dsc_t * dsc = t->draw_dsc;
+            if(dsc->grad.dir == LV_GRAD_DIR_NONE && dsc->radius == 0) {
+                t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+                t->preference_score = 0;
             }
+
+            ret =  0;
+            break;
+        }
 
         case LV_DRAW_TASK_TYPE_BG_IMG: {
 
-                return 0;
-            }
+            ret = 0;
+            break;
+        }
 
         case LV_DRAW_TASK_TYPE_LAYER: {
 
-                return 0;
-            }
+            ret = 0;
+            break;
+        }
 
         case LV_DRAW_TASK_TYPE_IMAGE: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         case LV_DRAW_TASK_TYPE_BORDER: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         case  LV_DRAW_TASK_TYPE_BOX_SHADOW: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         case  LV_DRAW_TASK_TYPE_LABEL: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         case LV_DRAW_TASK_TYPE_LINE: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
             t->preference_score = 0;
-            return 1;
-#else
-            return 0;
 #endif
+            ret = 0;
+            break;
         }
 
         case  LV_DRAW_TASK_TYPE_ARC: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
             t->preference_score = 0;
-            return 1;
-#else
-            return 0;
 #endif
+            ret = 0;
+            break;
         }
 
         case LV_DRAW_TASK_TYPE_TRIANGLE: {
 #if 1
             t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
             t->preference_score = 0;
-            return 1;
-#else
-            return 0;
 #endif
+            ret = 0;
+            break;
         }
 
         case  LV_DRAW_TASK_TYPE_MASK_RECTANGLE: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         case LV_DRAW_TASK_TYPE_MASK_BITMAP: {
-            return 0;
+            ret = 0;
+            break;
         }
 
         default:
-            return 0;
+            ret = 0;
+            break;
     }
 
-    return 0;
+#ifndef D2_RENDER_EACH_OPERATION
+    //If the SW renderer is going to be used, flush any pending Dave2D operations
+    // to preserve the drawing order
+    if (t->preferred_draw_unit_id != DRAW_UNIT_ID_DAVE2D)
+    {
+        d2_s32     result;
+
+        // Execute render operations
+        result = d2_executerenderbuffer(_d2_handle, _renderbuffer, 0);
+        if (D2_OK != result)
+        {
+            __BKPT(0);
+        }
+
+        result = d2_flushframe(_d2_handle);
+        if (D2_OK != result)
+        {
+            __BKPT(0);
+        }
+
+        result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
+        if (D2_OK != result)
+        {
+            __BKPT(0);
+        }
+    }
+#endif
+
+    return ret;
 }
 
 static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * layer)
