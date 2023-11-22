@@ -322,6 +322,16 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
     {
         d2_s32     result;
 
+#if LV_USE_OS
+    lv_result_t  status;
+
+    status = lv_mutex_lock( &xd2Semaphore );
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
+
         // Execute render operations
         result = d2_executerenderbuffer(_d2_handle, _renderbuffer, 0);
         if (D2_OK != result)
@@ -340,6 +350,14 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         {
             __BKPT(0);
         }
+
+#if LV_USE_OS
+    status = lv_mutex_unlock( &xd2Semaphore );
+    if (LV_RESULT_OK != status)
+    {
+        __BKPT(0);
+    }
+#endif
     }
 #endif
 
@@ -443,7 +461,6 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
         case LV_DRAW_TASK_TYPE_ARC:
             lv_draw_dave2d_arc(u, t->draw_dsc, &t->area);
             break;
-
         case LV_DRAW_TASK_TYPE_TRIANGLE:
             lv_draw_dave2d_triangle(u, t->draw_dsc);
             break;
@@ -513,7 +530,7 @@ static d2_s32 lv_dave2d_init(void)
     result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
     if(D2_OK != result)
     {
-        LV_LOG_ERROR("Could NOT d2_setdlistblocksize\n");
+        LV_LOG_ERROR("Could NOT d2_selectrenderbuffer\n");
         d2_closedevice(_d2_handle);
     }
 

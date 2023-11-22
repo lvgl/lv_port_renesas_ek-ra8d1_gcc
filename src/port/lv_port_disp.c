@@ -208,13 +208,17 @@ void glcdc_callback(display_callback_args_t *p_args)
 #else
 #endif
     }
-    else if ((DISPLAY_EVENT_GR1_UNDERFLOW == p_args->event))
+    else if (DISPLAY_EVENT_GR1_UNDERFLOW == p_args->event)
     {
-        __BKPT(0); //Layer Underrun
+        __BKPT(0); //Layer 1 Underrun
     }
-    else //DISPLAY_EVENT_GR1_UNDERFLOW
+    else if (DISPLAY_EVENT_GR2_UNDERFLOW == p_args->event)
     {
-
+        __BKPT(0); //Layer 2 Underrun
+    }
+    else //DISPLAY_EVENT_FRAME_END
+    {
+        __BKPT(0);
     }
 
 }
@@ -242,8 +246,6 @@ static void vsync_wait (void)
 
  extern d2_device * _d2_handle;
  extern d2_renderbuffer * _renderbuffer;
-
- void lv_port_gpu_blit(lv_color_t * src, lv_color_t * dst, const lv_area_t * fill_area);
 
 /*Flush the content of the internal buffer the specific area on the display.
  *`px_map` contains the rendered image as raw pixel map and it should be copied to `area` on the display.
