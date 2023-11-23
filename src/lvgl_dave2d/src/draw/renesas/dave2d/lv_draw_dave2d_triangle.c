@@ -8,13 +8,6 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_
     d2_u32      flags = 0;
     d2_u8 current_alpha_mode = 0;
 
-
-#if CHECK_RENDERING_TO_VISIBLE_FB
-    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf))
-    {
-        __BKPT(0); //Are we copying into the visible framebuffer?
-    }
-#endif
     lv_area_t tri_area;
     tri_area.x1 = LV_MIN3(dsc->p[0].x, dsc->p[1].x, dsc->p[2].x);
     tri_area.y1 = LV_MIN3(dsc->p[0].y, dsc->p[1].y, dsc->p[2].y);

@@ -39,6 +39,7 @@
     <stringAttribute key="com.renesas.cdt.launch.dsf.launchSeqType" value="com.renesas.cdt.launch.dsf.launchSequence.e2GdbServer"/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}\e2-server-gdb"/>
     <listAttribute key="com.renesas.cdt.launch.ui.address.mruList.memoryMonitorExpression">
+        <listEntry value="px_map"/>
         <listEntry value="&amp;fb_background[2][0]"/>
         <listEntry value="&amp;fb_background[1][0]"/>
         <listEntry value="&amp;fb_background[0][0]"/>
@@ -181,6 +182,6 @@
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
     </listAttribute>
-    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;1744830464&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[0][0]&quot;/&gt;&lt;gdbmemoryBlockExpression address=&quot;1745650304&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[1][0]&quot;/&gt;&lt;gdbmemoryBlockExpression address=&quot;1746470144&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[2][0]&quot;/&gt;&lt;/memoryBlockExpressionList&gt;"/>
+    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;570428468&quot; core_thread_id=&quot;1_i1&quot; label=&quot;0x22000c34&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;/memoryBlockExpressionList&gt;"/>
     <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>

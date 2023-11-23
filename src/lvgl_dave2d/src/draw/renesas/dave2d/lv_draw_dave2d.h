@@ -18,6 +18,8 @@ extern "C" {
  *      DEFINES
  *********************/
 
+#define D2_RENDER_EACH_OPERATION      (1)
+
 /**********************
  *      TYPEDEFS
  **********************/
@@ -71,6 +73,12 @@ void lv_draw_dave2d_transform(lv_draw_dave2d_unit_t * draw_unit, const lv_area_t
                           int32_t src_w, int32_t src_h, int32_t src_stride,
                           const lv_draw_image_dsc_t * draw_dsc, const lv_draw_image_sup_t * sup, lv_color_format_t cf, void * dest_buf);
 
+void dave2d_end_of_frame(void);
+
+void dave2d_wait_for_finish(void);
+
+void dave2d_start_of_frame(void);
+
 /***********************
  * GLOBAL VARIABLES
  ***********************/
@@ -78,9 +86,6 @@ void lv_draw_dave2d_transform(lv_draw_dave2d_unit_t * draw_unit, const lv_area_t
 /**********************
  *      MACROS
  **********************/
-#define CHECK_RENDERING_TO_VISIBLE_FB (1)
-
-#define D2_RENDER_EACH_OPERATION      (1)
 
 #endif /*LV_USE_DRAW_DAVE2D*/
 

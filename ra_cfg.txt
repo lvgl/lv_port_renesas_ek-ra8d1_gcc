@@ -675,7 +675,7 @@ FSP Configuration
     Memory Allocation: Clear Memory on Free: Disabled
     Memory Allocation: Support Static Allocation: Enabled
     Memory Allocation: Support Dynamic Allocation: Enabled
-    Memory Allocation: Total Heap Size: 131072
+    Memory Allocation: Total Heap Size: 262144
     Memory Allocation: Application Allocated Heap: Disabled
     Stats: Generate Run Time Stats: Disabled
     Timers: Use Timers: Enabled
@@ -1043,7 +1043,7 @@ FSP Configuration
       General: Name: g_timer0
       General: Channel: 0
       General: Mode: Periodic
-      General: Period: 5
+      General: Period: 1
       General: Period Unit: Milliseconds
       Output: Custom Waveform: GTIOA: Initial Output Level: Pin Level Low
       Output: Custom Waveform: GTIOA: Cycle End Output Level: Pin Level Retain

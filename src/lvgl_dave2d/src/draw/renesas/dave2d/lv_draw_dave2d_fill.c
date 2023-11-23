@@ -20,13 +20,6 @@ void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * u, const lv_draw_fill_dsc_t * d
     }
 #endif
 
-#if CHECK_RENDERING_TO_VISIBLE_FB
-    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)u->base_unit.target_layer->buf))
-    {
-        __BKPT(0); //Are we copying into the visible framebuffer?
-    }
-#endif
-
     d2_u32 dest_stride = u->base_unit.target_layer->buf_stride;
 
     //

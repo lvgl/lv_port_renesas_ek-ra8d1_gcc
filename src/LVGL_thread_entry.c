@@ -40,7 +40,7 @@ void lv_draw_dave2d_init(void);
 void timer_tick_callback(timer_callback_args_t *p_args)
 {
     FSP_PARAMETER_NOT_USED(p_args);
-    lv_tick_inc(5);
+    lv_tick_inc(1);
 }
 
 #define D2D_TEST (0)

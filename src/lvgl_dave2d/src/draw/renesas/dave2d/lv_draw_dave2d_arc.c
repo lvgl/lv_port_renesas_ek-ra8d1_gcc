@@ -10,14 +10,6 @@ void lv_draw_dave2d_arc(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw_
     int32_t sin_end;
     int32_t cos_end;
     d2_s32 result;
-
-#if CHECK_RENDERING_TO_VISIBLE_FB
-    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf))
-    {
-        __BKPT(0); //Are we copying into the visible framebuffer?
-    }
-#endif
-
     lv_area_t clipped_area;
 
     if(!_lv_area_intersect(&clipped_area, coords, draw_dave2d_unit->base_unit.clip_area)) return;

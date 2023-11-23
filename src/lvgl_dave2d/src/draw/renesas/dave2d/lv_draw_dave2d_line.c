@@ -28,13 +28,6 @@ void lv_draw_dave2d_line(lv_draw_dave2d_unit_t * draw_dave2d_unit, const lv_draw
     }
 #endif
 
-#if CHECK_RENDERING_TO_VISIBLE_FB
-    if ((R_GLCDC->GR[0].FLM2 == (uint32_t)draw_dave2d_unit->base_unit.target_layer->buf))
-    {
-        __BKPT(0); //Are we copying into the visible framebuffer?
-    }
-#endif
-
     bool dashed = dsc->dash_gap && dsc->dash_width;
 
     if (dashed)
