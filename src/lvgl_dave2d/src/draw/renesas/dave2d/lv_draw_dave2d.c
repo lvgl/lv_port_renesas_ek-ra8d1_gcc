@@ -37,6 +37,8 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
 static  void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
         void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format);
 
+static uint32_t __dave2d_width_to_stride_cb(uint32_t w, lv_color_format_t color_format);
+
 static int32_t _dave2d_evaluate(lv_draw_unit_t * draw_unit, lv_draw_task_t * task);
 
 static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * layer);
@@ -44,6 +46,8 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
 static d2_s32 lv_dave2d_init(void);
 
 static void lv_draw_buf_dave2d_init_handlers(void);
+
+void dave2d_execute_dlist_and_flush(void);
 
 /**********************
  *  GLOBAL PROTOTYPES
@@ -56,6 +60,8 @@ static void lv_draw_buf_dave2d_init_handlers(void);
 d2_device * _d2_handle;
 d2_renderbuffer * _renderbuffer;
 d2_renderbuffer * _blit_renderbuffer;
+
+lv_ll_t  _ll_Dave2D_Tasks;
 
 #if LV_USE_OS
 lv_mutex_t xd2Semaphore;
@@ -100,6 +106,7 @@ void lv_draw_dave2d_init(void)
 
     draw_dave2d_unit->d2_handle = _d2_handle;
     draw_dave2d_unit->renderbuffer = _renderbuffer;
+    _lv_ll_init(&_ll_Dave2D_Tasks, 4);
 
 #if LV_USE_OS
     lv_thread_init(&draw_dave2d_unit->thread, LV_THREAD_PRIO_HIGH, _dave2d_render_thread_cb, 8 * 1024, draw_dave2d_unit);
@@ -120,7 +127,7 @@ static void lv_draw_buf_dave2d_init_handlers(void)
     handlers->invalidate_cache_cb = _dave2d_buf_invalidate_cache_cb;
 #endif
 #endif
-    handlers->buf_copy_cb = _dave2d_buf_copy;
+    handlers->buf_copy_cb        = _dave2d_buf_copy;
 }
 
 #if defined(RENESAS_CORTEX_M85)
@@ -172,6 +179,10 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
     }
 
     result = d2_setblendmode(_d2_handle, d2_bm_one, d2_bm_zero);
+    if (D2_OK != result)
+    {
+        __BKPT(0);
+    }
 
     // Generate render operations
     result = d2_framebuffer(_d2_handle, (uint16_t *)dest_buf, DISPLAY_HSIZE_INPUT0, DISPLAY_BUFFER_STRIDE_PIXELS_INPUT0,
@@ -187,7 +198,7 @@ static void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, 
         __BKPT(0);
     }
 
-    result = d2_setblitsrc(_d2_handle, (void *) src_buf, DISPLAY_BUFFER_STRIDE_PIXELS_INPUT0, (d2_s32)src_w, (d2_s32)src_h, lv_draw_dave2d_lv_colour_fmt_to_d2_fmt(color_format));
+    result = d2_setblitsrc(_d2_handle, (void *) src_buf, (d2_s32)src_w, (d2_s32)src_w, (d2_s32)src_h, lv_draw_dave2d_lv_colour_fmt_to_d2_fmt(color_format));
     if (D2_OK != result)
     {
         __BKPT(0);
@@ -316,6 +327,10 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         }
 
         case  LV_DRAW_TASK_TYPE_MASK_RECTANGLE: {
+#if 0//USE_D2
+            t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+            t->preference_score = 0;
+#endif
             ret = 0;
             break;
         }
@@ -330,52 +345,15 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
             break;
     }
 
-#ifndef D2_RENDER_EACH_OPERATION
-    //If the SW renderer is going to be used, flush any pending Dave2D operations
-    // to preserve the drawing order
+#if  (0 == D2_RENDER_EACH_OPERATION)
     if (t->preferred_draw_unit_id != DRAW_UNIT_ID_DAVE2D)
     {
-        d2_s32     result;
-
-#if LV_USE_OS
-    lv_result_t  status;
-
-    status = lv_mutex_lock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
+        if (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks))
+        {
+            dave2d_execute_dlist_and_flush();
+        }
     }
 #endif
-
-        // Execute render operations
-        result = d2_executerenderbuffer(_d2_handle, _renderbuffer, 0);
-        if (D2_OK != result)
-        {
-            __BKPT(0);
-        }
-
-        result = d2_flushframe(_d2_handle);
-        if (D2_OK != result)
-        {
-            __BKPT(0);
-        }
-
-        result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
-        if (D2_OK != result)
-        {
-            __BKPT(0);
-        }
-
-#if LV_USE_OS
-    status = lv_mutex_unlock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
-    }
-#endif
-    }
-#endif
-
     return ret;
 }
 
@@ -390,8 +368,21 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
     t = lv_draw_get_next_available_task(layer, NULL, DRAW_UNIT_ID_DAVE2D);
 
     /* Return 0 is no selection, some tasks can be supported by other units. */
-    if(t == NULL || t->preferred_draw_unit_id != DRAW_UNIT_ID_DAVE2D)
+    if(t == NULL)
+    {
+#if  (0 == D2_RENDER_EACH_OPERATION)
+        if (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks))
+        {
+            dave2d_execute_dlist_and_flush();
+        }
+#endif
         return 0;
+    }
+
+    if (t->preferred_draw_unit_id != DRAW_UNIT_ID_DAVE2D)
+    {
+        return 0;
+    }
 
     t->state = LV_DRAW_TASK_STATE_IN_PROGRESS;
     draw_dave2d_unit->base_unit.target_layer = layer;
@@ -414,6 +405,8 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
     return 1;
 }
 
+struct _lv_draw_task_t ** p_new_list_entry;
+
 #if LV_USE_OS
 static void _dave2d_render_thread_cb(void * ptr)
 {
@@ -429,7 +422,15 @@ static void _dave2d_render_thread_cb(void * ptr)
         execute_drawing(u);
 
         /*Cleanup*/
+#if  (0 == D2_RENDER_EACH_OPERATION)
+        p_new_list_entry = _lv_ll_ins_tail( &_ll_Dave2D_Tasks );
+        *p_new_list_entry = u->task_act;
+#endif
+
+        /*Cleanup*/
+#if  (D2_RENDER_EACH_OPERATION)
         u->task_act->state = LV_DRAW_TASK_STATE_READY;
+#endif
         u->task_act = NULL;
 
         /*The draw unit is free now. Request a new dispatching as it can get a new task*/
@@ -445,8 +446,15 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
     lv_layer_t* layer = u->base_unit.target_layer;
 
     lv_area_t clipped_area;
+    int32_t x;
+    int32_t y;
 
     _lv_area_intersect(&clipped_area,  &t->area, u->base_unit.clip_area);
+
+    x = 0 - u->base_unit.target_layer->buf_area.x1;
+    y = 0 - u->base_unit.target_layer->buf_area.y1;
+
+    lv_area_move(&clipped_area, x, y);
 
     /* Invalidate cache */
     lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &clipped_area);
@@ -560,7 +568,10 @@ static d2_s32 lv_dave2d_init(void)
     return result;
 }
 
-void dave2d_end_of_frame(void)
+struct _lv_draw_task_t ** p_list_entry;
+struct _lv_draw_task_t * p_list_entry1;
+
+void dave2d_execute_dlist_and_flush(void)
 {
 #if LV_USE_OS
     lv_result_t  status;
@@ -580,61 +591,26 @@ void dave2d_end_of_frame(void)
         __BKPT(0);
     }
 
-#if LV_USE_OS
-    status = lv_mutex_unlock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
-    }
-#endif
-}
-
-void dave2d_wait_for_finish(void)
-{
-#if LV_USE_OS
-    lv_result_t  status;
-
-    status = lv_mutex_lock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
-    }
-#endif
-
-    d2_s32     result;
     result = d2_flushframe(_d2_handle);
     if (D2_OK != result)
     {
         __BKPT(0);
     }
 
-#if LV_USE_OS
-    status = lv_mutex_unlock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
-    }
-#endif
-}
-
-void dave2d_start_of_frame(void)
-{
-#if LV_USE_OS
-    lv_result_t  status;
-
-    status = lv_mutex_lock( &xd2Semaphore );
-    if (LV_RESULT_OK != status)
-    {
-        __BKPT(0);
-    }
-#endif
-
-    d2_s32     result;
     result = d2_selectrenderbuffer(_d2_handle, _renderbuffer);
     if (D2_OK != result)
     {
         __BKPT(0);
     }
+
+    do
+    {
+        p_list_entry = _lv_ll_get_tail(&_ll_Dave2D_Tasks);
+        p_list_entry1 = *p_list_entry;
+        p_list_entry1->state = LV_DRAW_TASK_STATE_READY;
+        _lv_ll_remove(&_ll_Dave2D_Tasks, p_list_entry);
+        lv_free(p_list_entry);
+    }while (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks));
 
 #if LV_USE_OS
     status = lv_mutex_unlock( &xd2Semaphore );

@@ -7,7 +7,12 @@ void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * u, const lv_draw_fill_dsc_t * d
     d2_u32     mode;
 
     lv_area_t draw_area;
+    lv_area_t buffer_area;
+    uint32_t res;
     bool is_common;
+    int32_t x;
+    int32_t y;
+
     is_common = _lv_area_intersect(&draw_area, coords, u->base_unit.clip_area);
     if(!is_common) return;
 
@@ -20,20 +25,29 @@ void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * u, const lv_draw_fill_dsc_t * d
     }
 #endif
 
+    buffer_area = u->base_unit.target_layer->buf_area;
+
+    x = 0 - u->base_unit.target_layer->buf_area.x1;
+    y = 0 - u->base_unit.target_layer->buf_area.y1;
+
+
+    lv_area_move(&draw_area, x, y);
+    lv_area_move(&buffer_area, x, y);
+
     d2_u32 dest_stride = u->base_unit.target_layer->buf_stride;
 
     //
     // Generate render operations
     //
-#ifdef D2_RENDER_EACH_OPERATION
+#if D2_RENDER_EACH_OPERATION
     d2_selectrenderbuffer(u->d2_handle, u->renderbuffer);
 #endif
 
     d2_framebuffer(u->d2_handle,
             u->base_unit.target_layer->buf,
-                   lv_area_get_width(&u->base_unit.target_layer->buf_area),
-                   lv_area_get_width(&u->base_unit.target_layer->buf_area),
-                   (d2_u32)lv_area_get_height(&u->base_unit.target_layer->buf_area),
+            (d2_s32)u->base_unit.target_layer->buf_stride/lv_color_format_get_size(u->base_unit.target_layer->color_format),
+            (d2_u32)lv_area_get_width(&buffer_area),
+                   (d2_u32)lv_area_get_height(&buffer_area),
                    lv_draw_dave2d_cf_fb_get());
 
 
@@ -51,7 +65,7 @@ void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * u, const lv_draw_fill_dsc_t * d
     //
     // Execute render operations
     //
-#ifdef D2_RENDER_EACH_OPERATION
+#if D2_RENDER_EACH_OPERATION
     d2_executerenderbuffer(u->d2_handle, u->renderbuffer, 0);
     d2_flushframe(u->d2_handle);
 #endif

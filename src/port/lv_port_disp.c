@@ -30,11 +30,13 @@
 #define RGB_565_BLUE   (0x1F << 0)
 
 
-#define USE_RENDER_MODE_PARTIAL    (0)  //LV_DISPLAY_RENDER_MODE_PARTIAL
-#define USE_RENDER_MODE_FULL       (1)  //LV_DISPLAY_RENDER_MODE_FULL
+#define USE_RENDER_MODE_PARTIAL    (1)  //LV_DISPLAY_RENDER_MODE_PARTIAL
+#define USE_RENDER_MODE_FULL       (0)  //LV_DISPLAY_RENDER_MODE_FULL
 #define USE_RENDER_MODE_DIRECT     (0)  //LV_DISPLAY_RENDER_MODE_DIRECT
 
 #define PARTIAL_MODE_VSIZE         (100)
+
+#define PARTIAL_USE_SW_COPY        (0)
 
 /**********************
  *      TYPEDEFS
@@ -45,14 +47,20 @@
  **********************/
 static void disp_init(void);
 static void disp_flush(lv_display_t * disp, const lv_area_t * area, uint8_t * px_map);
+#if (USE_RENDER_MODE_FULL || USE_RENDER_MODE_DIRECT)
 static void vsync_wait(struct _lv_display_t * disp);
-#if (USE_RENDER_MODE_PARTIAL)
+#endif
+#if (PARTIAL_USE_SW_COPY)
 static void put_px(int32_t x, int32_t y, uint16_t px_map);
 #endif
 
 /**********************
  *  STATIC VARIABLES
  **********************/
+
+#if (USE_RENDER_MODE_PARTIAL)
+    uint8_t buf_1_1[DISPLAY_HSIZE_INPUT0 * PARTIAL_MODE_VSIZE * 2]BSP_ALIGN_VARIABLE(64) BSP_PLACE_IN_SECTION(".sdram");
+#endif
 
 /**********************
  *      MACROS
@@ -78,27 +86,16 @@ void lv_port_disp_init(void)
     lv_display_set_flush_wait_cb(disp, vsync_wait);
 #endif
 #if (USE_RENDER_MODE_PARTIAL)
-    /* Example 1
-     * One buffer for partial rendering*/
-    static lv_color_t buf_1_1[DISPLAY_HSIZE_INPUT0 * PARTIAL_MODE_VSIZE];
     lv_display_set_draw_buffers(disp, buf_1_1, NULL, sizeof(buf_1_1), LV_DISPLAY_RENDER_MODE_PARTIAL);
 #endif
 
 #if  (USE_RENDER_MODE_DIRECT)
-    /* Example 2
-     * Two buffers for partial rendering
-     * In flush_cb DMA or similar hardware should be used to update the display in the background.*/
     lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
 #endif
 
 #if (USE_RENDER_MODE_FULL)
-    /* Example 3
-     * Two buffers screen sized buffer for double buffering.
-     * Both LV_DISPLAY_RENDER_MODE_DIRECT and LV_DISPLAY_RENDER_MODE_FULL works, see their comments*/
-
     lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_FULL);
 #endif
-
 }
 
 /**********************
@@ -268,12 +265,6 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
 #endif
 #endif
 
-#if (0 == D2_RENDER_EACH_OPERATION)
-        dave2d_end_of_frame();
-
-        dave2d_wait_for_finish();
-#endif
-
 #if ((USE_RENDER_MODE_FULL) || (USE_RENDER_MODE_DIRECT))
 
         FSP_PARAMETER_NOT_USED(area);
@@ -312,7 +303,7 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
 
 #endif
 #if (USE_RENDER_MODE_PARTIAL) //LV_DISPLAY_RENDER_MODE_PARTIAL
-#if 0
+#if (PARTIAL_USE_SW_COPY)
             int32_t x;
             int32_t y;
             uint16_t *p = (uint16_t *)px_map;
@@ -323,6 +314,7 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                     p++;
                 }
             }
+            SCB_CleanInvalidateDCache_by_Addr(&fb_background[0][0], size);
 #else
             lv_area_t area_1;
 
@@ -330,26 +322,23 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
             area_1.y1 = 0;
             area_1.x2 = lv_area_get_width(area) - 1;
             area_1.y2 = lv_area_get_height(area) - 1;
-            __NOP();
-            lv_draw_buf_copy( &fb_background[0][0], DISPLAY_HSIZE_INPUT0, DISPLAY_VSIZE_INPUT0, area, px_map, (uint32_t)lv_area_get_width(area), (uint32_t)lv_area_get_height(area)*5, &area_1, disp_drv->color_format);
+            lv_draw_buf_copy( &fb_background[0][0], (uint32_t)lv_area_get_width(area), (uint32_t)lv_area_get_height(area),
+                    area, px_map, (uint32_t)lv_area_get_width(area), (uint32_t)lv_area_get_height(area), &area_1, disp_drv->color_format);
 #endif
-#endif
-
-#if  (0 == D2_RENDER_EACH_OPERATION)
-            dave2d_start_of_frame();
 #endif
     }
 
-
+#if (USE_RENDER_MODE_PARTIAL) //LV_DISPLAY_RENDER_MODE_PARTIAL
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
     if (disp_drv->flush_wait_cb == NULL)
     {
-        //lv_display_flush_ready(disp_drv);
+        lv_display_flush_ready(disp_drv);
     }
+#endif
 }
 
-#if (USE_RENDER_MODE_PARTIAL)
+#if (PARTIAL_USE_SW_COPY)
 static void put_px(int32_t x, int32_t y, uint16_t px_map)
 {
     uint16_t *p = (uint16_t *)&fb_background[0][0]; //RGB565 format framebuffer
