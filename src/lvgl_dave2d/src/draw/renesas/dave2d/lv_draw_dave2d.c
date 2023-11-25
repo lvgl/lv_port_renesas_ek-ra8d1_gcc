@@ -445,6 +445,8 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
     lv_draw_task_t * t = u->task_act;
     lv_layer_t* layer = u->base_unit.target_layer;
 
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
     lv_area_t clipped_area;
     int32_t x;
     int32_t y;
@@ -458,6 +460,8 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
 
     /* Invalidate cache */
     lv_draw_buf_invalidate_cache(layer->buf, layer->buf_stride, layer->color_format, &clipped_area);
+#endif
+#endif
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL:

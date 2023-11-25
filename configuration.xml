@@ -655,7 +655,7 @@
       <property id="module.driver.timer.gtioca_disable_setting" value="module.driver.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.timer.gtiocb_disable_setting" value="module.driver.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
     </module>
-    <module id="module.driver.transfer_on_dtc.1248463109">
+    <module id="module.driver.transfer_on_dtc.2001797809">
       <property id="module.driver.transfer.name" value="g_transfer0"/>
       <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
       <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
@@ -714,7 +714,7 @@
         <stack module="module.driver.tes.dave2d.500905767" requires="module.driver.drw.requires.dave2d_driver"/>
       </stack>
       <stack module="module.driver.uart_on_sci_b_uart.694116882">
-        <stack module="module.driver.transfer_on_dtc.1248463109" requires="module.driver.uart_on_sci_b_uart.requires.transfer_tx"/>
+        <stack module="module.driver.transfer_on_dtc.2001797809" requires="module.driver.uart_on_sci_b_uart.requires.transfer_tx"/>
       </stack>
       <stack module="module.driver.i2c_on_iic_master.122911187"/>
       <stack module="module.driver.external_irq_on_icu.1660628024"/>

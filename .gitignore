@@ -8,6 +8,9 @@ ra/fsp/*
 ra/fsp/src/*
 !ra/fsp/src/r_drw
 ra/fsp/src/r_drw/*
+!ra/fsp/src/r_dtc
+ra/fsp/src/r_dtc/*
 !ra/fsp/src/r_drw/r_drw_memory.c
+!ra/fsp/src/r_dtc/r_dtc.c
 src/lvgl/*
 
