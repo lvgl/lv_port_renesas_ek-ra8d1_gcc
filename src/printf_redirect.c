@@ -41,7 +41,7 @@ int _write(int file, char *ptr, int len)
       if (FSP_SUCCESS == err)
       {
           uart_open = true;
-          xSemaphoreGive( g_serial_binary_semaphore);
+          xSemaphoreGive( g_serial_binary_semaphore); //allow the first write to work.
       }
 
     }

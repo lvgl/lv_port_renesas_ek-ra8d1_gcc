@@ -104,16 +104,16 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
 
         float y3;
         float y0;
-        int16_t y0_i ;
-        int16_t y3_i ;
+        int32_t y0_i ;
+        int32_t y3_i ;
 
         if ( LV_GRAD_DIR_VER == dsc->bg_grad.dir)
         {
-             a1 = dsc->bg_grad.stops[0].opa;
-             a2 = dsc->bg_grad.stops[dsc->bg_grad.stops_count - 1].opa;
+              a1 = dsc->bg_grad.stops[0].opa;
+              a2 = dsc->bg_grad.stops[dsc->bg_grad.stops_count - 1].opa;
 
-             y1 = clipped_area.y1;
-             y2 = clipped_area.y2;
+              y1 = LV_MIN3(p[0].y, p[1].y, p[2].y);
+              y2 = LV_MAX3(p[0].y, p[1].y, p[2].y);
 
              if (a1 < a2)
              {
@@ -127,13 +127,12 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
              {
                  y0 = y2 - ((y2 - y1)/(a2 - a1) * (a2)); //point where alpha is 0
                  y3 = y1 + ((y2 - y1)/(a2 - a1) * (255 - a1)); //point where alpha is 255
-
              }
 
               y0_i = (int16_t)y0;
               y3_i = (int16_t)y3;
 
-              d2_setalphagradient(u->d2_handle, 0, D2_FIX4(clipped_area.x1),  D2_FIX4(y0_i), D2_FIX4(0), D2_FIX4((int16_t)(y3_i - y0_i)) );
+              d2_setalphagradient(u->d2_handle, 0, D2_FIX4(0),  D2_FIX4(y0_i), D2_FIX4(0), D2_FIX4((y3_i - y0_i)) );
         }
         else if (LV_GRAD_DIR_HOR == dsc->bg_grad.dir)
         {
@@ -163,7 +162,7 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
                    lv_draw_dave2d_cf_fb_get());
 
 
-    d2_cliprect(u->d2_handle, clipped_area.x1, clipped_area.y1, clipped_area.x2, clipped_area.y2);
+    d2_cliprect(u->d2_handle, (d2_border)clipped_area.x1, (d2_border)clipped_area.y1, (d2_border)clipped_area.x2, (d2_border)clipped_area.y2);
 
     d2_rendertri(    u->d2_handle,
     (d2_point)      D2_FIX4( p[0].x),

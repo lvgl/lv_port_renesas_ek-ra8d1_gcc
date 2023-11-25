@@ -14,3 +14,4 @@ ra/fsp/src/r_dtc/*
 !ra/fsp/src/r_dtc/r_dtc.c
 src/lvgl/*
 
+/JLinkLog.log
