@@ -27,8 +27,8 @@
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R7FA8D1BH"/>
     <booleanAttribute key="com.renesas.cdt.core.useRemoteTarget" value="true"/>
     <booleanAttribute key="com.renesas.cdt.core.verboseMode" value="false"/>
-    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;selectedRegisterList ioFilePath=&quot;C:\Users\a5094302\.eclipse\com.renesas.platform_1486988108\DebugComp\RA\IoFiles\R7FA8D1BH.svd&quot;/&gt;&#13;&#10;"/>
-    <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}"/>
+    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;selectedRegisterList ioFilePath=&quot;/home/jimbo/.eclipse/com.renesas.platform_1895746074/DebugComp/RA/IoFiles/R7FA8D1BH.svd&quot;/&gt;&#10;"/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}../../../.."/>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.USE_DEFAULT_IO_MAP" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.downloadImages">
         <listEntry value="|true|true|true|0|true|No core|INTERNAL_MEMORY||false"/>
@@ -37,12 +37,12 @@
     <listAttribute key="com.renesas.cdt.launch.dsf.externalFlashDestinationAddresses"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.externalFlashDownloadModules"/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.launchSeqType" value="com.renesas.cdt.launch.dsf.launchSequence.e2GdbServer"/>
-    <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}\e2-server-gdb"/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.serverPath" value="${renesas.support.targetLoc:com.renesas.ide.supportfiles.ra.debug.debugSupportFileTarget}/e2-server-gdb"/>
     <listAttribute key="com.renesas.cdt.launch.ui.address.mruList.memoryMonitorExpression">
-        <listEntry value="0x2200b764"/>
-        <listEntry value="0x2000b764"/>
         <listEntry value="&amp;fb_background[0][0]"/>
-        <listEntry value="px_map"/>
+        <listEntry value="0x68000000"/>
+        <listEntry value="0x22081e20"/>
+        <listEntry value="0x2200b764"/>
     </listAttribute>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.e2.traceMTB" value="false"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.e2.traceSizeMTB" value="1024"/>
@@ -147,7 +147,7 @@
     <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\Renesas\git_repos\EK_RA8D1_LVGL9_Porting\EK_RA8D1_LVGL9_Porting\Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="/home/jimbo/git/EK_RA8D1_LVGL9_Porting/Debug/EK_RA8D1_LVGL9_Porting.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value="0"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="true"/>
@@ -158,7 +158,7 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\Renesas\git_repos\EK_RA8D1_LVGL9_Porting\EK_RA8D1_LVGL9_Porting\Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="/home/jimbo/git/EK_RA8D1_LVGL9_Porting/Debug/EK_RA8D1_LVGL9_Porting.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
@@ -171,7 +171,7 @@
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
     <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\EK_RA8D1_LVGL9_Porting.elf"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/EK_RA8D1_LVGL9_Porting.elf"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="EK_RA8D1_LVGL9_Porting"/>
     <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.389797102"/>
@@ -182,6 +182,6 @@
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
     </listAttribute>
-    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;570428472&quot; core_thread_id=&quot;1_i1&quot; label=&quot;0x22000c38&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingWidth&quot; value=&quot;110&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingFormat&quot; value=&quot;com.renesas.common.debug.ui.images.Rgb565RawImageFormat&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingPosition&quot; value=&quot;0&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingScanlinePad&quot; value=&quot;4&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingHeight&quot; value=&quot;42&quot;/&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;gdbmemoryBlockExpression address=&quot;1744926464&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[0][0]&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingWidth&quot; value=&quot;480&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingFormat&quot; value=&quot;com.renesas.common.debug.ui.images.Rgb565RawImageFormat&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingPosition&quot; value=&quot;0&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingScanlinePad&quot; value=&quot;4&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingHeight&quot; value=&quot;854&quot;/&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;gdbmemoryBlockExpression address=&quot;570472292&quot; core_thread_id=&quot;1_i1&quot; label=&quot;0x2200b764&quot;&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;/memoryBlockExpressionList&gt;"/>
+    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;&gt;&lt;gdbmemoryBlockExpression address=&quot;1744926464&quot; core_thread_id=&quot;1_i1&quot; label=&quot;&amp;amp;fb_background[0][0]&quot;&gt;&lt;memoryRendering id=&quot;com.renesas.common.debug.ui.rendering.rawimage&quot;&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingWidth&quot; value=&quot;480&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingFormat&quot; value=&quot;com.renesas.common.debug.ui.images.Rgb565RawImageFormat&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingPosition&quot; value=&quot;0&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingScanlinePad&quot; value=&quot;4&quot;/&gt;&lt;renderingProperty name=&quot;com.renesas.common.debug.ui.memory.renderingHeight&quot; value=&quot;854&quot;/&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;memoryRendering id=&quot;org.eclipse.debug.ui.rendering.hexint&quot;&gt;&lt;renderingInstance containerId=&quot;org.eclipse.debug.ui.MemoryView.RenderingViewPane.1&quot; viewId=&quot;org.eclipse.debug.ui.MemoryView&quot; viewSecondaryId=&quot;&quot;/&gt;&lt;/memoryRendering&gt;&lt;/gdbmemoryBlockExpression&gt;&lt;/memoryBlockExpressionList&gt;"/>
     <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>

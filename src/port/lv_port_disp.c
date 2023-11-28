@@ -328,14 +328,12 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
 #endif
     }
 
-#if (USE_RENDER_MODE_PARTIAL) //LV_DISPLAY_RENDER_MODE_PARTIAL
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
-    if (disp_drv->flush_wait_cb == NULL)
+    if (!disp_drv->flush_wait_cb)
     {
         lv_display_flush_ready(disp_drv);
     }
-#endif
 }
 
 #if (PARTIAL_USE_SW_COPY)

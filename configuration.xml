@@ -1321,7 +1321,7 @@
       <configSetting altId="pa13.output.low" configurationId="pa13"/>
       <configSetting altId="pa13.gpio_mode.gpio_mode_out.low" configurationId="pa13.gpio_mode"/>
       <configSetting altId="pa14.sci9.txd9" configurationId="pa14"/>
-      <configSetting altId="pa14.gpio_speed.gpio_speed_h" configurationId="pa14.gpio_drivecapacity"/>
+      <configSetting altId="pa14.gpio_speed.gpio_speed_m" configurationId="pa14.gpio_drivecapacity"/>
       <configSetting altId="pa14.gpio_mode.gpio_mode_peripheral" configurationId="pa14.gpio_mode"/>
       <configSetting altId="pa15.sci9.rxd9" configurationId="pa15"/>
       <configSetting altId="pa15.gpio_mode.gpio_mode_peripheral" configurationId="pa15.gpio_mode"/>

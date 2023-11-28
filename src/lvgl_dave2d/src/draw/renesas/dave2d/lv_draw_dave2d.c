@@ -37,8 +37,6 @@ static void _dave2d_buf_invalidate_cache_cb(void * buf, uint32_t stride, lv_colo
 static  void _dave2d_buf_copy(void * dest_buf, uint32_t dest_w, uint32_t dest_h, const lv_area_t * dest_area,
         void * src_buf,  uint32_t src_w, uint32_t src_h, const lv_area_t * src_area, lv_color_format_t color_format);
 
-static uint32_t __dave2d_width_to_stride_cb(uint32_t w, lv_color_format_t color_format);
-
 static int32_t _dave2d_evaluate(lv_draw_unit_t * draw_unit, lv_draw_task_t * task);
 
 static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * layer);
@@ -255,14 +253,23 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
 
     switch(t->type) {
         case LV_DRAW_TASK_TYPE_FILL: {
-            lv_draw_fill_dsc_t * dsc = t->draw_dsc;
-            if(dsc->grad.dir == LV_GRAD_DIR_NONE && dsc->radius == 0) {
 #if USE_D2
+            lv_draw_fill_dsc_t * dsc = t->draw_dsc;
+            if(dsc->grad.dir == LV_GRAD_DIR_NONE
+                    || ((dsc->grad.dir != LV_GRAD_DIR_NONE)
+                            && ((dsc->grad.stops[0].color.blue == dsc->grad.stops[dsc->grad.stops_count -1].color.blue)
+                            && (dsc->grad.stops[0].color.red   == dsc->grad.stops[dsc->grad.stops_count -1].color.red)
+                            && (dsc->grad.stops[0].color.green == dsc->grad.stops[dsc->grad.stops_count -1].color.green)))) {
+
                 t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
                 t->preference_score = 0;
-#endif
-            }
 
+            }
+            else
+#endif
+            {
+                __NOP();
+            }
             ret =  0;
             break;
         }
@@ -317,8 +324,16 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
 
         case LV_DRAW_TASK_TYPE_TRIANGLE: {
 #if USE_D2
-            t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
-            t->preference_score = 0;
+            lv_draw_fill_dsc_t * dsc = t->draw_dsc;
+            if(dsc->grad.dir == LV_GRAD_DIR_NONE
+                    || ((dsc->grad.dir != LV_GRAD_DIR_NONE)
+                            && ((dsc->grad.stops[0].color.blue == dsc->grad.stops[dsc->grad.stops_count -1].color.blue)
+                            && (dsc->grad.stops[0].color.red   == dsc->grad.stops[dsc->grad.stops_count -1].color.red)
+                            && (dsc->grad.stops[0].color.green == dsc->grad.stops[dsc->grad.stops_count -1].color.green))))
+            {
+                t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+                t->preference_score = 0;
+            }
 #endif
             ret = 0;
             break;
@@ -343,21 +358,17 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
             break;
     }
 
-#if  (0 == D2_RENDER_EACH_OPERATION)
-    if (t->preferred_draw_unit_id != DRAW_UNIT_ID_DAVE2D)
-    {
-        if (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks))
-        {
-            dave2d_execute_dlist_and_flush();
-        }
-    }
-#endif
-    return ret;
+   return ret;
 }
+
+#define DAVE2D_REFFERING_WATERMARK  10
 
 static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * layer)
 {
     lv_draw_dave2d_unit_t * draw_dave2d_unit = (lv_draw_dave2d_unit_t *) draw_unit;
+#if  (0 == D2_RENDER_EACH_OPERATION)
+    static uint32_t ref_count = 0;
+#endif
 
     /*Return immediately if it's busy with draw task*/
     if(draw_dave2d_unit->task_act) return 0;
@@ -371,6 +382,7 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
 #if  (0 == D2_RENDER_EACH_OPERATION)
         if (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks))
         {
+            ref_count = 0;
             dave2d_execute_dlist_and_flush();
         }
 #endif
@@ -382,6 +394,20 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
         return 0;
     }
 
+#if  (0 == D2_RENDER_EACH_OPERATION)
+    ref_count += lv_draw_get_dependent_count(t);
+
+    if (DAVE2D_REFFERING_WATERMARK < ref_count)
+    {
+        ref_count = 0;
+        dave2d_execute_dlist_and_flush();
+    }
+
+    struct _lv_draw_task_t ** p_new_list_entry;
+    p_new_list_entry = _lv_ll_ins_tail( &_ll_Dave2D_Tasks );
+    *p_new_list_entry = t;
+#endif
+
     t->state = LV_DRAW_TASK_STATE_IN_PROGRESS;
     draw_dave2d_unit->base_unit.target_layer = layer;
     draw_dave2d_unit->base_unit.clip_area = &t->clip_area;
@@ -392,8 +418,9 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
     lv_thread_sync_signal(&draw_dave2d_unit->sync);
 #else
     execute_drawing(draw_dave2d_unit);
-
+#if  (D2_RENDER_EACH_OPERATION)
     draw_dave2d_unit->task_act->state = LV_DRAW_TASK_STATE_READY;
+#endif
     draw_dave2d_unit->task_act = NULL;
 
     /*The draw unit is free now. Request a new dispatching as it can get a new task*/
@@ -403,7 +430,7 @@ static int32_t lv_draw_dave2d_dispatch(lv_draw_unit_t * draw_unit, lv_layer_t * 
     return 1;
 }
 
-struct _lv_draw_task_t ** p_new_list_entry;
+
 
 #if LV_USE_OS
 static void _dave2d_render_thread_cb(void * ptr)
@@ -418,12 +445,6 @@ static void _dave2d_render_thread_cb(void * ptr)
         }
 
         execute_drawing(u);
-
-        /*Cleanup*/
-#if  (0 == D2_RENDER_EACH_OPERATION)
-        p_new_list_entry = _lv_ll_ins_tail( &_ll_Dave2D_Tasks );
-        *p_new_list_entry = u->task_act;
-#endif
 
         /*Cleanup*/
 #if  (D2_RENDER_EACH_OPERATION)
@@ -570,8 +591,7 @@ static d2_s32 lv_dave2d_init(void)
     return result;
 }
 
-struct _lv_draw_task_t ** p_list_entry;
-struct _lv_draw_task_t * p_list_entry1;
+
 
 void dave2d_execute_dlist_and_flush(void)
 {
@@ -586,6 +606,9 @@ void dave2d_execute_dlist_and_flush(void)
 #endif
 
     d2_s32     result;
+    struct _lv_draw_task_t ** p_list_entry;
+    struct _lv_draw_task_t * p_list_entry1;
+
     // Execute render operations
     result = d2_executerenderbuffer(_d2_handle, _renderbuffer, 0);
     if (D2_OK != result)
@@ -605,14 +628,14 @@ void dave2d_execute_dlist_and_flush(void)
         __BKPT(0);
     }
 
-    do
+    while (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks))
     {
         p_list_entry = _lv_ll_get_tail(&_ll_Dave2D_Tasks);
         p_list_entry1 = *p_list_entry;
         p_list_entry1->state = LV_DRAW_TASK_STATE_READY;
         _lv_ll_remove(&_ll_Dave2D_Tasks, p_list_entry);
         lv_free(p_list_entry);
-    }while (false == _lv_ll_is_empty(&_ll_Dave2D_Tasks));
+    }
 
 #if LV_USE_OS
     status = lv_mutex_unlock( &xd2Semaphore );
