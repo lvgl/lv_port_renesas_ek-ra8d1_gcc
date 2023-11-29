@@ -290,6 +290,15 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         }
 
         case LV_DRAW_TASK_TYPE_BORDER: {
+#if USE_D2
+            lv_draw_fill_dsc_t * dsc = t->draw_dsc;
+            if(1) {
+
+                t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+                t->preference_score = 0;
+
+            }
+#endif
             ret = 0;
             break;
         }
@@ -487,7 +496,7 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
             lv_draw_dave2d_fill(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BORDER:
-            //lv_draw_dave2d_border(u, t->draw_dsc, &t->area);
+            lv_draw_dave2d_border(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_BOX_SHADOW:
             //lv_draw_dave2d_box_shadow(u, t->draw_dsc, &t->area);
