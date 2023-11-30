@@ -347,7 +347,7 @@
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
-						<entry excluding="malloc_locks.c|lvgl/src/draw/sw/blend/neon/lv_blend_neon.S|lvgl/tests|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_ra6m3.c|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_draw_label.c|touch_thread_entry.c|renesas|LCDConf.c|touch_ft5x06.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="malloc_locks.c|lvgl/tests|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_ra6m3.c|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_draw_label.c|touch_thread_entry.c|renesas|LCDConf.c|touch_ft5x06.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -691,7 +691,7 @@
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ra_gen"/>
-						<entry excluding="malloc_locks.c|lvgl/src/draw/sw/blend/neon/lv_blend_neon.S|lvgl/tests|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_ra6m3.c|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_draw_label.c|touch_thread_entry.c|renesas|LCDConf.c|touch_ft5x06.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="malloc_locks.c|lvgl/tests|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_ra6m3.c|lvgl/src/draw/renesas/dave2d/lv_gpu_d2_draw_label.c|touch_thread_entry.c|renesas|LCDConf.c|touch_ft5x06.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

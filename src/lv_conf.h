@@ -17,7 +17,9 @@
 #ifndef LV_CONF_H
 #define LV_CONF_H
 
+#ifndef __ASSEMBLY__
 #include <stdint.h>
+#endif
 
 #define LV_USE_DEV_VERSION
 
