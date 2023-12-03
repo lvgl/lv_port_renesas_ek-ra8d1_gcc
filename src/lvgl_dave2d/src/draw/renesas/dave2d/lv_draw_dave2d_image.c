@@ -171,23 +171,21 @@ static void dave2d_img_draw_core(lv_draw_dave2d_unit_t * u, const lv_draw_image_
     bool transformed = draw_dsc->rotation != 0 || draw_dsc->scale_x != LV_SCALE_NONE ||
                        draw_dsc->scale_y != LV_SCALE_NONE ? true : false;
 
-   // lv_draw_sw_blend_dsc_t blend_dsc;
     const uint8_t * src_buf = decoder_dsc->img_data;
     const lv_image_header_t * header = &decoder_dsc->header;
-    //uint32_t img_stride = header->stride;
-    //lv_color_format_t cf = header->cf;
-
     lv_area_t buffer_area;
     lv_area_t draw_area;
     lv_area_t clipped_area;
     int32_t x;
     int32_t y;
-    //d2_s32     result;
     d2_u8 a_texture_op = d2_to_one;
     d2_u8 r_texture_op = d2_to_copy;
     d2_u8 g_texture_op = d2_to_copy;
     d2_u8 b_texture_op = d2_to_copy;
     d2_u8 current_fill_mode;
+    d2_u32 src_blend_mode;
+    d2_u32 dst_blend_mode;
+
 
     if (LV_COLOR_FORMAT_RGB565A8 == header->cf)
     {
@@ -223,52 +221,58 @@ static void dave2d_img_draw_core(lv_draw_dave2d_unit_t * u, const lv_draw_image_
     d2_selectrenderbuffer(u->d2_handle, u->renderbuffer);
 #endif
 
-    current_fill_mode = d2_getfillmode(   u->d2_handle  );
-    a_texture_op = d2_gettextureoperationa(  u->d2_handle);
-    r_texture_op = d2_gettextureoperationr(  u->d2_handle);
-    g_texture_op = d2_gettextureoperationg(  u->d2_handle);
-    b_texture_op = d2_gettextureoperationb(  u->d2_handle);
+    current_fill_mode = d2_getfillmode(u->d2_handle);
+    a_texture_op      = d2_gettextureoperationa(u->d2_handle);
+    r_texture_op      = d2_gettextureoperationr(u->d2_handle);
+    g_texture_op      = d2_gettextureoperationg(u->d2_handle);
+    b_texture_op      = d2_gettextureoperationb(u->d2_handle);
+    src_blend_mode    = d2_getblendmodesrc(u->d2_handle  );
+    dst_blend_mode    = d2_getblendmodedst(u->d2_handle  );
 
     d2_framebuffer(u->d2_handle,
-            u->base_unit.target_layer->buf,
-            (d2_s32)u->base_unit.target_layer->buf_stride/lv_color_format_get_size(u->base_unit.target_layer->color_format),
-            (d2_u32)lv_area_get_width(&buffer_area),
-                   (d2_u32)lv_area_get_height(&buffer_area),
-                   lv_draw_dave2d_cf_fb_get());
-
+                    u->base_unit.target_layer->buf,
+                    (d2_s32)u->base_unit.target_layer->buf_stride/lv_color_format_get_size(u->base_unit.target_layer->color_format),
+                    (d2_u32)lv_area_get_width(&buffer_area),
+                    (d2_u32)lv_area_get_height(&buffer_area),
+                    lv_draw_dave2d_cf_fb_get());
 
     d2_cliprect(u->d2_handle, (d2_border)clipped_area.x1, (d2_border)clipped_area.y1, (d2_border)clipped_area.x2, (d2_border)clipped_area.y2);
 
 #if defined(RENESAS_CORTEX_M85)
 #if (BSP_CFG_DCACHE_ENABLED)
-            d1_cacheblockflush(u->d2_handle, 0, src_buf, decoder_dsc->header.stride * decoder_dsc->header.h); //Stride is in bytes, not pixels/texels
+    d1_cacheblockflush(u->d2_handle, 0, src_buf, decoder_dsc->header.stride * decoder_dsc->header.h); //Stride is in bytes, not pixels/texels
 #endif
 #endif
 
+     d2_settexopparam(u->d2_handle, d2_cc_alpha, draw_dsc->opa, 0);
+
+    if (LV_COLOR_FORMAT_RGB565 == header->cf)
+    {
+        d2_settextureoperation(u->d2_handle, d2_to_replace, d2_to_copy, d2_to_copy, d2_to_copy);
+    }
+    else //Formats with an alpha channel,
+    {
+        d2_settextureoperation(u->d2_handle, d2_to_multiply, d2_to_copy, d2_to_copy, d2_to_copy);
+    }
 
     if (LV_BLEND_MODE_NORMAL == draw_dsc->blend_mode ) /**< Simply mix according to the opacity value*/
     {
-        if (LV_COLOR_FORMAT_RGB565 == header->cf)
-        {
-            d2_settexopparam(u->d2_handle, d2_cc_alpha, draw_dsc->opa, 0);
-            d2_settextureoperation(u->d2_handle, d2_to_replace, d2_to_copy, d2_to_copy, d2_to_copy);
-        }
-        else //Formats with an alpha channel, just copy
-        {
-            d2_settextureoperation(u->d2_handle, d2_to_copy, d2_to_copy, d2_to_copy, d2_to_copy);
-        }
+        d2_setblendmode(u->d2_handle, d2_bm_alpha , d2_bm_one_minus_alpha); //direct linear blend
     }
     else if (LV_BLEND_MODE_ADDITIVE == draw_dsc->blend_mode ) /**< Add the respective color channels*/
     {
         /* TODO */
+        d2_setblendmode(u->d2_handle, d2_bm_alpha , d2_bm_one); //Additive blending
     }
     else if (LV_BLEND_MODE_SUBTRACTIVE == draw_dsc->blend_mode ) /**< Subtract the foreground from the background*/
     {
         /* TODO */
+        __NOP();
     }
     else //LV_BLEND_MODE_MULTIPLY,   /**< Multiply the foreground and background*/
     {
         /* TODO */
+        __NOP();
     }
 
     lv_point_t p[4] = { //Points in clockwise order
@@ -354,6 +358,7 @@ static void dave2d_img_draw_core(lv_draw_dave2d_unit_t * u, const lv_draw_image_
 
     d2_setfillmode(u->d2_handle, current_fill_mode);
     d2_settextureoperation(u->d2_handle, a_texture_op, r_texture_op, g_texture_op, b_texture_op);
+    d2_setblendmode(u->d2_handle, src_blend_mode, dst_blend_mode   );
 
 #if LV_USE_OS
     status = lv_mutex_unlock(u->pd2Mutex);

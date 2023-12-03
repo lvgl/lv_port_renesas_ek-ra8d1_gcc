@@ -94,6 +94,8 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
     p[1].y -= u->base_unit.target_layer->buf_area.y1;
     p[2].y -= u->base_unit.target_layer->buf_area.y1;
 
+    current_alpha_mode = d2_getalphamode( u->d2_handle  );
+
     if (LV_GRAD_DIR_NONE != dsc->bg_grad.dir)
     {
         float a1;
@@ -140,16 +142,13 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
             __BKPT(0);
         }
 
-        current_alpha_mode = d2_getalphamode( u->d2_handle  );
-        d2_setfillmode(u->d2_handle, d2_fm_color); //default
         d2_setcolor(u->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(dsc->bg_grad.stops[0].color));
         d2_setalphamode(u->d2_handle, d2_am_gradient1 );
     }
     else
     {
-        d2_setfillmode(  u->d2_handle, d2_fm_color ); //default
         d2_setalpha( u->d2_handle, dsc->bg_opa  );
-
+        d2_setalphamode(u->d2_handle, d2_am_constant );
         d2_setcolor(u->d2_handle, 0, lv_draw_dave2d_lv_colour_to_d2_colour(dsc->bg_color));
 
     }
@@ -181,10 +180,8 @@ void lv_draw_dave2d_triangle(lv_draw_dave2d_unit_t * u, const lv_draw_triangle_d
     d2_flushframe(u->d2_handle);
 #endif
 
-    if (LV_GRAD_DIR_NONE != dsc->bg_grad.dir)
-    {
-        d2_setalphamode(u->d2_handle, current_alpha_mode);
-    }
+    d2_setalphamode(u->d2_handle, current_alpha_mode);
+
 
 #if LV_USE_OS
     status = lv_mutex_unlock(u->pd2Mutex);
