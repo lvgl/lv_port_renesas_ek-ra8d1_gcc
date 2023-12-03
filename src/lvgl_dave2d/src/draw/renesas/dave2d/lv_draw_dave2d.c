@@ -285,6 +285,10 @@ static int32_t _dave2d_evaluate(lv_draw_unit_t * u, lv_draw_task_t * t)
         }
 
         case LV_DRAW_TASK_TYPE_IMAGE: {
+#if USE_D2
+            t->preferred_draw_unit_id = DRAW_UNIT_ID_DAVE2D;
+            t->preference_score = 0;
+#endif
             ret = 0;
             break;
         }
@@ -510,7 +514,7 @@ static void execute_drawing(lv_draw_dave2d_unit_t * u)
             lv_draw_dave2d_label(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_IMAGE:
-            //lv_draw_dave2d_image(u, t->draw_dsc, &t->area);
+            lv_draw_dave2d_image(u, t->draw_dsc, &t->area);
             break;
         case LV_DRAW_TASK_TYPE_LINE:
             lv_draw_dave2d_line(u, t->draw_dsc);

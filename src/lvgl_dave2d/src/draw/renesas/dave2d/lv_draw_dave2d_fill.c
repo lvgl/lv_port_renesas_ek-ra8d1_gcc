@@ -166,7 +166,7 @@ void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * u, const lv_draw_fill_dsc_t * d
         arc_centre.x = coordinates.x1 + radius;
         arc_centre.y = coordinates.y1 + radius;
 
-        if (((2 * radius) == coords_bg_w)  && ((2* radius) == coords_bg_h))
+        if (((2 * radius) == coords_bg_w)  && ((2 * radius) == coords_bg_h))
         {
             result = d2_rendercircle(u->d2_handle,
                                   (d2_point)D2_FIX4(arc_centre.x),

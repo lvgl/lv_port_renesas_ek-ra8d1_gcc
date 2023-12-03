@@ -46,8 +46,7 @@ typedef struct {
 
 void lv_draw_dave2d_init(void);
 
-void lv_draw_dave2d_image(lv_draw_dave2d_unit_t * draw_unit, const lv_draw_image_dsc_t * draw_dsc,
-                                            const lv_area_t * coords);
+void lv_draw_dave2d_image(lv_draw_dave2d_unit_t * draw_unit, const lv_draw_image_dsc_t * draw_dsc, const lv_area_t * coords);
 
 void lv_draw_dave2d_fill(lv_draw_dave2d_unit_t * draw_unit, const lv_draw_fill_dsc_t * dsc, const lv_area_t * coords);
 
@@ -72,12 +71,6 @@ void lv_draw_dave2d_mask_rect(lv_draw_dave2d_unit_t * draw_unit, const lv_draw_m
 void lv_draw_dave2d_transform(lv_draw_dave2d_unit_t * draw_unit, const lv_area_t * dest_area, const void * src_buf,
                           int32_t src_w, int32_t src_h, int32_t src_stride,
                           const lv_draw_image_dsc_t * draw_dsc, const lv_draw_image_sup_t * sup, lv_color_format_t cf, void * dest_buf);
-
-void dave2d_end_of_frame(void);
-
-void dave2d_wait_for_finish(void);
-
-void dave2d_start_of_frame(void);
 
 /***********************
  * GLOBAL VARIABLES

@@ -30,8 +30,8 @@
 #define RGB_565_BLUE   (0x1F << 0)
 
 
-#define USE_RENDER_MODE_PARTIAL    (1)  //LV_DISPLAY_RENDER_MODE_PARTIAL
-#define USE_RENDER_MODE_FULL       (0)  //LV_DISPLAY_RENDER_MODE_FULL
+#define USE_RENDER_MODE_PARTIAL    (0)  //LV_DISPLAY_RENDER_MODE_PARTIAL
+#define USE_RENDER_MODE_FULL       (1)  //LV_DISPLAY_RENDER_MODE_FULL
 #define USE_RENDER_MODE_DIRECT     (0)  //LV_DISPLAY_RENDER_MODE_DIRECT
 
 #define PARTIAL_MODE_VSIZE         (100)
@@ -83,7 +83,7 @@ void lv_port_disp_init(void)
     lv_display_t * disp = lv_display_create(DISPLAY_HSIZE_INPUT0, DISPLAY_VSIZE_INPUT0);
     lv_display_set_flush_cb(disp, disp_flush);
 #if  ((USE_RENDER_MODE_DIRECT) || (USE_RENDER_MODE_FULL))
-    lv_display_set_flush_wait_cb(disp, vsync_wait);
+    //lv_display_set_flush_wait_cb(disp, vsync_wait);
 #endif
 #if (USE_RENDER_MODE_PARTIAL)
     lv_display_set_draw_buffers(disp, buf_1_1, NULL, sizeof(buf_1_1), LV_DISPLAY_RENDER_MODE_PARTIAL);
