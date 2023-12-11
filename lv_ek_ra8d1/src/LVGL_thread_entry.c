@@ -398,7 +398,7 @@ void LVGL_thread_entry(void *pvParameters)
     while (1)
     {
         lv_timer_handler();
-        vTaskDelay (100);
+        vTaskDelay (1);
     }
 #endif
 }
