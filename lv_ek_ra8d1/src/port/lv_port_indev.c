@@ -97,6 +97,13 @@ void lv_port_indev_init(void)
     indev_touchpad = lv_indev_create();
     lv_indev_set_type(indev_touchpad, LV_INDEV_TYPE_POINTER);
     lv_indev_set_read_cb(indev_touchpad, touchpad_read);
+
+    lv_obj_t * obj = lv_label_create(lv_screen_active());
+    lv_label_set_text(obj, LV_SYMBOL_HOME);
+    lv_obj_set_style_text_color(obj, lv_color_black(), 0);
+    lv_indev_set_cursor(indev_touchpad, obj);
+
+
 #if 0
     /*------------------
      * Mouse
@@ -261,14 +268,7 @@ static void touchpad_get_xy(int32_t * x, int32_t * y, touch_event_t * touch_even
                     coordinates[i].y = (uint16_t)((read_data[4] << 8) | read_data[3]);
 
                 }
-                if ((TOUCH_EVENT_NONE == *touch_event) || (TOUCH_EVENT_UP == *touch_event))
-                {
-                    *touch_event = TOUCH_EVENT_DOWN;
-                }
-                else if (TOUCH_EVENT_DOWN == *touch_event)
-                {
-                    *touch_event = TOUCH_EVENT_MOVE;
-                }
+                *touch_event = TOUCH_EVENT_DOWN;
             }
             else
             {
@@ -283,8 +283,10 @@ static void touchpad_get_xy(int32_t * x, int32_t * y, touch_event_t * touch_even
             }
         }
 
-        (*x) = (int32_t)coordinates[0].x;
-        (*y) = (int32_t)coordinates[0].y;
+        if(*touch_event == TOUCH_EVENT_MOVE || *touch_event == TOUCH_EVENT_DOWN) {
+            (*x) = (int32_t)coordinates[0].x;
+            (*y) = (int32_t)coordinates[0].y;
+        }
 }
 #if 0
 /*------------------
