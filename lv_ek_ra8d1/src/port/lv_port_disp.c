@@ -16,7 +16,6 @@
 #include "arducam.h"
 #include <stdbool.h>
 #include "lv_port_disp.h"
-#include <renesas/dave2d/lv_draw_dave2d.h>
 #include "lvgl/src/display/lv_display_private.h"
 
 /*********************

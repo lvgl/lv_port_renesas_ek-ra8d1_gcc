@@ -35,8 +35,6 @@
 
 #define RGB_565_BLACK  (0)
 
-void lv_draw_dave2d_init(void);
-
 void timer_tick_callback(timer_callback_args_t *p_args)
 {
     FSP_PARAMETER_NOT_USED(p_args);
@@ -345,10 +343,6 @@ void LVGL_thread_entry(void *pvParameters)
     }
 #else
     lv_init();
-
-#if LV_USE_DRAW_DAVE2D
-    lv_draw_dave2d_init();
-#endif
 
     lv_port_disp_init();
 
