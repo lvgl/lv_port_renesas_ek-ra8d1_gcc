@@ -47,7 +47,8 @@
 static void disp_init(void);
 static void disp_flush(lv_display_t * disp, const lv_area_t * area, uint8_t * px_map);
 #if (USE_RENDER_MODE_FULL || USE_RENDER_MODE_DIRECT)
-static void vsync_wait(struct _lv_display_t * disp);
+static void vsync_wait_cb(struct _lv_display_t * disp);
+static void vsync_wait(void);
 #endif
 #if (PARTIAL_USE_SW_COPY)
 static void put_px(int32_t x, int32_t y, uint16_t px_map);
@@ -82,7 +83,7 @@ void lv_port_disp_init(void)
     lv_display_t * disp = lv_display_create(DISPLAY_HSIZE_INPUT0, DISPLAY_VSIZE_INPUT0);
     lv_display_set_flush_cb(disp, disp_flush);
 #if  ((USE_RENDER_MODE_DIRECT) || (USE_RENDER_MODE_FULL))
-    lv_display_set_flush_wait_cb(disp, vsync_wait);
+    //lv_display_set_flush_wait_cb(disp, vsync_wait_cb);
 #endif
 #if (USE_RENDER_MODE_PARTIAL)
     lv_display_set_draw_buffers(disp, buf_1_1, NULL, sizeof(buf_1_1), LV_DISPLAY_RENDER_MODE_PARTIAL);
@@ -221,9 +222,8 @@ void glcdc_callback(display_callback_args_t *p_args)
 }
 
 #if (USE_RENDER_MODE_FULL || USE_RENDER_MODE_DIRECT)
-static void vsync_wait(struct _lv_display_t * disp)
+static void vsync_wait(void)
 {
-    FSP_PARAMETER_NOT_USED(disp);
 #if BSP_CFG_RTOS == 2              // FreeRTOS
     //
     // If Vsync semaphore has already been set, clear it then wait to avoid tearing
@@ -270,8 +270,10 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
         //Display the frame buffer pointed by px_map
         fsp_err_t err;
 
-        if(disp_drv->render_mode == LV_DISPLAY_RENDER_MODE_DIRECT) {
-            if(lv_display_flush_is_last(disp_drv)) {
+        if(disp_drv->render_mode == LV_DISPLAY_RENDER_MODE_DIRECT)
+        {
+            if(lv_display_flush_is_last(disp_drv))
+            {
                 do
                 {
                     err =
@@ -280,26 +282,35 @@ static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t 
                                              (display_frame_layer_t) 0);
                     if (err)
                     {
-                        vsync_wait(disp_drv);
+                        vsync_wait();
                     }
                 } while (FSP_ERR_INVALID_UPDATE_TIMING == err);
+
+                if (!disp_drv->flush_wait_cb)
+                {
+                    vsync_wait();
+                }
             }
         }
         else if(disp_drv->render_mode == LV_DISPLAY_RENDER_MODE_FULL)
         {
-               do
-               {
+                do
+                {
                    err =
                        R_GLCDC_BufferChange(&g_display0_ctrl,
                                             (uint8_t *) px_map,
                                             (display_frame_layer_t) 0);
                    if (err)
                    {
-                       vsync_wait(disp_drv);
+                       vsync_wait();
                    }
-               } while (FSP_ERR_INVALID_UPDATE_TIMING == err);
-        }
+                } while (FSP_ERR_INVALID_UPDATE_TIMING == err);
 
+                if (!disp_drv->flush_wait_cb)
+                {
+                   vsync_wait();
+                }
+        }
 #endif
 #if (USE_RENDER_MODE_PARTIAL) //LV_DISPLAY_RENDER_MODE_PARTIAL
 #if (PARTIAL_USE_SW_COPY)
