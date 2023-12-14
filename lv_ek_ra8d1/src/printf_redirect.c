@@ -56,23 +56,21 @@ int _write(int file, char *ptr, int len)
         SCB_CleanInvalidateDCache_by_Addr(ptr, len); //DTC is configured for UART TX
 #endif
 #endif
-        /* Wait for the previous USB Write to complete */
-        if( xSemaphoreTake( g_serial_binary_semaphore, DEBUG_SERIAL_TIMEOUT ) != pdTRUE )
-        {
-            __BKPT(0);
-        }
-        else
-        {
-              err = R_SCI_B_UART_Write(&g_uart0_ctrl, (uint8_t *)ptr, (uint32_t)len);
-              if (FSP_SUCCESS == err)
-              {
 
-              }
-              else
+          err = R_SCI_B_UART_Write(&g_uart0_ctrl, (uint8_t *)ptr, (uint32_t)len);
+          if (FSP_SUCCESS == err)
+          {
+              /* Wait for the previous USB Write to complete */
+              if( xSemaphoreTake( g_serial_binary_semaphore, DEBUG_SERIAL_TIMEOUT ) != pdTRUE )
               {
                   __BKPT(0);
               }
-        }
+          }
+          else
+          {
+              __BKPT(0);
+          }
+
     }
 
     if (FSP_SUCCESS != err)
