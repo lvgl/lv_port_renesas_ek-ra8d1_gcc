@@ -285,7 +285,7 @@ fsp_err_t R_DTC_Reset (transfer_ctrl_t * const p_api_ctrl,
 #if defined(RENESAS_CORTEX_M85)
 #if (BSP_CFG_DCACHE_ENABLED)
     SCB_CleanInvalidateDCache_by_Addr(&gp_dtc_vector_table[p_ctrl->irq], sizeof(gp_dtc_vector_table[p_ctrl->irq]));
-    SCB_CleanInvalidateDCache_by_Addr(&gp_dtc_vector_table[p_ctrl->irq]->transfer_settings_word, sizeof(transfer_info_t));
+    SCB_CleanInvalidateDCache_by_Addr(gp_dtc_vector_table[p_ctrl->irq], sizeof(transfer_info_t));
 #endif
 #endif
 
