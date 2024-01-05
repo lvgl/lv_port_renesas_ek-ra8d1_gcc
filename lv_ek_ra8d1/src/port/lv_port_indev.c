@@ -98,12 +98,6 @@ void lv_port_indev_init(void)
     lv_indev_set_type(indev_touchpad, LV_INDEV_TYPE_POINTER);
     lv_indev_set_read_cb(indev_touchpad, touchpad_read);
 
-    lv_obj_t * obj = lv_label_create(lv_screen_active());
-    lv_label_set_text(obj, LV_SYMBOL_HOME);
-    lv_obj_set_style_text_color(obj, lv_color_black(), 0);
-    lv_indev_set_cursor(indev_touchpad, obj);
-
-
 #if 0
     /*------------------
      * Mouse
