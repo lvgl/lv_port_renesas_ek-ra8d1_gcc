@@ -34,7 +34,7 @@
 static void disp_init(void);
 static void disp_flush(lv_display_t * disp, const lv_area_t * area, uint8_t * px_map);
 static void vsync_wait_cb(struct _lv_display_t * disp);
-static void vsync_wait(void);
+
 
 /**********************
  *  STATIC VARIABLES
@@ -194,7 +194,6 @@ static void disp_flush(lv_display_t * display, const lv_area_t * area, uint8_t *
 
     FSP_PARAMETER_NOT_USED(area);
     //Display the frame buffer pointed by px_map
-    fsp_err_t err;
 
     if(!lv_display_flush_is_last(display)) return;
 #if defined(RENESAS_CORTEX_M85)
