@@ -30,11 +30,6 @@ void LVGL_thread_entry(void *pvParameters)
     lv_port_indev_init();
 
 #if (1 == LV_USE_DEMO_BENCHMARK)
-    //disp_disable_update();
-
-    lv_demo_benchmark_set_finished_cb(&on_benchmark_finished);
-    lv_demo_benchmark_set_max_speed(true);
-
     lv_demo_benchmark();
 #endif
 
@@ -51,7 +46,7 @@ void LVGL_thread_entry(void *pvParameters)
     lv_demo_stress();
 #endif
 
-#if (1 == LV_USE_DEMO_WIDGETS)
+#if (1 == LV_USE_DEMO_WIDGETS && 0 == LV_USE_DEMO_BENCHMARK)
     lv_demo_widgets();
 #endif
 

@@ -86,15 +86,15 @@ void lv_port_disp_init(void)
     //lv_display_set_flush_wait_cb(disp, vsync_wait_cb);
 #endif
 #if (USE_RENDER_MODE_PARTIAL)
-    lv_display_set_draw_buffers(disp, buf_1_1, NULL, sizeof(buf_1_1), LV_DISPLAY_RENDER_MODE_PARTIAL);
+    lv_display_set_buffers(disp, buf_1_1, NULL, sizeof(buf_1_1), LV_DISPLAY_RENDER_MODE_PARTIAL);
 #endif
 
 #if  (USE_RENDER_MODE_DIRECT)
-    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
+    lv_display_set_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
 #endif
 
 #if (USE_RENDER_MODE_FULL)
-    lv_display_set_draw_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_FULL);
+    lv_display_set_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_FULL);
 #endif
 }
 
