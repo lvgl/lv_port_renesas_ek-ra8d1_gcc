@@ -1,18 +1,17 @@
-# EK_RA8D1_LVGL
+# lv_ek_ra8d1
 
-Initial work I did to get LVGL master branch (version 9 development) running on the EK-RA8D1 development board
+LVGL ported to Renesas EK-RA8D1 development board.
 
-Board Configuration.
+## Board setup
+- Attach the MIPI LCD PCB to the main PCB
+- On SW1 DIP switched (middle of the board) 7 should be ON, all others are OFF
+- Connect the USD cable to the `Debug1` (J10) connector
 
-MIPI LCD PCB attached to the main PCB.
+## Get started
+- Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
+- Clone the `lv_renesas` repository with submodules: `git clone https://github.com/lvgl/lv_renesas.git --recurse-submodules`
+- Import `lv_ek_ra8d1` in E2 Studio
+- Build and Flash the
 
-USB cable connected from J10 to the development PC
-
-DIP switch settings :- 
-
-7 - ON (SDRAM)
-
-Others OFF
-
-
-Debug printf output is via the Jlink VCOM port, 921600 8,n,1
+## Debugging
+- Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
