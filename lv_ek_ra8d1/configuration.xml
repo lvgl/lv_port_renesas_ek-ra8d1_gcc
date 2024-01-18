@@ -741,7 +741,7 @@
       <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
     </config>
     <config id="config.awsfreertos.thread">
-      <property id="config.awsfreertos.custom_freertosconfig" value=""/>
+      <property id="config.awsfreertos.custom_freertosconfig" value="User_FreeRTOSConfig.h"/>
       <property id="config.awsfreertos.thread.configuse_preemption" value="config.awsfreertos.thread.configuse_preemption.enabled"/>
       <property id="config.awsfreertos.thread.configuse_port_optimised_task_selection" value="config.awsfreertos.thread.configuse_port_optimised_task_selection.disabled"/>
       <property id="config.awsfreertos.thread.configuse_tickless_idle" value="config.awsfreertos.thread.configuse_tickless_idle.disabled"/>
