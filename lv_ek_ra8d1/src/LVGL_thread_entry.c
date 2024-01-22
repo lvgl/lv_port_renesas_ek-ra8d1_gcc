@@ -5,6 +5,42 @@
 #include "lvgl/demos/lv_demos.h"
 
 
+static uint32_t idle_time_sum;
+static uint32_t non_idle_time_sum;
+static uint32_t task_switch_timestamp;
+static bool idle_task_running;
+
+void lv_freertos_task_switch_in(const char * name)
+{
+    if(strcmp(name, "IDLE")) idle_task_running = false;
+    else idle_task_running = true;
+
+    task_switch_timestamp = lv_tick_get();
+}
+
+void lv_freertos_task_switch_out(void)
+{
+    uint32_t elaps = lv_tick_elaps(task_switch_timestamp);
+    if(idle_task_running) idle_time_sum += elaps;
+    else non_idle_time_sum += elaps;
+}
+
+uint32_t lv_os_get_idle_percent(void)
+{
+    if(non_idle_time_sum + idle_time_sum == 0) {
+        LV_LOG_WARN("Not enough time elapsed to provide idle percentage");
+        return 0;
+    }
+
+    uint32_t pct = (idle_time_sum * 100) / (idle_time_sum + non_idle_time_sum);
+
+    non_idle_time_sum = 0;
+    idle_time_sum = 0;
+
+    return pct;
+}
+
+
 void timer_tick_callback(timer_callback_args_t *p_args)
 {
     FSP_PARAMETER_NOT_USED(p_args);

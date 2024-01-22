@@ -233,6 +233,8 @@
 /*1: Show CPU usage and FPS count
  * Requires `LV_USE_SYSMON = 1`*/
 #define LV_USE_PERF_MONITOR 1
+#define LV_SYSMON_GET_IDLE lv_os_get_idle_percent   /*Report idle percentage from FreeRTOS*/
+
 #if LV_USE_PERF_MONITOR
     #define LV_USE_PERF_MONITOR_POS LV_ALIGN_BOTTOM_RIGHT
 
@@ -267,6 +269,10 @@
  *Data larger than the size of the cache also can be allocated but
  *will be dropped immediately after usage.*/
 #define LV_CACHE_DEF_SIZE       0
+
+/*Default number of image header cache entries. The cache is used to store the headers of images
+ *The main logic is like `LV_CACHE_DEF_SIZE` but for image headers.*/
+#define LV_IMAGE_HEADER_CACHE_DEF_CNT 10
 
 /*Number of stops allowed per gradient. Increase this to allow more stops.
  *This adds (sizeof(lv_color_t) + 1) bytes per additional stop*/
