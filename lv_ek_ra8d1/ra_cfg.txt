@@ -642,7 +642,7 @@ FSP Configuration
     Linker section to keep DTC vector table: .fsp_dtc_vector_table
     
   FreeRTOS
-    General: Custom FreeRTOSConfig.h: 
+    General: Custom FreeRTOSConfig.h: User_FreeRTOSConfig.h
     General: Use Preemption: Enabled
     General: Use Port Optimised Task Selection: Disabled
     General: Use Tickless Idle: Disabled
@@ -1109,5 +1109,9 @@ FSP Configuration
     
   Object "_SemaphoreVsync Binary Semaphore"
     Symbol: _SemaphoreVsync
+    Memory Allocation: Static
+    
+  Object "glcdc_update_complete Binary Semaphore"
+    Symbol: glcdc_update_complete
     Memory Allocation: Static
     
