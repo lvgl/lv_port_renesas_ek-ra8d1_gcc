@@ -1111,3 +1111,7 @@ FSP Configuration
     Symbol: _SemaphoreVsync
     Memory Allocation: Static
     
+  Object "glcdc_update_complete Binary Semaphore"
+    Symbol: glcdc_update_complete
+    Memory Allocation: Static
+    
