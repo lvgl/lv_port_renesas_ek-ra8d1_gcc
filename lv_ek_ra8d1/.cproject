@@ -16,55 +16,63 @@
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="${cross_rm} -rf" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GCCErrorParser" id="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.389797102" name="Debug" parent="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug">
 					<folderInfo id="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.389797102." name="/" resourcePath="">
-						<toolChain id="com.renesas.cdt.managedbuild.gnuarm.toolchain.elf.debug.2004067116" name="GCC ARM Embedded" superClass="com.renesas.cdt.managedbuild.gnuarm.toolchain.elf.debug">
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1723873181" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.312152667" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.956468683" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.1838860010" name="Echo tool command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.22509991" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.more" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.1771248801" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar.778660889" name="'char' is signed (-fsigned-char)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections.1636884394" name="Function sections (-ffunction-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.datasections.1674263760" name="Data sections (-fdata-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.datasections" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.386061688" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.1259547129" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format" value="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.dwarf4" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1714690071" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.1579663512" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.1444835561" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.1921594655" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.1384909393" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.173335609" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" value="false" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.914806617" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.251875230" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.423083346" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1591139104" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" value="false" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.1418346862" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" value="true" valueType="boolean"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.1866042971" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" value="GNU Tools for ARM Embedded Processors" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.1914105893" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.arm" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family.1738067686" name="Arm family (-mcpu)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.default" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.1462543027" name="Instruction set" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.thumb" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1765519261" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" value="arm-none-eabi-" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1364325299" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" value="gcc" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1532346705" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" value="g++" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.1581400562" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" value="ar" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.1653832621" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy" value="objcopy" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.1130205979" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump" value="objdump" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.618475671" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size" value="size" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.204554051" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make" value="make" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.707706154" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm" value="rm" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.target.other.562749492" name="Other target flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.target.other" value="-march=armv8.1-m.main+mve.fp+fp.dp" valueType="string"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.1243089513" name="Float ABI" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.fpu.abi.hard" valueType="enumerated"/>
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.2129751055" name="Unaligned access" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.unalignedaccess.default" valueType="enumerated"/>
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.400479096" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/EK_RA8D1_FreeRTOS_emWin_MIPI_DSI}/Debug" id="com.renesas.cdt.managedbuild.gnuarm.builder.2015160536" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.gnuarm.builder"/>
-							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.674823792" name="GNU Arm Cross Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.1979068980" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" value="true" valueType="boolean"/>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.337863891" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
+						<toolChain id="com.renesas.cdt.managedbuild.llvm.arm.toolchain.Id.2110667627" name="LLVM for ARM" superClass="com.renesas.cdt.managedbuild.llvm.arm.toolchain.Id">
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.family.1053235350" name="ARM family" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.family"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.architecture.857131381" name="Architecture" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.architecture"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.instructionset.738487208" name="Instruction set" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.instructionset"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.interwork.1116587191" name="Thumb interwork" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.interwork"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.endian.15613959" name="Endian" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.endian"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.fpu.965112496" name="Float ABI" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.fpu"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.fpuType.333990617" name="FPU Type" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.fpuType"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned.112688854" name="Unaligned access" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.unaligned"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse.1637688564" name="TrustZone (-mcmse)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.mcmse"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined.2091548282" name="Other CPU options" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.738672028" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize.210031200" name="Print Size" superClass="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.1949245106" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.613151422" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.1273032323" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.renesas.cdt.managedbuild.llvm.core.targetPlatform.788436915" isAbstract="false" osList="all" superClass="com.renesas.cdt.managedbuild.llvm.core.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/lv_ek_ra8d1}/Debug" id="com.renesas.cdt.managedbuild.llvm.core.builder.545493669" keepEnvironmentInBuildfile="false" name="LLVM  for Renesas Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.llvm.core.builder"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm.1397150351" name="SMS Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.smsAsm"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen.1768210502" name="Library Generator" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.libgen"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler.1152429385" name="Compiler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.compiler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.includesFiles.1710995521" name="Include file directories (-I)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.includesFiles" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/Arm-2D/Library/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/instances}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/arm/CMSIS_5/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/tes/dave2d/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl_dave2d/src/draw/renesas}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl_dave2d/src/draw}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/generate&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro.1809836839" name="Macro Defines (-D)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.compiler.macro" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM85"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.2025795393" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" valueType="includePath">
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat.1371198109" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.275190646" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true"/>
+								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c.1333182251" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.compiler.1998330253" name="Compiler CPP" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.compiler">
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat.1899282172" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.1367017248" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.assembler.287402193" name="Assembler" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.assembler">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.assembler.includes.includeFileDirectories.721707246" name="Include file directories (-I)" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.assembler.includes.includeFileDirectories" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/api}&quot;"/>
@@ -85,87 +93,726 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_emwin_port}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
 								</option>
-								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.1135697509" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
-							</tool>
-							<tool commandLinePattern="${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -x c ${INPUTS}" id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.187586051" name="GNU Arm Cross C Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.1674799888" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.c99" valueType="enumerated"/>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1247123954" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines.647172319" name="Define a symbol (-D)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.assembler.includes.symbolDefines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_RENESAS_RA_"/>
 									<listOptionValue builtIn="false" value="_RA_CORE=CM85"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths.546903703" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.include.paths" useByScannerDiscovery="true" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/Arm-2D/Library/Include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/api}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/inc/instances}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/fsp/src/rm_freertos_port}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/aws/FreeRTOS/FreeRTOS/Source/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/arm/CMSIS_5/CMSIS/Core/Include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_gen}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg/bsp}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/fsp_cfg}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra_cfg/aws}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ra/tes/dave2d/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl_dave2d/src/draw/renesas}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/lvgl_dave2d/src/draw}&quot;"/>
-								</option>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.other.1630951972" name="Other compiler flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.other" useByScannerDiscovery="true" value="" valueType="string"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.verbose.139695428" name="Verbose (-v)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.verbose" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.preprocessonly.1455619262" name="Preprocess only (-E)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.preprocessonly" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.asmlisting.1666821809" name="Generate assembler listing (-Wa,-adhlns=&quot;$@.lst&quot;)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.asmlisting" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.otheroptimizations.408856347" name="Other optimization flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.otheroptimizations" useByScannerDiscovery="true" value="" valueType="string"/>
-								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1780605713" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.assembler.source.usepreprocessor.1162980055" name="Use preprocessor (-x assembler-with-cpp)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.assembler.source.usepreprocessor"/>
+								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.assembler.1704182713" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.assembler"/>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${cross_toolchain_flags} ${FLAGS} -c ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -x c++ ${INPUTS}" id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.250246097" name="GNU Arm Cross C++ Compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.409492877" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.compiler.std.cpp11" valueType="enumerated"/>
-							</tool>
-							<tool commandLinePattern="${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -Wl,--start-group ${INPUTS} -Wl,--end-group" id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.1888720119" name="GNU Arm Cross C Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.1705964035" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.other.1437006147" name="Other linker flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.other" value="" valueType="string"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnano.454315036" name="Use newlib-nano (--specs=nano.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnano" value="true" valueType="boolean"/>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.scriptfile.90924068" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.scriptfile" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;fsp.ld&quot;"/>
-								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.paths.1203713572" name="Library search path (-L)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.paths" valueType="libPaths">
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.linker.1608672630" name="Linker" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.linker">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.option.linker.archiveSearchDirectories.1178464965" name="Archive search directories (-L) [Only the path to the library]" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.linker.archiveSearchDirectories" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/script&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${CWD}&quot;"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.libs.1788685144" name="Libraries (-l)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.libs" valueType="libs"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.verbose.1177853156" name="Verbose (-v)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.verbose" value="false" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.useprintffloat.1402169732" name="Use float with nano printf (-u _printf_float)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.useprintffloat" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnosys.664589653" name="Do not use syscalls (--specs=nosys.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnosys" value="true" valueType="boolean"/>
-								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.input.1272273389" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.linker.input">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkerScript.65944566" name="Linker script" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkerScript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp.lld&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList.169544978" name="Linkage Order List" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkOrderList" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;.\src/port\lv_port_disp.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/port\lv_port_indev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/win\lv_win.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/tileview\lv_tileview.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/textarea\lv_textarea.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/tabview\lv_tabview.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/table\lv_table.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/switch\lv_switch.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/spinner\lv_spinner.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/spinbox\lv_spinbox.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/span\lv_span.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/slider\lv_slider.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/scale\lv_scale.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/roller\lv_roller.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/objx_templ\lv_objx_templ.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/msgbox\lv_msgbox.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/menu\lv_menu.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/list\lv_list.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/line\lv_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/led\lv_led.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/label\lv_label.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/keyboard\lv_keyboard.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/imagebutton\lv_imagebutton.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/image\lv_image.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/dropdown\lv_dropdown.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/checkbox\lv_checkbox.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/chart\lv_chart.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/canvas\lv_canvas.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/calendar\lv_calendar.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/calendar\lv_calendar_header_arrow.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/calendar\lv_calendar_header_dropdown.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/buttonmatrix\lv_buttonmatrix.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/button\lv_button.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/bar\lv_bar.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/arc\lv_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/widgets/animimage\lv_animimage.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/tick\lv_tick.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/themes/simple\lv_theme_simple.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/themes/mono\lv_theme_mono.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/themes/default\lv_theme_default.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/themes\lv_theme.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/rtthread\lv_mem_core_rtthread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/rtthread\lv_sprintf_rtthread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/rtthread\lv_string_rtthread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/micropython\lv_mem_core_micropython.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/clib\lv_mem_core_clib.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/clib\lv_sprintf_clib.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/clib\lv_string_clib.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/builtin\lv_mem_core_builtin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/builtin\lv_sprintf_builtin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/builtin\lv_string_builtin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib/builtin\lv_tlsf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/stdlib\lv_mem.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/vg_lite_tvg\vg_lite_matrix.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/sysmon\lv_sysmon.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/snapshot\lv_snapshot.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/observer\lv_observer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/monkey\lv_monkey.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/imgfont\lv_imgfont.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/ime\lv_ime_pinyin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/gridnav\lv_gridnav.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/fragment\lv_fragment.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/fragment\lv_fragment_manager.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/others/file_explorer\lv_file_explorer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_cmsis_rtos2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_freertos.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_os_none.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_pthread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_rtthread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/osal\lv_windows.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc/cache\_lv_cache_lru_rb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc/cache\lv_cache.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc/cache\lv_cache_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc/cache\lv_image_cache.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_anim.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_anim_timeline.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_area.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_array.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_async.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_bidi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_color.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_color_op.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_event.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_fs.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_ll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_log.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_lru.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_math.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_palette.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_profiler_builtin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_rb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_style.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_style_gen.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_templ.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_text.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_text_ap.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_timer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/misc\lv_utils.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/tjpgd\lv_tjpgd.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/tjpgd\tjpgd.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/tiny_ttf\lv_tiny_ttf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/rlottie\lv_rlottie.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/rle\lv_rle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/qrcode\lv_qrcode.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/qrcode\qrcodegen.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/lz4\lz4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/lodepng\lodepng.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/lodepng\lv_lodepng.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/libpng\lv_libpng.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/libjpeg_turbo\lv_libjpeg_turbo.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/gif\gifdec.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/gif\lv_gif.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_cbfs.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_fatfs.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_memfs.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_posix.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_stdio.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/fsdrv\lv_fs_win32.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/freetype\lv_freetype.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/freetype\lv_freetype_glyph.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/freetype\lv_freetype_image.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/freetype\lv_freetype_outline.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/freetype\lv_ftsystem.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/ffmpeg\lv_ffmpeg.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/bmp\lv_bmp.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/bin_decoder\lv_bin_decoder.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/barcode\code128.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/libs/barcode\lv_barcode.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/layouts/grid\lv_grid.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/layouts/flex\lv_flex.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/layouts\lv_layout.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/indev\lv_indev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/indev\lv_indev_scroll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_binfont_loader.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_dejavu_16_persian_hebrew.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_fmt_txt.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_10.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_12.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_14.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_18.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_20.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_22.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_24.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_26.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_28.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_28_compressed.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_30.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_32.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_34.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_36.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_38.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_40.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_42.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_44.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_46.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_48.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_montserrat_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_simsun_16_cjk.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_unscii_16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/font\lv_font_unscii_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/x11\lv_x11_display.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/x11\lv_x11_input.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/windows\lv_windows_context.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/windows\lv_windows_display.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/windows\lv_windows_input.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/sdl\lv_sdl_keyboard.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/sdl\lv_sdl_mouse.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/sdl\lv_sdl_mousewheel.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/sdl\lv_sdl_window.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_cache.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_fbdev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_lcd.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_libuv.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_profiler.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/nuttx\lv_nuttx_touchscreen.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/evdev\lv_evdev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/st7796\lv_st7796.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/st7789\lv_st7789.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/st7735\lv_st7735.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/lcd\lv_lcd_generic_mipi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/ili9341\lv_ili9341.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/fb\lv_linux_fbdev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/drivers/display/drm\lv_linux_drm.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_buf_vg_lite.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_border.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_box_shadow.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_fill.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_img.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_label.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_layer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_mask_rect.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_draw_vg_lite_vector.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_vg_lite_decoder.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_vg_lite_math.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_vg_lite_path.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/vg_lite\lv_vg_lite_utils.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw/blend/neon\lv_blend_neon.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw/blend\lv_draw_sw_blend.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw/blend\lv_draw_sw_blend_to_argb8888.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw/blend\lv_draw_sw_blend_to_rgb565.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw/blend\lv_draw_sw_blend_to_rgb888.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_border.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_box_shadow.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_fill.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_gradient.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_img.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_letter.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_mask.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_mask_rect.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_transform.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sw\lv_draw_sw_vector.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/sdl\lv_draw_sdl.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_border.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_fill.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_image.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_label.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_mask_rectangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/renesas/dave2d\lv_draw_dave2d_utils.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_buf_vglite.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_border.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_fill.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_img.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_label.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_layer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_draw_vglite_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_vglite_buf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_vglite_matrix.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_vglite_path.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/vglite\lv_vglite_utils.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_draw_buf_pxp.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_draw_pxp.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_draw_pxp_fill.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_draw_pxp_img.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_draw_pxp_layer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_pxp_cfg.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_pxp_osa.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw/nxp/pxp\lv_pxp_utils.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_arc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_buf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_image.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_label.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_mask.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_rect.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_draw_vector.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_image_buf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/draw\lv_image_decoder.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/display\lv_display.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_group.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_class.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_draw.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_event.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_id_builtin.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_pos.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_property.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_scroll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_style.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_style_gen.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_obj_tree.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src/core\lv_refr.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/src\lv_init.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/win\lv_example_win_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/tileview\lv_example_tileview_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/textarea\lv_example_textarea_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/textarea\lv_example_textarea_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/textarea\lv_example_textarea_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/tabview\lv_example_tabview_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/tabview\lv_example_tabview_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/table\lv_example_table_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/table\lv_example_table_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/switch\lv_example_switch_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/spinner\lv_example_spinner_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/spinbox\lv_example_spinbox_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/span\lv_example_span_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/slider\lv_example_slider_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/slider\lv_example_slider_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/slider\lv_example_slider_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/slider\lv_example_slider_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/scale\lv_example_scale_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/scale\lv_example_scale_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/scale\lv_example_scale_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/scale\lv_example_scale_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/scale\lv_example_scale_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/roller\lv_example_roller_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/roller\lv_example_roller_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/roller\lv_example_roller_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/obj\lv_example_obj_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/obj\lv_example_obj_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/msgbox\lv_example_msgbox_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/menu\lv_example_menu_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/menu\lv_example_menu_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/menu\lv_example_menu_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/menu\lv_example_menu_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/menu\lv_example_menu_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/list\lv_example_list_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/list\lv_example_list_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/line\lv_example_line_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/led\lv_example_led_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/label\lv_example_label_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/label\lv_example_label_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/label\lv_example_label_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/label\lv_example_label_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/label\lv_example_label_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/keyboard\lv_example_keyboard_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/keyboard\lv_example_keyboard_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/imagebutton\lv_example_imagebutton_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/image\lv_example_image_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/image\lv_example_image_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/image\lv_example_image_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/image\lv_example_image_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/dropdown\lv_example_dropdown_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/dropdown\lv_example_dropdown_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/dropdown\lv_example_dropdown_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/checkbox\lv_example_checkbox_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/checkbox\lv_example_checkbox_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/chart\lv_example_chart_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/canvas\lv_example_canvas_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/calendar\lv_example_calendar_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/buttonmatrix\lv_example_buttonmatrix_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/buttonmatrix\lv_example_buttonmatrix_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/buttonmatrix\lv_example_buttonmatrix_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/button\lv_example_button_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/button\lv_example_button_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/button\lv_example_button_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/bar\lv_example_bar_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/arc\lv_example_arc_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/arc\lv_example_arc_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/widgets/animimg\lv_example_animimg_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_10.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_11.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_12.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_13.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_14.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_15.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/styles\lv_example_style_9.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/scroll\lv_example_scroll_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/porting\lv_port_disp_template.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/porting\lv_port_fs_template.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/porting\lv_port_indev_template.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/snapshot\lv_example_snapshot_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/observer\lv_example_observer_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/monkey\lv_example_monkey_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/monkey\lv_example_monkey_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/monkey\lv_example_monkey_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/imgfont\lv_example_imgfont_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/ime\lv_example_ime_pinyin_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/ime\lv_example_ime_pinyin_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/gridnav\lv_example_gridnav_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/gridnav\lv_example_gridnav_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/gridnav\lv_example_gridnav_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/gridnav\lv_example_gridnav_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/fragment\lv_example_fragment_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/fragment\lv_example_fragment_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/file_explorer\lv_example_file_explorer_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/file_explorer\lv_example_file_explorer_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/others/file_explorer\lv_example_file_explorer_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/tjpgd\lv_example_tjpgd_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/tiny_ttf\lv_example_tiny_ttf_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/tiny_ttf\lv_example_tiny_ttf_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/tiny_ttf\lv_example_tiny_ttf_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/tiny_ttf\ubuntu_font.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/rlottie\lv_example_rlottie_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/rlottie\lv_example_rlottie_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/rlottie\lv_example_rlottie_approve.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/qrcode\lv_example_qrcode_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/lodepng\img_wink_png.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/lodepng\lv_example_lodepng_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/libpng\lv_example_libpng_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/libjpeg_turbo\lv_example_libjpeg_turbo_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/gif\img_bulb_gif.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/gif\lv_example_gif_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/freetype\lv_example_freetype_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/ffmpeg\lv_example_ffmpeg_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/ffmpeg\lv_example_ffmpeg_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/bmp\lv_example_bmp_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/libs/barcode\lv_example_barcode_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/grid\lv_example_grid_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/layouts/flex\lv_example_flex_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/get_started\lv_example_get_started_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/get_started\lv_example_get_started_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/get_started\lv_example_get_started_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/get_started\lv_example_get_started_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/event\lv_example_event_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/event\lv_example_event_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/event\lv_example_event_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/event\lv_example_event_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets/emoji\img_emoji_F617.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\animimg001.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\animimg002.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\animimg003.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_caret_down.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_cogwheel_argb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_cogwheel_indexed16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_cogwheel_rgb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_hand.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_skew_strip.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\img_star.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\imgbtn_left.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\imgbtn_mid.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/assets\imgbtn_right.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/anim\lv_example_anim_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/anim\lv_example_anim_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/anim\lv_example_anim_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/examples/anim\lv_example_anim_timeline_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/rt-thread/squareline\lv_ui_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/rt-thread\lv_rt_thread_port.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lv_point_t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lv_timer_t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lv_wegit.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lvgl.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lvgl_indev_t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lvgl_lv_event.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lvgl_lv_obj.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/env_support/pikascript\pika_lvgl_lv_style_t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/widgets/assets\img_clothes.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/widgets/assets\img_demo_widgets_avatar.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/widgets/assets\img_demo_widgets_needle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/widgets/assets\img_lvgl_logo.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/widgets\lv_demo_widgets.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/vector_graphic/assets\img_demo_vector_avatar.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/vector_graphic\lv_demo_vector_graphic.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/transform/assets\img_transform_avatar_15.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/transform\lv_demo_transform.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/stress\lv_demo_stress.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/scroll\lv_demo_scroll.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render/assets\img_render_arc_bg.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render/assets\img_render_lvgl_logo_argb8888.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render/assets\img_render_lvgl_logo_rgb565.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render/assets\img_render_lvgl_logo_rgb888.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render/assets\img_render_lvgl_logo_xrgb8888.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/render\lv_demo_render.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_corner_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_list_pause.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_list_pause_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_list_play.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_list_play_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_loop.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_loop_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_next.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_next_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_pause.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_pause_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_play.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_play_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_prev.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_prev_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_rnd.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_btn_rnd_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_corner_left.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_corner_left_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_corner_right.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_corner_right_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_1_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_2_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_cover_3_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_1_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_2_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_3_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_icon_4_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_list_border.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_list_border_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_logo.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_slider_knob.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_slider_knob_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_wave_bottom.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_wave_bottom_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_wave_top.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music/assets\img_lv_demo_music_wave_top_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music\lv_demo_music.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music\lv_demo_music_list.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/music\lv_demo_music_main.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/fonts\font_multilang_large.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/fonts\font_multilang_small.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_artist_palette.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_books.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_camera_with_flash.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_cat_face.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_deciduous_tree.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_dog_face.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_earth_globe_europe_africa.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_flexed_biceps.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_movie_camera.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_red_heart.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_rocket.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/emojis\img_emoji_soccer_ball.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_10.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_11.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_12.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_13.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_14.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_15.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_17.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_18.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_19.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_22.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_25.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets/avatars\img_multilang_avatar_9.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang/assets\img_multilang_like.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/multilang\lv_demo_multilang.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/keypad_encoder\lv_demo_keypad_encoder.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_ctrl_pad.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_flex_loader.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_main.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_view.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_view_child_node.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/flex_layout\lv_demo_flex_layout_view_ctrl_pad.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\img_benchmark_cogwheel_alpha256.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\img_benchmark_cogwheel_argb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\img_benchmark_cogwheel_indexed16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\img_benchmark_cogwheel_rgb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\lv_font_benchmark_montserrat_12_compr_az.c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\lv_font_benchmark_montserrat_16_compr_az.c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark/assets\lv_font_benchmark_montserrat_28_compr_az.c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos/benchmark\lv_demo_benchmark.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src/lvgl/demos\lv_demos.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\LVGL_thread_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\arducam_port.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\dsi_configuration_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\dsi_layer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\fault_handlers.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\hal_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\printf_redirect.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\src\touch_GT911.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\LVGL_thread.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\common_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\hal_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\main.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\pin_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra_gen\vector_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_64bitoperation.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_base.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_blit.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_box.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_circle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_context.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_curve.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_dlist.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_driver.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_edge.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_errorcodes.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_gradient.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_hardware.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_line.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_math.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_memory.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_pattern.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_perfcount.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_polyline.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_quad.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_rbuffer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_render.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_texture.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_triangle.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_utility.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_viewport.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/tes/dave2d/src\dave_wedge.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/rm_freertos_port\port.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_sci_b_uart\r_sci_b_uart.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_mipi_phy\r_mipi_phy.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_mipi_dsi\r_mipi_dsi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_ioport\r_ioport.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_iic_master\r_iic_master.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_icu\r_icu.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_gpt\r_gpt.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_glcdc\r_glcdc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_dtc\r_dtc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_drw\r_drw_base.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_drw\r_drw_irq.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/r_drw\r_drw_memory.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_clocks.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_common.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_delay.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_group_irq.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_guard.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_io.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_irq.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_register_protection.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_rom_registers.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_sbrk.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/mcu/all\bsp_security.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/cmsis/Device/RENESAS/Source\startup.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/fsp/src/bsp/cmsis/Device/RENESAS/Source\system.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/board/ra8d1_ek\board_init.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/board/ra8d1_ek\board_leds.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/board/ra8d1_ek\board_sdram.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source/portable/MemMang\heap_4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\event_groups.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\list.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\queue.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\stream_buffer.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\tasks.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\ra/aws/FreeRTOS/FreeRTOS/Source\timers.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.\liblv_ek_ra8d1.a&quot;"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c.2146386520" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.linker.c">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+									<additionalInput kind="additionalinputdependency" paths="$(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS)"/>
 									<additionalInput kind="additionaldependency" paths="$(LINKER_SCRIPT)"/>
 								</inputType>
 							</tool>
-							<tool commandLinePattern="${COMMAND} ${cross_toolchain_flags} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -Wl,--start-group ${INPUTS} -Wl,--end-group" id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.879011869" name="GNU Arm Cross C++ Linker" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1401635788" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.other.992021575" name="Other linker flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.other" value="--specs=rdimon.specs" valueType="string"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano.1654511416" name="Use newlib-nano (--specs=nano.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano" value="true" valueType="boolean"/>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile.300120129" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;fsp.ld&quot;"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.linker.1341094276" name="Linker CPP" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.linker">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkerScript.1801834473" name="Linker script" superClass="com.renesas.cdt.managedbuild.llvm.core.option.linker.source.linkerScript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp.lld&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.llvm.arm.linker.cpp.option.archiveSearchDirectories.1470699659" name="Archive search directories (-L) [Only the path to the library]" superClass="com.renesas.cdt.managedbuild.llvm.arm.linker.cpp.option.archiveSearchDirectories" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/script&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${CWD}&quot;"/>
 								</option>
 							</tool>
-							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver.834589175" name="GNU Arm Cross Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver"/>
-							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.createflash.1393532391" name="GNU Arm Cross Create Flash Image" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.createflash">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.213939779" name="Output file format (-O)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice" value="ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.srec" valueType="enumerated"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.Objcopy.977319944" name="Objcopy" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.Objcopy"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.archiver.1976940913" name="Archiver" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.archiver"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.PrintSize.259132215" name="Print Size" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.PrintSize">
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.printSize.general.sizeFormat.714417243" name="Size Format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.printSize.general.sizeFormat"/>
 							</tool>
-							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.createlisting.1331556981" name="GNU Arm Cross Create Listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.createlisting">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source.855635017" name="Display source (--source|-S)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders.2114633811" name="Display all headers (--all-headers|-x)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle.598163787" name="Demangle names (--demangle|-C)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers.1883673758" name="Display line numbers (--line-numbers|-l)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers" value="true" valueType="boolean"/>
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide.1597413223" name="Wide lines (--wide|-w)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide" value="true" valueType="boolean"/>
-							</tool>
-							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.printsize.2108894608" name="GNU Arm Cross Print Size" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.printsize">
-								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.451633035" name="Size format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format"/>
-							</tool>
+							<tool id="com.renesas.cdt.managedbuild.llvm.core.tool.readelf.1895018425" name="Readelf" superClass="com.renesas.cdt.managedbuild.llvm.core.tool.readelf"/>
+							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.objdump.1241625549" name="Objdump" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.objdump"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
@@ -301,7 +948,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.other.1667592196" name="Other linker flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.other" value="--specs=rdimon.specs" valueType="string"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnano.1831591397" name="Use newlib-nano (--specs=nano.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.usenewlibnano" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.scriptfile.257128875" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.scriptfile" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;fsp.ld&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;fsp.lld&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.paths.1892294581" name="Library search path (-L)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/script&quot;"/>
@@ -319,7 +966,7 @@
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.other.1971990797" name="Other linker flags" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.other" value="--specs=rdimon.specs" valueType="string"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano.150128625" name="Use newlib-nano (--specs=nano.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile.1431472189" name="Script files (-T)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.scriptfile" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;fsp.ld&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;fsp.lld&quot;"/>
 								</option>
 							</tool>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver.1756775430" name="GNU Arm Cross Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.archiver"/>
