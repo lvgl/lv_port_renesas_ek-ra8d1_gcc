@@ -123,13 +123,13 @@
     #endif
 
 
-    #define  LV_USE_DRAW_SW_ASM     LV_DRAW_SW_ASM_NONE
+    #define  LV_USE_DRAW_SW_ASM     LV_DRAW_SW_ASM_HELIUM
 #endif
 
 /* Use Renesas Dave2D on RA  platforms. */
-#define LV_USE_DRAW_DAVE2D 1
+#define LV_USE_DRAW_DAVE2D 0
 
-#define LV_USE_DRAW_ARM2D 0
+#define LV_USE_DRAW_ARM2D 1
 
 /* Use NXP's VG-Lite GPU on iMX RTxxx platforms. */
 #define LV_USE_DRAW_VGLITE 0
