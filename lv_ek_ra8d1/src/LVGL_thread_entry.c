@@ -10,6 +10,35 @@ static uint32_t non_idle_time_sum;
 static uint32_t task_switch_timestamp;
 static bool idle_task_running;
 
+char *strdup(const char *src)
+{
+    char *str;
+    char *p;
+    int len = 0;
+
+    while (src[len])
+        len++;
+    str = malloc(len + 1);
+    p = str;
+    while (*src)
+        *p++ = *src++;
+    *p = '\0';
+    return str;
+}
+
+int strcasecmp (const char *s1, const char *s2)
+{
+  const unsigned char *p1 = (const unsigned char *) s1;
+  const unsigned char *p2 = (const unsigned char *) s2;
+  int result;
+  if (p1 == p2)
+    return 0;
+  while ((result = TOLOWER (*p1) - TOLOWER (*p2++)) == 0)
+    if (*p1++ == '\0')
+      break;
+  return result;
+}
+
 void lv_freertos_task_switch_in(const char * name)
 {
     if(strcmp(name, "IDLE")) idle_task_running = false;
