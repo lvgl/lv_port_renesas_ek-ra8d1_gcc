@@ -4,7 +4,7 @@ void HardFault_Handler(void) __attribute ( ( naked ) );
 void MemManage_Handler(void) ;
 void BusFault_Handler(void) ;
 void SecureFault_Handler(void) ;
-void prvGetRegistersFromStack( uint32_t *pulFaultStackAddress );
+void prvGetRegistersFromStack( uint32_t *pulFaultStackAddress )__attribute__((used));
 
 /*
  * Need to enable individual fault handlers :-

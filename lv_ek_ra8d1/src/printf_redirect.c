@@ -12,6 +12,9 @@ int _fstat(int file, struct stat *st);
 int _isatty(int file);
 int _read(int file, char *ptr, int len);
 int _lseek(int file, int ptr, int dir);
+int _getpid(void);
+int _kill(int pid, int sig);
+int _open(const char *name, int flags, int mode);
 
 #define DEBUG_SERIAL_TIMEOUT 2000/portTICK_PERIOD_MS
 
@@ -86,12 +89,15 @@ int _close(int file)
   FSP_PARAMETER_NOT_USED(file);
   return -1;
 }
+
+
 int _fstat(int file, struct stat *st)
 {
     FSP_PARAMETER_NOT_USED(file);
   st->st_mode = S_IFCHR;
   return 0;
 }
+
 
 int _isatty(int file)
 {
@@ -107,10 +113,34 @@ int _lseek(int file, int ptr, int dir)
   return 0;
 }
 
+
 int _read(int file, char *ptr, int len)
 {
     FSP_PARAMETER_NOT_USED(file);
     FSP_PARAMETER_NOT_USED(ptr);
     FSP_PARAMETER_NOT_USED(len);
     return 0;
+}
+
+int _getpid(void)
+{
+  return 1;
+}
+
+int _kill(int pid, int sig)
+{
+    FSP_PARAMETER_NOT_USED(pid);
+    FSP_PARAMETER_NOT_USED(sig);
+
+  errno = EINVAL;
+  return -1;
+}
+
+int _open(const char *name, int flags, int mode)
+{
+    FSP_PARAMETER_NOT_USED(name);
+    FSP_PARAMETER_NOT_USED(flags);
+    FSP_PARAMETER_NOT_USED(mode);
+
+  return -1;
 }

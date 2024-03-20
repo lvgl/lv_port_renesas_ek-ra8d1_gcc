@@ -12,6 +12,9 @@ ra/fsp/src/r_drw/*
 ra/fsp/src/r_dtc/*
 !ra/fsp/src/r_drw/r_drw_memory.c
 !ra/fsp/src/r_dtc/r_dtc.c
+!ra/fsp/src/rm_freertos_port
+ra/fsp/src/rm_freertos_port/*
+!ra/fsp/src/rm_freertos_port/port.c
 src/lvgl/*
 
 /JLinkLog.log
