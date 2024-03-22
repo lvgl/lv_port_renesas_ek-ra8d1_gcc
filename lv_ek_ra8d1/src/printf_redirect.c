@@ -81,11 +81,11 @@ int _write(int file, char *ptr, int len)
     return len;
 }
 
-int _close(int file)
-{
-  FSP_PARAMETER_NOT_USED(file);
-  return -1;
-}
+//int _close(int file)
+//{
+//  FSP_PARAMETER_NOT_USED(file);
+//  return -1;
+//}
 int _fstat(int file, struct stat *st)
 {
     FSP_PARAMETER_NOT_USED(file);
@@ -93,19 +93,19 @@ int _fstat(int file, struct stat *st)
   return 0;
 }
 
-int _isatty(int file)
-{
-    FSP_PARAMETER_NOT_USED(file);
-  return 1;
-}
-
-int _lseek(int file, int ptr, int dir)
-{
-    FSP_PARAMETER_NOT_USED(file);
-    FSP_PARAMETER_NOT_USED(ptr);
-    FSP_PARAMETER_NOT_USED(dir);
-  return 0;
-}
+//int _isatty(int file)
+//{
+//    FSP_PARAMETER_NOT_USED(file);
+//  return 1;
+//}
+//
+//int _lseek(int file, int ptr, int dir)
+//{
+//    FSP_PARAMETER_NOT_USED(file);
+//    FSP_PARAMETER_NOT_USED(ptr);
+//    FSP_PARAMETER_NOT_USED(dir);
+//  return 0;
+//}
 
 int _read(int file, char *ptr, int len)
 {

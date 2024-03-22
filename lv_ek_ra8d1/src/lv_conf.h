@@ -665,6 +665,13 @@
     #define LV_FFMPEG_DUMP_FORMAT 0
 #endif
 
+
+/*Enable Vector Graphic APIs*/
+#define LV_USE_VECTOR_GRAPHIC  1
+
+/* Enable ThorVG (vector graphics library) from the src/libs folder */
+#define LV_USE_THORVG_INTERNAL 1
+
 /*==================
  * OTHERS
  *==================*/

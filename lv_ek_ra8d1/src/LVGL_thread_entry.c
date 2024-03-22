@@ -83,8 +83,10 @@ void LVGL_thread_entry(void *pvParameters)
 #endif
 
 #if (1 == LV_USE_DEMO_WIDGETS && 0 == LV_USE_DEMO_BENCHMARK)
-    lv_demo_widgets();
+//    lv_demo_widgets();
 #endif
+
+    lv_demo_ebike_create();
 
     err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
     if (FSP_SUCCESS != err)
