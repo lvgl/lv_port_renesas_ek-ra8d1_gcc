@@ -52,6 +52,37 @@ void vApplicationMallocFailedHook( void )
     __BKPT(0);
 }
 
+
+char *strdup(const char *src)
+{
+    char *str;
+    char *p;
+    int len = 0;
+
+    while (src[len])
+        len++;
+    str = malloc(len + 1);
+    p = str;
+    while (*src)
+        *p++ = *src++;
+    *p = '\0';
+    return str;
+}
+
+int strcasecmp (const char *s1, const char *s2)
+{
+  const unsigned char *p1 = (const unsigned char *) s1;
+  const unsigned char *p2 = (const unsigned char *) s2;
+  int result;
+  if (p1 == p2)
+    return 0;
+  while ((result = tolower (*p1) - tolower (*p2++)) == 0)
+    if (*p1++ == '\0')
+      break;
+  return result;
+}
+
+
 /* New Thread entry function */
 /* pvParameters contains TaskHandle_t */
 void LVGL_thread_entry(void *pvParameters)
@@ -87,6 +118,7 @@ void LVGL_thread_entry(void *pvParameters)
 #endif
 
     lv_demo_ebike_create();
+//    lv_demo_widgets();
 
     err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
     if (FSP_SUCCESS != err)
