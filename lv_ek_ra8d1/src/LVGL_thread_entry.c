@@ -120,6 +120,8 @@ void LVGL_thread_entry(void *pvParameters)
     lv_demo_ebike_create();
 //    lv_demo_widgets();
 
+//    lv_demo_vector_graphic();
+
     err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
     if (FSP_SUCCESS != err)
     {
@@ -135,7 +137,10 @@ void LVGL_thread_entry(void *pvParameters)
     /* TODO: add your own code here */
     while (1)
     {
+        volatile uint32_t free_stack = uxTaskGetStackHighWaterMark2(NULL);
         lv_timer_handler();
         vTaskDelay (1);
+
+
     }
 }

@@ -82,8 +82,8 @@ FSP Configuration
     Cache settings: Data cache: Enabled
     
   RA Common
-    Main stack size (bytes): 0x400
-    Heap size (bytes): 0x1000
+    Main stack size (bytes): 0x1000
+    Heap size (bytes): 0x20000
     MCU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
@@ -642,7 +642,7 @@ FSP Configuration
     Linker section to keep DTC vector table: .fsp_dtc_vector_table
     
   FreeRTOS
-    General: Custom FreeRTOSConfig.h: 
+    General: Custom FreeRTOSConfig.h: User_FreeRTOSConfig.h
     General: Use Preemption: Enabled
     General: Use Port Optimised Task Selection: Disabled
     General: Use Tickless Idle: Disabled
@@ -719,7 +719,7 @@ FSP Configuration
   Thread "LVGL Thread"
     Symbol: LVGL_thread
     Name: LVGL Thread
-    Stack size (bytes): 8192
+    Stack size (bytes): 32768
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Static
@@ -1109,5 +1109,9 @@ FSP Configuration
     
   Object "_SemaphoreVsync Binary Semaphore"
     Symbol: _SemaphoreVsync
+    Memory Allocation: Static
+    
+  Object "glcdc_update_complete Binary Semaphore"
+    Symbol: glcdc_update_complete
     Memory Allocation: Static
     
