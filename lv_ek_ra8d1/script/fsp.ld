@@ -201,7 +201,7 @@ SECTIONS
         *(SORT(.dtors.*))
         *(.dtors)
 
-        *(.rodata*)
+        *(EXCLUDE_FILE (*/src/lvgl/demos/ebike/src/generated/img_ebike_bg_large.o) .rodata*)
         __usb_dev_descriptor_start_fs = .;
         KEEP(*(.usb_device_desc_fs*))
         __usb_cfg_descriptor_start_fs = .;
@@ -536,6 +536,7 @@ SECTIONS
         __ospi_device_1_start__ = .;
         KEEP(*(.ospi_device_1*))
         KEEP(*(.code_in_ospi_device_1*))
+        KEEP(*/src/lvgl/demos/ebike/src/generated/img_ebike_bg_large.o (.rodata.*))
         __ospi_device_1_end__ = .;
     } > OSPI_DEVICE_1
     __ospi_device_1_code_size__ = __ospi_device_1_end__ - __ospi_device_1_start__;
