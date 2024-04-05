@@ -172,35 +172,6 @@ static void transition_to_dopi(void)
         .dummy_cycles = spi_dummy_cycles
     };
 
-    //RDARG_C_0 uses the latency cycles in CFR2x[3:0] for non-volatile register reads
-    tfr.dummy_cycles = 8;//Factory default is 8
-
-    /*Read CFR3N*/
-    tfr.address = CFR3N_REGISTER_ADDRESS;
-    tfr.data = 0x0;
-    err = R_OSPI_B_DirectTransfer(&g_ospi0_ctrl, &tfr, SPI_FLASH_DIRECT_TRANSFER_DIR_READ);
-    assert(FSP_SUCCESS == err);
-    cfr3n = (0x000000FF & tfr.data);
-
-#define CFR3N_UNHYSA  (1<<3) //bit CFR3N[3] controls Hybrid/Uniform Sector Architecture - JLink only supports Uniform Architecture
-
-    if (0 == (cfr3n & CFR3N_UNHYSA) )       /* Modify CFR3N to enable Uniform Sector Architecture - as the JLink only support this. */
-    {
-        write_en(false, spi_dummy_cycles);
-        tfr.command = WRITE_REGISTER_COMMAND;
-
-        tfr.dummy_cycles = 0;//NO dummy cycles for a register write
-
-        /* Modify CFR3N to enable Uniform Sector Architecture - as the JLink only support this. */
-        tfr.address = CFR3N_REGISTER_ADDRESS;
-        tfr.data = (cfr3n | CFR3N_UNHYSA);
-        err = R_OSPI_B_DirectTransfer(&g_ospi0_ctrl, &tfr, SPI_FLASH_DIRECT_TRANSFER_DIR_WRITE);
-        assert(FSP_SUCCESS == err);
-    }
-
-    tfr.command = READ_REGISTER_COMMAND;
-    tfr.dummy_cycles = spi_dummy_cycles;
-
     /*Read CFR2V*/
     tfr.address = CFR2V_REGISTER_ADDRESS;
     tfr.data = 0x0;
