@@ -10,8 +10,7 @@
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R7FA8D1BHECBD.pincfg"/>
     <option key="#FSPVersion#" value="5.1.0"/>
-    <option key="#SELECTED_TOOLCHAIN#" value="clang_arm"/>
-    <option key="#ToolchainVersion#" value="17.0.1"/>
+    <option key="#SELECTED_TOOLCHAIN#" value="com.arm.toolchain.v6.base.var.arm_compiler_6-6.21"/>
   </generalSettings>
   <raBspConfiguration/>
   <raClockConfiguration>

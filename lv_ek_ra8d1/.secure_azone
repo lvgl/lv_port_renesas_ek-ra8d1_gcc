@@ -150,6 +150,7 @@
             <slot name="ICU_EXT_IRQ3" secure="true"/>
         </peripheral>
         <peripheral name="GPT0" group="GPT" security=""/>
+        <peripheral name="DMA_DMAC0" group="DMA_DMAC" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>

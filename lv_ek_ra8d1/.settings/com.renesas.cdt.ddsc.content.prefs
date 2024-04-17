@@ -1,2 +1,2 @@
-com.renesas.cdt.ddsc.content.defaultlinkerscript=script/fsp.lld
+com.renesas.cdt.ddsc.content.defaultlinkerscript=script/fsp.scat
 eclipse.preferences.version=1

@@ -1,22 +1,7 @@
+#if 1
 #include "hal_data.h"
 #include "LVGL_thread.h"
 #include "stdio.h"
-#include <sys/stat.h>
-#if  defined(__GNUC__)
-/* Nested in __GNUC__ because LLVM generates both __GNUC__ and __llvm__*/
- #if !defined(__llvm__)
-#include <errno.h>
-#undef errno
-extern int errno;
-
-int _write(int file, char *ptr, int len);
-int _close(int file);
-int _fstat(int file, struct stat *st);
-int _isatty(int file);
-int _read(int file, char *ptr, int len);
-int _lseek(int file, int ptr, int dir);
-
-#define DEBUG_SERIAL_TIMEOUT 2000/portTICK_PERIOD_MS
 
 void uart_callback(uart_callback_args_t *p_args)
 {
@@ -33,6 +18,26 @@ void uart_callback(uart_callback_args_t *p_args)
         portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
     }
 }
+
+#if  defined(__GNUC__)
+/* Nested in __GNUC__ because LLVM generates both __GNUC__ and __llvm__*/
+
+ #if !defined(__llvm__)
+#include <sys/stat.h>
+#include <errno.h>
+#undef errno
+extern int errno;
+
+int _write(int file, char *ptr, int len);
+int _close(int file);
+int _fstat(int file, struct stat *st);
+int _isatty(int file);
+int _read(int file, char *ptr, int len);
+int _lseek(int file, int ptr, int dir);
+
+#define DEBUG_SERIAL_TIMEOUT 2000/portTICK_PERIOD_MS
+
+
 
 int _write(int file, char *ptr, int len)
 {
@@ -117,7 +122,7 @@ int _read(int file, char *ptr, int len)
     FSP_PARAMETER_NOT_USED(len);
     return 0;
 }
-#else
+#elif !defined(__ARMCC_VERSION) && !defined(__CLANG_TIDY__)
 int uart_putc(char c, FILE *file);
 
 FILE __stdio = FDEV_SETUP_STREAM(uart_putc,
@@ -187,5 +192,6 @@ int uart_putc(char c, FILE *file)
 
        return c;
 }
+#endif
 #endif
 #endif

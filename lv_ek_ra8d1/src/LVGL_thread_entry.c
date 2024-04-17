@@ -3,6 +3,7 @@
 #include "port/lv_port_disp.h"
 #include "port/lv_port_indev.h"
 #include "lvgl/demos/lv_demos.h"
+#include "ospi_main.h"
 
 
 static uint32_t idle_time_sum;
@@ -58,6 +59,10 @@ void LVGL_thread_entry(void *pvParameters)
 {
     FSP_PARAMETER_NOT_USED (pvParameters);
     fsp_err_t err;
+
+#ifdef USE_OSPI
+    init_ospi();
+#endif
 
     lv_init();
 

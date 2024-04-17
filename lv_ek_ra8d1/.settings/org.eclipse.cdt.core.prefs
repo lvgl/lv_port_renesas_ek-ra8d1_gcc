@@ -1,4 +1,14 @@
 eclipse.preferences.version=1
+environment/project/com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860/PATH/delimiter=\:
+environment/project/com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860/PATH/operation=prepend
+environment/project/com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860/PATH/value=${renesas.build.utilsPath}\:${renesas.build.ddsc.arm6xUtilsPath}
+environment/project/com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860/append=true
+environment/project/com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860/appendContributed=true
+environment/project/com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084/PATH/delimiter=\:
+environment/project/com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084/PATH/operation=prepend
+environment/project/com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084/PATH/value=${renesas.build.utilsPath}\:${renesas.build.ddsc.arm6xUtilsPath}
+environment/project/com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084/append=true
+environment/project/com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084/appendContributed=true
 org.eclipse.cdt.core.formatter.align_composite_type_declarators=false
 org.eclipse.cdt.core.formatter.alignment_for_arguments_in_method_invocation=18
 org.eclipse.cdt.core.formatter.alignment_for_assignment=16
