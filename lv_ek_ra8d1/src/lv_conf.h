@@ -129,7 +129,8 @@
 /* Use Renesas Dave2D on RA  platforms. */
 #define LV_USE_DRAW_DAVE2D 0
 
-#define LV_USE_DRAW_ARM2D 1
+#define LV_USE_DRAW_ARM2D_SYNC 1
+#define LV_USE_NATIVE_HELIUM_ASM 0
 
 /* Use NXP's VG-Lite GPU on iMX RTxxx platforms. */
 #define LV_USE_DRAW_VGLITE 0
