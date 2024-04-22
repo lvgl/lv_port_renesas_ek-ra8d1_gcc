@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<raConfiguration version="8">
+<raConfiguration version="9">
   <generalSettings>
     <option key="#Board#" value="board.ra8d1ek"/>
     <option key="CPU" value="RA8D1"/>
@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R7FA8D1BH"/>
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R7FA8D1BHECBD.pincfg"/>
-    <option key="#FSPVersion#" value="5.1.0"/>
+    <option key="#FSPVersion#" value="5.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##ra8d1_ek##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="com.arm.toolchain.v6.base.var.arm_compiler_6-6.21"/>
   </generalSettings>
@@ -28,6 +28,7 @@
       <property id="config.bsp.series" value="config.bsp.series.value"/>
     </config>
     <config id="config.bsp.ra8d1.fsp">
+      <property id="config.bsp.fsp.inline_irq_functions" value="config.bsp.common.inline_irq_functions.enabled"/>
       <property id="config.bsp.fsp.tz.exception_response" value="config.bsp.fsp.tz.exception_response.nmi"/>
       <property id="config.bsp.fsp.tz.cmsis.bfhfnmins" value="config.bsp.fsp.tz.cmsis.bfhfnmins.secure"/>
       <property id="config.bsp.fsp.tz.cmsis.sysresetreqs" value="config.bsp.fsp.tz.cmsis.sysresetreqs.secure_only"/>
@@ -212,93 +213,97 @@
     <node id="board.clock.octaspiclk.display" option="board.clock.octaspiclk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.1.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="5.1.0">
-      <description>TES D/AVE 2D Port</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dtc" variant="" vendor="Renesas" version="5.1.0">
-      <description>Data Transfer Controller</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="5.1.0">
-      <description>Graphics LCD Controller</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="5.1.0">
-      <description>General PWM Timer</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="5.1.0">
-      <description>External Interrupt</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="5.1.0">
-      <description>I2C Master Interface</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.1.0">
-      <description>I/O Port</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_dsi" variant="" vendor="Renesas" version="5.1.0">
-      <description>MIPI DSI Host</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_phy" variant="" vendor="Renesas" version="5.1.0">
-      <description>MIPI PHY Host</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="5.1.0">
-      <description>SCI UART</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="5.1.0">
-      <description>FreeRTOS Port</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra8d1_ek" variant="" vendor="Renesas" version="5.1.0">
-      <description>RA8D1-EK Board Support Files</description>
-      <originalPack>Renesas.RA_board_ra8d1_ek.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="R7FA8D1BHECBD" vendor="Renesas" version="5.1.0">
-      <description>Board support package for R7FA8D1BHECBD</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="" vendor="Renesas" version="5.1.0">
-      <description>Board support package for RA8D1</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="fsp" variant="" vendor="Renesas" version="5.1.0">
-      <description>Board support package for RA8D1 - FSP Data</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.5.1.0">
-      <description>TES DAVE 2D Drawing Engine</description>
-      <originalPack>TES.Dave2D.3.8.0+fsp.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="10.6.1+fsp.5.1.0">
-      <description>FreeRTOS</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="10.6.1+fsp.5.1.0">
-      <description>FreeRTOS - Memory Management - Heap 4</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="5.9.0+renesas.0.fsp.5.1.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="CoreM" variant="" vendor="Arm" version="5.9.0+renesas.1.fsp.5.2.0">
       <description>Arm CMSIS Version 5 - Core (M)</description>
-      <originalPack>Arm.CMSIS5.5.9.0+renesas.0.fsp.5.1.0.pack</originalPack>
+      <originalPack>Arm.CMSIS5.5.9.0+renesas.1.fsp.5.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dmac" variant="" vendor="Renesas" version="5.1.0">
+    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="10.6.1+fsp.5.2.0">
+      <description>FreeRTOS</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="10.6.1+fsp.5.2.0">
+      <description>FreeRTOS - Memory Management - Heap 4</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.10.6.1+fsp.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra8d1_ek" variant="" vendor="Renesas" version="5.2.0">
+      <description>RA8D1-EK Board Support Files</description>
+      <originalPack>Renesas.RA_board_ra8d1_ek.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.5.2.0">
+      <description>TES DAVE 2D Drawing Engine</description>
+      <originalPack>TES.Dave2D.3.8.0+fsp.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="R7FA8D1BHECBD" vendor="Renesas" version="5.2.0">
+      <description>Board support package for R7FA8D1BHECBD</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="" vendor="Renesas" version="5.2.0">
+      <description>Board support package for RA8D1</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="fsp" variant="" vendor="Renesas" version="5.2.0">
+      <description>Board support package for RA8D1 - FSP Data</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="5.2.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dmac" variant="" vendor="Renesas" version="5.2.0">
       <description>Direct Memory Access Controller</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ospi_b" variant="" vendor="Renesas" version="5.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="5.2.0">
+      <description>TES D/AVE 2D Port</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dtc" variant="" vendor="Renesas" version="5.2.0">
+      <description>Data Transfer Controller</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="5.2.0">
+      <description>Graphics LCD Controller</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="5.2.0">
+      <description>General PWM Timer</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="5.2.0">
+      <description>External Interrupt</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="5.2.0">
+      <description>I2C Master Interface</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="5.2.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_dsi" variant="" vendor="Renesas" version="5.2.0">
+      <description>MIPI DSI Host</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_phy" variant="" vendor="Renesas" version="5.2.0">
+      <description>MIPI PHY Host</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ospi_b" variant="" vendor="Renesas" version="5.2.0">
       <description>Octa Serial Peripheral Interface Flash</description>
-      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="5.2.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="5.2.0">
+      <description>FreeRTOS Port</description>
+      <originalPack>Renesas.RA.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="DSP" variant="" vendor="Arm" version="5.9.0+renesas.1.fsp.5.2.0">
+      <description>Arm DSP Library Source</description>
+      <originalPack>Arm.CMSIS5.5.9.0+renesas.1.fsp.5.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -683,13 +688,10 @@
       <property id="module.driver.transfer.dest_addr_mode" value="module.driver.transfer.dest_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.src_addr_mode" value="module.driver.transfer.src_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.repeat_area" value="module.driver.transfer.repeat_area.repeat_area_source"/>
-      <property id="module.driver.transfer.p_dest" value="NULL"/>
-      <property id="module.driver.transfer.p_src" value="NULL"/>
       <property id="module.driver.transfer.length" value="1"/>
       <property id="module.driver.transfer.num_blocks" value="0"/>
       <property id="module.driver.transfer.activation_event" value="enum.elc_none.none"/>
       <property id="module.driver.transfer.p_callback" value="NULL"/>
-      <property id="module.driver.transfer.p_context" value="NULL"/>
       <property id="module.driver.transfer.ipl" value="_disabled"/>
       <property id="module.driver.transfer.interrupt" value="module.driver.transfer.interrupt.interrupt_end"/>
       <property id="module.driver.transfer.offset" value="1"/>
@@ -736,7 +738,7 @@
       <property id="module.driver.ospi_b.dotf.name" value="g_ospi_dotf"/>
       <property id="module.driver.ospi_b.dotf.key" value="g_ospi_dotf_key"/>
       <property id="module.driver.ospi_b.dotf.iv" value="g_ospi_dotf_iv"/>
-      <property id="module.driver.ospi_b.dotf.aes_key_length" value="config.driver.dotf.aes_key_length.enabled"/>
+      <property id="module.driver.ospi_b.dotf.aes_key_length" value="config.driver.dotf.aes_key_length.128"/>
       <property id="module.driver.ospi_b.dotf.start_address" value="0x90000000"/>
       <property id="module.driver.ospi_b.dotf.end_address" value="0x90001FFF"/>
     </module>
@@ -901,6 +903,8 @@
       <property id="config.awsfreertos.thread.include_hw_stack_monitor" value="config.awsfreertos.thread.include_hw_stack_monitor.disabled"/>
       <property id="config.awsfreertos.thread.print_function" value="printf(x)"/>
       <property id="config.awsfreertos.thread.include_time_and_task" value="config.awsfreertos.thread.include_time_and_task.disabled"/>
+      <property id="config.awsfreertos.thread.debug_logging_name" value="Log Name"/>
+      <property id="config.awsfreertos.thread.logging_level" value="config.awsfreertos.thread.logging_level.log_none"/>
     </config>
     <config id="config.driver.dtc">
       <property id="config.driver.dtc.param_checking_enable" value="config.driver.dtc.param_checking_enable.bsp"/>

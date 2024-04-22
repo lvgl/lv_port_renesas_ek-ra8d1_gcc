@@ -1,3 +1,6 @@
 [submodule "lv_ek_ra8d1/src/lvgl"]
 	path = lv_ek_ra8d1/src/lvgl
 	url = https://github.com/lvgl/lvgl.git
+[submodule "lv_ek_ra8d1/src/Arm-2D"]
+	path = lv_ek_ra8d1/src/Arm-2D
+	url = https://github.com/ARM-software/Arm-2D.git
