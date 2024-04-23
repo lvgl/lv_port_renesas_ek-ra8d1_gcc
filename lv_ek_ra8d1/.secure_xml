@@ -21,8 +21,8 @@
     <node id="board.clock.moco.freq" option="board.clock.moco.freq.8m"/>
     <node id="board.clock.subclk.freq" option="board.clock.subclk.freq.32768"/>
     <node id="board.clock.pll.source" option="board.clock.pll.source.xtal"/>
-    <node id="board.clock.pll.div" option="board.clock.pll.div.1"/>
-    <node id="board.clock.pll.mul" option="board.clock.pll.mul.48_00"/>
+    <node id="board.clock.pll.div" option="board.clock.pll.div.2"/>
+    <node id="board.clock.pll.mul" option="board.clock.pll.mul.96_00"/>
     <node id="board.clock.pll.display" option="board.clock.pll.display.value"/>
     <node id="board.clock.pll1p.div" option="board.clock.pll1p.div.2"/>
     <node id="board.clock.pll1p.display" option="board.clock.pll1p.display.value"/>
@@ -31,8 +31,8 @@
     <node id="board.clock.pll1r.div" option="board.clock.pll1r.div.6"/>
     <node id="board.clock.pll1r.display" option="board.clock.pll1r.display.value"/>
     <node id="board.clock.pll2.source" option="board.clock.pll2.source.xtal"/>
-    <node id="board.clock.pll2.div" option="board.clock.pll2.div.1"/>
-    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.40_00"/>
+    <node id="board.clock.pll2.div" option="board.clock.pll2.div.2"/>
+    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.80_00"/>
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
     <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>

@@ -142,8 +142,8 @@
     <node id="board.clock.moco.freq" option="board.clock.moco.freq.8m"/>
     <node id="board.clock.subclk.freq" option="board.clock.subclk.freq.32768"/>
     <node id="board.clock.pll.source" option="board.clock.pll.source.xtal"/>
-    <node id="board.clock.pll.div" option="board.clock.pll.div.1"/>
-    <node id="board.clock.pll.mul" option="board.clock.pll.mul.48_00"/>
+    <node id="board.clock.pll.div" option="board.clock.pll.div.2"/>
+    <node id="board.clock.pll.mul" option="board.clock.pll.mul.96_00"/>
     <node id="board.clock.pll.display" option="board.clock.pll.display.value"/>
     <node id="board.clock.pll1p.div" option="board.clock.pll1p.div.2"/>
     <node id="board.clock.pll1p.display" option="board.clock.pll1p.display.value"/>
@@ -152,8 +152,8 @@
     <node id="board.clock.pll1r.div" option="board.clock.pll1r.div.6"/>
     <node id="board.clock.pll1r.display" option="board.clock.pll1r.display.value"/>
     <node id="board.clock.pll2.source" option="board.clock.pll2.source.xtal"/>
-    <node id="board.clock.pll2.div" option="board.clock.pll2.div.1"/>
-    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.40_00"/>
+    <node id="board.clock.pll2.div" option="board.clock.pll2.div.2"/>
+    <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.80_00"/>
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
     <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>
@@ -304,6 +304,10 @@
     <component apiversion="" class="CMSIS" condition="" group="CMSIS5" subgroup="DSP" variant="" vendor="Arm" version="5.9.0+renesas.1.fsp.5.2.0">
       <description>Arm DSP Library Source</description>
       <originalPack>Arm.CMSIS5.5.9.0+renesas.1.fsp.5.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="events" variant="" vendor="Renesas" version="5.2.0">
+      <description>Board support package for RA8D1 - Events</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.5.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -742,6 +746,7 @@
       <property id="module.driver.ospi_b.dotf.start_address" value="0x90000000"/>
       <property id="module.driver.ospi_b.dotf.end_address" value="0x90001FFF"/>
     </module>
+    <module id="module.arm.cmsis5.dsp.760766203"/>
     <object id="rtos.awsfreertos.object.binary_semaphore.2022269661">
       <property id="rtos.awsfreertos.object.binary_semaphore.symbol" value="g_reset_binary_semaphore"/>
       <property id="rtos.awsfreertos.object.binary_semaphore.allocation" value="rtos.awsfreertos.object.binary_semaphore.allocation.static"/>
@@ -773,6 +778,7 @@
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.middleware.rm_freertos_port.0"/>
+      <stack module="module.arm.cmsis5.dsp.760766203"/>
     </context>
     <context id="rtos.awsfreertos.thread.579088567">
       <property id="_symbol" value="LVGL_thread"/>

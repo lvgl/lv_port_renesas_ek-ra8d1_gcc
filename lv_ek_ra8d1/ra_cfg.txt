@@ -104,14 +104,14 @@ FSP Configuration
     XTAL 20000000Hz
     HOCO 48MHz
     PLL Src: XTAL
-    PLL Div /1
-    PLL Mul x40-59|Mul x48|PLL Mul x48.00
+    PLL Div /2
+    PLL Mul x80-99|Mul x96|PLL Mul x96.00
     PLL1P Div /2
     PLL1Q Div /6
     PLL1R Div /6
     PLL2 Src: XTAL
-    PLL2 Div /1
-    PLL2 Mul x40-59|Mul x40|PLL2 Mul x40.00
+    PLL2 Div /2
+    PLL2 Mul x80-99|Mul x80|PLL2 Mul x80.00
     PLL2P Div /4
     PLL2Q Div /8
     PLL2R Div /4
@@ -655,6 +655,7 @@ FSP Configuration
     Memory-mapping Support: XiP Support: Disable
     DOTF Support: Disable
     
+  Module "Arm CMSIS5 DSP Library Source"
   FreeRTOS
     General: Custom FreeRTOSConfig.h: User_FreeRTOSConfig.h
     General: Use Preemption: Enabled
@@ -732,6 +733,7 @@ FSP Configuration
       Pin Configuration Name: g_bsp_pin_cfg
       
     Instance "FreeRTOS Port (rm_freertos_port)"
+    Instance "Arm CMSIS5 DSP Library Source"
   Thread "LVGL Thread"
     Symbol: LVGL_thread
     Name: LVGL Thread
