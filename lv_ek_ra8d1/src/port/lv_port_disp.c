@@ -58,10 +58,13 @@ void lv_port_disp_init(void)
     /*------------------------------------
      * Create a display and set a flush_cb
      * -----------------------------------*/
+
+    static uint8_t draw_buf[DISPLAY_HSIZE_INPUT0 * DISPLAY_VSIZE_INPUT0 * 2 / 10] BSP_PLACE_IN_SECTION(".dtcm");
+
     lv_display_t * disp = lv_display_create(DISPLAY_HSIZE_INPUT0, DISPLAY_VSIZE_INPUT0);
     lv_display_set_flush_cb(disp, disp_flush);
     lv_display_set_flush_wait_cb(disp, vsync_wait_cb);
-    lv_display_set_buffers(disp, &fb_background[0][0], &fb_background[1][0], sizeof(fb_background[0]), LV_DISPLAY_RENDER_MODE_DIRECT);
+    lv_display_set_buffers(disp, draw_buf, NULL, sizeof(draw_buf), LV_DISPLAY_RENDER_MODE_PARTIAL);
 }
 
 /**********************
@@ -169,6 +172,9 @@ void glcdc_callback(display_callback_args_t *p_args)
 
 static void vsync_wait_cb(lv_display_t * display)
 {
+    return;
+
+
     if(!lv_display_flush_is_last(display)) return;
 
 #if BSP_CFG_RTOS == 2              // FreeRTOS
@@ -194,6 +200,28 @@ static void disp_flush(lv_display_t * display, const lv_area_t * area, uint8_t *
 
     FSP_PARAMETER_NOT_USED(area);
     //Display the frame buffer pointed by px_map
+
+
+    int32_t w = lv_area_get_width(area);
+    int32_t h = lv_area_get_height(area);
+    SCB_CleanInvalidateDCache_by_Addr(px_map, w * h* 2);
+    uint16_t* fb = (uint16_t*)fb_background[1];
+    uint16_t* img = (uint16_t*)px_map;
+
+
+    fb = fb + area->y1 * DISPLAY_HSIZE_INPUT0;
+    fb = fb + area->x1;
+
+    int32_t i;
+    for(i = 0; i < h; i++) {
+        lv_memcpy(fb, img, w * 2);
+        fb += DISPLAY_HSIZE_INPUT0;
+        img += w;
+    }
+
+    return;
+
+
 
     if(!lv_display_flush_is_last(display)) return;
 #if defined(RENESAS_CORTEX_M85)

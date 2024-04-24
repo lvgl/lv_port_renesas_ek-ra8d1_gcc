@@ -49,7 +49,7 @@
 								<option id="com.arm.tool.c.compiler.v6.base.option.target.1033856619" name="Target (--target)" superClass="com.arm.tool.c.compiler.v6.base.option.target" useByScannerDiscovery="true" value="arm-arm-none-eabi" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.cpu.454254899" name="CPU (-mcpu)" superClass="com.arm.tool.c.compiler.v6.base.option.cpu" useByScannerDiscovery="true" value="cortex-m85" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.warnall.1574235912" name="All Warnings (-Wall)" superClass="com.arm.tool.c.compiler.v6.base.option.warnall" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="com.arm.tool.c.compiler.v6.base.option.flags.889435136" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" useByScannerDiscovery="true" value="-mfloat-abi=hard -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_renesas/lv_ek_ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_renesas/lv_ek_ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
+								<option id="com.arm.tool.c.compiler.v6.base.option.flags.889435136" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" useByScannerDiscovery="true" value="-Omax -mfloat-abi=hard -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_renesas/lv_ek_ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_renesas/lv_ek_ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1154356467" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.vector.1543445326" name="Vectorization (-fvectorize)" superClass="com.arm.tool.c.compiler.v6.base.option.vector" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<inputType id="com.arm.tool.c.compiler.v6.base.input.424191790" superClass="com.arm.tool.c.compiler.v6.base.input"/>
@@ -326,7 +326,7 @@
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="lv_ek_ra8d1.com.arm.eclipse.build.project.v6.exe.base.var.arm_compiler_6-6.21.1908526041" name="Executable" projectType="com.arm.eclipse.build.project.v6.exe.base.var.arm_compiler_6-6.21"/>
+		<project id="lv_ek_ra8d1.com.arm.eclipse.build.project.v6.exe.base.var.arm_compiler_6-6.21.1908526041" name="Executable"/>
 	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
