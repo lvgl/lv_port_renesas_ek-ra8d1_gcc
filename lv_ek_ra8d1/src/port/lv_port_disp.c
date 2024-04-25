@@ -59,7 +59,7 @@ void lv_port_disp_init(void)
      * Create a display and set a flush_cb
      * -----------------------------------*/
 
-    static uint8_t draw_buf[DISPLAY_HSIZE_INPUT0 * DISPLAY_VSIZE_INPUT0 * 2 / 10] BSP_PLACE_IN_SECTION(".dtcm");
+    static lv_color_t draw_buf[DISPLAY_HSIZE_INPUT0 * DISPLAY_VSIZE_INPUT0 / 10] BSP_PLACE_IN_SECTION(".dtcm_bss") BSP_ALIGN_VARIABLE(1024);
 
     lv_display_t * disp = lv_display_create(DISPLAY_HSIZE_INPUT0, DISPLAY_VSIZE_INPUT0);
     lv_display_set_flush_cb(disp, disp_flush);
