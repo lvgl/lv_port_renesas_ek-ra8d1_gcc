@@ -61,7 +61,7 @@ void LVGL_thread_entry(void *pvParameters)
     fsp_err_t err;
 
 #ifdef USE_OSPI
-    init_ospi();
+//    init_ospi();
 #endif
 
     lv_init();

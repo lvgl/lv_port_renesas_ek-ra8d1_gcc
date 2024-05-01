@@ -147,7 +147,7 @@
  * - LV_OS_FREERTOS
  * - LV_OS_CMSIS_RTOS2
  * - LV_OS_CUSTOM */
-#define LV_USE_OS   LV_OS_FREERTOS
+#define LV_USE_OS   LV_OS_NONE
 
 #if LV_USE_OS == LV_OS_CUSTOM
     #define LV_OS_CUSTOM_INCLUDE <stdint.h>
@@ -162,7 +162,7 @@
  *-----------*/
 
 /*Enable the log module*/
-#define LV_USE_LOG 1
+#define LV_USE_LOG 0
 #if LV_USE_LOG
 
     /*How important log should be added:
@@ -246,7 +246,7 @@
 /*1: Show the used memory and the memory fragmentation
  * Requires `LV_USE_BUILTIN_MALLOC = 1`
  * Requires `LV_USE_SYSMON = 1`*/
-#define LV_USE_MEM_MONITOR 1
+#define LV_USE_MEM_MONITOR 0
 #if LV_USE_MEM_MONITOR
     #define LV_USE_MEM_MONITOR_POS LV_ALIGN_BOTTOM_LEFT
 #endif

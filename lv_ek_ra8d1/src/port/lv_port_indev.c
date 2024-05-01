@@ -84,7 +84,7 @@ void lv_port_indev_init(void)
      *  The `..._read()` function are only examples.
      *  You should shape them according to your hardware
      */
-
+    return;
 
     /*------------------
      * Touchpad
