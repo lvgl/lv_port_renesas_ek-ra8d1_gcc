@@ -8,6 +8,7 @@ LVGL ported to Renesas EK-RA8D1 development board.
 - Connect the USD cable to the `Debug1` (J10) connector
 
 ## Get started
+- Install the [JLink driver](https://www.segger.com/downloads/jlink/) is not installed yet. 
 - Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
 - Clone the `lv_renesas` repository with submodules: `git clone https://github.com/lvgl/lv_renesas.git --recurse-submodules`
 - Import `lv_ek_ra8d1` in E2 Studio
