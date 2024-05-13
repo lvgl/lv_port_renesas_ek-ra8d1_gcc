@@ -16,7 +16,8 @@ During the benchmark 2 frame buffer were used in the external SRRAM. LVGL was co
 
 As observed in the video, the FPS only drops in highly complex scenarios, while CPU usage remains low. For instance, when multiple ARGB images were rotated, the FPS dropped to 12 and the rendering time increased to 66 ms, but the CPU usage stayed at 10%. Using software rendering only the FPS would be significantly lower, and the CPU usage would peak at 100%.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LHPIqBV_MGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+Check out EK-RA8D1 in action, running LVGL's benchmark demo:
+[![image](https://github.com/lvgl/lv_renesas/assets/7599318/a0a0dc0a-f96f-410a-ba71-555b3a788b61)](https://www.youtube.com/embed/LHPIqBV_MGA)
 
 ## Specification
 
