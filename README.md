@@ -1,25 +1,73 @@
-# Renesas and LVGL
+# LVGL ported to Renesas EK-RA8D1
 
-This repository hosts ready to use Renesas development board projects to easily get started with LVGL on these devices
+## Overview
 
-## Prerequisites
-1. Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
-2. Be sure `git` is installed
+The EK-RA8D1 evaluation kit enables users to effortlessly evaluate the features of the RA8D1 MCU Group and develop embedded systems applications using Renesas’ Flexible Software Package (FSP) and e2 studio IDE. Utilize rich on-board features along with your choice of popular ecosystem add-ons to bring your big ideas to life.
 
-## Usage
-1. `git clone https://github.com/lvgl/lv_renesas.git --recurse-submodules`
-2. Open E2 Studio and import the project you like
-3. Hit the build and Flush or Debug button
+The MCU has a Cortex-M85 core which utilizes the Helium (SIMD) instruction set of Arm. Besides that the chip is equipped with a GPU (called DAVE2D) to off load the MCU. 
 
-## EK-RA8D1 Board Configuration
-1. MIPI LCD PCB attached to the main PCB using plastic stand-offs provided
-2. USB cable connected from J10 to the development PC
-3. DIP switch SW1 settings :- 
-    SW1-7 - ON (SDRAM) (Framebuffer is located in SDRAM)
-    Rest of SW1 OFF (Other settings are possible, check documentation and schematics)
-   
-4. Debug printf output is via the Jlink VCOM port, 921600 8,n,1
+## Buy
 
-## Contributing
-- Feel free to open issues if you find any bugs or have suggestions
-- If you found the solution for an issue, please send a Pull request 
+You can purchase the Renesas EK-RA8D1 board from many distributors. See the sources at https://renesas.com/ek-ra8d1
+
+## Benchmark
+
+During the benchmark 2 frame buffer were used in the external SRRAM. LVGL was configured to `LV_DISPLAY_RENDER_MODE_DIRECT` and the buffer were swapped on VSYNC to avoid tearing.
+
+As observed in the video, the FPS only drops in highly complex scenarios, while CPU usage remains low. For instance, when multiple ARGB images were rotated, the FPS dropped to 12 and the rendering time increased to 66 ms, but the CPU usage stayed at 10%. Using software rendering only the FPS would be significantly lower, and the CPU usage would peak at 100%.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LHPIqBV_MGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+## Specification
+
+### CPU and Memory
+- **MCU:** R7FA8D1BHECBD (Cortex-M85, 480MHz)
+- **RAM:** 1MB internal, 64MB external SDRAM
+- **Flash:** 2MB internal, 64MB External Octo-SPI Flash
+- **GPU:** Dave2D
+
+### Display and Touch
+- **Resolution:** 480x854
+- **Display Size:** 4.5”
+- **Interface:** 2-lane MIPI
+- **Color Depth:** 24-bit
+- **Technology:** IPS
+- **DPI:** 217 px/inch
+- **Touch Pad:** Capacitive
+
+### Connectivity
+- Camera expansion board
+- Micro USB device cable (type-A male to micro-B male)
+- Micro USB host cable (type-A male to micro-B male)
+- Ethernet patch cable
+
+## Getting started
+
+### Hardware setup
+- Attach the MIPI LCD PCB to the main PCB
+- On SW1 DIP switched (middle of the board) 7 should be ON, all others are OFF
+- Connect the USB cable to the `Debug1` (J10) connector
+
+### Software setup
+- Install the [JLink driver](https://www.segger.com/downloads/jlink/) if not installed yet. 
+- Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
+
+### Run the project
+- Clone this repository repository with submodules: `git clone https://github.com/lvgl/lv_port_renesas_ek-ra8d1.git --recurse-submodules` (Downloading the `.zip` from GitHub doesn't work as it doesn't download the submodules)
+- Import `lv_port_renesas_ek-ra8d1` in E2 Studio
+- Build the project
+- Click the Debug button. When prompted select the `J-Link ARM` Debugger and the `R7FA8D1BH` MCU
+
+### Debugging
+- Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
+
+## Project details
+
+TODO
+
+## Contribution and Support
+
+If you find any issues with the development board feel free to open an Issue in this repository. For LVGL related issues (features, bugs, etc) please use the main [lvgl repository](https://github.com/lvgl/lvgl). 
+
+If you found a bug and found a solution too please send a Pull request. If you are new to Pull requests refer to [Our Guide](https://docs.lvgl.io/master/CONTRIBUTING.html#pull-request) to learn the basics.
+
