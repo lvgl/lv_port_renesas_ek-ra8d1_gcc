@@ -794,6 +794,9 @@
 /*Interface for TFT_eSPI*/
 #define LV_USE_TFT_ESPI         0
 
+/*Driver for Renesas GLCDC*/
+#define LV_USE_RENESAS_GLCDC    1
+
 /*==================
 * EXAMPLES
 *==================*/

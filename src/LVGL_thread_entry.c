@@ -1,7 +1,5 @@
 #include <LVGL_thread.h>
-#include "lvgl.h"
-#include "port/lv_port_disp.h"
-#include "port/lv_port_indev.h"
+#include "board_init.h"
 #include "lvgl/demos/lv_demos.h"
 
 
@@ -59,11 +57,7 @@ void LVGL_thread_entry(void *pvParameters)
     FSP_PARAMETER_NOT_USED (pvParameters);
     fsp_err_t err;
 
-    lv_init();
-
-    lv_port_disp_init();
-
-    lv_port_indev_init();
+    board_init();
 
 #if (1 == LV_USE_DEMO_BENCHMARK)
     lv_demo_benchmark();

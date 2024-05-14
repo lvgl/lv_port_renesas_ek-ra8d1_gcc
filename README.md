@@ -54,10 +54,7 @@ Check out EK-RA8D1 in action, running LVGL's benchmark demo:
 - Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
 
 ### Run the project
-- Clone this repository repository with submodules: `git clone https://github.com/lvgl/lv_port_renesas_ek-ra8d1.git --recurse-submodules` (Downloading the `.zip` from GitHub doesn't work as it doesn't download the submodules)
-- Import `lv_port_renesas_ek-ra8d1` in E2 Studio
-- Build the project
-- Click the Debug button. When prompted select the `J-Link ARM` Debugger and the `R7FA8D1BH` MCU
+Step-by-step description of setting up the project can be found in [the official LVGL documentation](https://docs.lvgl.io/master/integration/chip/renesas.html#getting-started-with-lvgl).
 
 ### Debugging
 - Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
