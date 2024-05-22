@@ -62,9 +62,9 @@ Check out EK-RA8D1 in action, running LVGL's benchmark demo:
 ### Debugging
 - Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
 
-## Project details
+## Notes
 
-TODO
+TODO: Describe how to use with LLVM and Ac6
 
 ## Contribution and Support
 
