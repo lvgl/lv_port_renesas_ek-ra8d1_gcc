@@ -40,8 +40,6 @@ static void touch_init(void)
 
 void board_init(void)
 {
-    lv_init();
-
     /* Need to initialise the Touch Controller before the LCD, as only a Single Reset line shared between them */
     touch_init();
 

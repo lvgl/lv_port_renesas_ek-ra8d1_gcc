@@ -57,6 +57,8 @@ void LVGL_thread_entry(void *pvParameters)
     FSP_PARAMETER_NOT_USED (pvParameters);
     fsp_err_t err;
 
+    lv_init();
+
     board_init();
 
 #if (1 == LV_USE_DEMO_BENCHMARK)
