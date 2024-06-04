@@ -50,18 +50,15 @@ Check out EK-RA8D1 in action, running LVGL's benchmark demo:
 - Connect the USB cable to the `Debug1` (J10) connector
 
 ### Software setup
-- Install the [JLink driver](https://www.segger.com/downloads/jlink/) if not installed yet. 
-- Install [Renesas E2 Studio](https://www.renesas.com/us/en/software-tool/e-studio)
+- You can clone the repository with the following command:
+    ```
+    git clone https://github.com/lvgl/lv_port_renesas_ek-ra8d1.git --recurse-submodules
+    ```
+    Downloading the `.zip` from GitHub doesn't work as it doesn't download the submodules.
 
-### Run the project
-Step-by-step description of setting up the project can be found in [the official LVGL documentation](https://docs.lvgl.io/master/integration/chip/renesas.html#getting-started-with-lvgl).
+- Follow the *RA family* section of the [*documentation*](https://docs.lvgl.io/master/integration/chip/renesas.html#get-started-with-the-renesas-ecosystem) to prepare your environment and import the project
 
-### Debugging
-- Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
-
-## Notes
-
-TODO: Describe how to use with LLVM and Ac6
+>**Note:** Debug  `printf` output is via the Jlink VCOM port, 921600 8,n,1
 
 ## Contribution and Support
 
