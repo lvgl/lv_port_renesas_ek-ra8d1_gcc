@@ -120,7 +120,7 @@
     </config>
     <config id="config.bsp.ra">
       <property id="config.bsp.common.main" value="0x400"/>
-      <property id="config.bsp.common.heap" value="0x1000"/>
+      <property id="config.bsp.common.heap" value="0x10000"/>
       <property id="config.bsp.common.vcc" value="3300"/>
       <property id="config.bsp.common.checking" value="config.bsp.common.checking.enabled"/>
       <property id="config.bsp.common.assert" value="config.bsp.common.assert.none"/>
@@ -708,7 +708,7 @@
     <context id="rtos.awsfreertos.thread.579088567">
       <property id="_symbol" value="LVGL_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="LVGL Thread"/>
-      <property id="rtos.awsfreertos.thread.stack" value="8192"/>
+      <property id="rtos.awsfreertos.thread.stack" value="32768"/>
       <property id="rtos.awsfreertos.thread.priority" value="1"/>
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>

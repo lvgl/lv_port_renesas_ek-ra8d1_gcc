@@ -85,7 +85,7 @@ FSP Configuration
   RA8D1 event data
   RA Common
     Main stack size (bytes): 0x400
-    Heap size (bytes): 0x1000
+    Heap size (bytes): 0x10000
     MCU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
@@ -723,7 +723,7 @@ FSP Configuration
   Thread "LVGL Thread"
     Symbol: LVGL_thread
     Name: LVGL Thread
-    Stack size (bytes): 8192
+    Stack size (bytes): 32768
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Static
