@@ -95,7 +95,7 @@ void LVGL_thread_entry(void *pvParameters)
     board_init();
 
 #if (1 == LV_USE_DEMO_BENCHMARK)
-//    lv_demo_benchmark();
+    lv_demo_benchmark();
 #endif
 
 #if (1 == LV_USE_DEMO_MUSIC)
@@ -115,9 +115,6 @@ void LVGL_thread_entry(void *pvParameters)
     lv_demo_widgets();
 #endif
 
-//    lv_example_tiny_ttf_1();
-
-    lv_example_lottie_1();
 
     err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
     if (FSP_SUCCESS != err)

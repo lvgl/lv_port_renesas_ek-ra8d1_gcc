@@ -3,8 +3,6 @@
 #include "stdio.h"
 #include <sys/stat.h>
 #include <errno.h>
-#undef errno
-extern int errno;
 
 int _write(int file, char *ptr, int len);
 int _close(int file);
