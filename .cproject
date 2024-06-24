@@ -29,7 +29,7 @@
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined.1266265766" name="Other CPU options" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.cpu.userdefined"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization.537473509" name="Other optimization flags" superClass="com.renesas.cdt.managedbuild.llvm.arm.option.otherOptimization"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize.1650060861" name="Print Size" superClass="com.renesas.cdt.managedbuild.llvm.core.option.cpu.printsize" value="true" valueType="boolean"/>
-							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.1760926358" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel"/>
+							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.1760926358" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel" value="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.speed" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections.2080414956" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.llvm.core.option.optimization.fdatasections" value="true" valueType="boolean"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.157850446" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
 							<option id="com.renesas.cdt.managedbuild.llvm.core.option.cpu.createObjdump.1425924737" name="Enable Objdump tool" superClass="com.renesas.cdt.managedbuild.llvm.core.option.cpu.createObjdump" value="true" valueType="boolean"/>
@@ -68,7 +68,7 @@
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
 								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat.2024839051" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
-								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.1291583071" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true"/>
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.1291583071" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.speed" valueType="enumerated"/>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c.861776800" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c"/>
 							</tool>
 							<tool id="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.compiler.1337242557" name="Compiler CPP" superClass="com.renesas.cdt.managedbuild.llvm.arm.tool.cpp.compiler">
@@ -93,7 +93,7 @@
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
 								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat.141584541" name="Debug format" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.debugFormat" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.debug.debugFormat.Default" valueType="enumerated"/>
-								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.860702119" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true"/>
+								<option id="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel.860702119" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.llvm.core.option.compiler.source.optimizationLevel" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.llvm.core.option.optimization.optimizationLevel.speed" valueType="enumerated"/>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c.1271145905" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.c"/>
 								<inputType id="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.cpp.768339791" superClass="com.renesas.cdt.managedbuild.llvm.core.inputType.compiler.cpp"/>
 							</tool>
