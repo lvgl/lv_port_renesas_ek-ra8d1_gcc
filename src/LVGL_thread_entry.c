@@ -8,38 +8,6 @@ static uint32_t non_idle_time_sum;
 static uint32_t task_switch_timestamp;
 static bool idle_task_running;
 
-//char *strdup(const char *src)
-//{
-//    char *str;
-//    char *p;
-//    int len = 0;
-//
-//    while (src[len])
-//        len++;
-//    str = malloc(len + 1);
-//    p = str;
-//    while (*src)
-//        *p++ = *src++;
-//    *p = '\0';
-//    return str;
-//}
-//int toLower(int chr)//touches only one character per call
-//{
-//    return (chr >='A' && chr<='Z') ? (chr + 32) : (chr);
-//}
-//
-//int strcasecmp (const char *s1, const char *s2)
-//{
-//  const unsigned char *p1 = (const unsigned char *) s1;
-//  const unsigned char *p2 = (const unsigned char *) s2;
-//  int result;
-//  if (p1 == p2)
-//    return 0;
-//  while ((result = toLower (*p1) - toLower (*p2++)) == 0)
-//    if (*p1++ == '\0')
-//      break;
-//  return result;
-//}
 
 void lv_freertos_task_switch_in(const char * name)
 {
@@ -95,7 +63,7 @@ void LVGL_thread_entry(void *pvParameters)
     board_init();
 
 #if (1 == LV_USE_DEMO_BENCHMARK)
-//    lv_demo_benchmark();
+    lv_demo_benchmark();
 #endif
 
 #if (1 == LV_USE_DEMO_MUSIC)
@@ -114,10 +82,6 @@ void LVGL_thread_entry(void *pvParameters)
 #if (1 == LV_USE_DEMO_WIDGETS && 0 == LV_USE_DEMO_BENCHMARK)
     lv_demo_widgets();
 #endif
-
-//    lv_example_tiny_ttf_1();
-
-    lv_example_lottie_1();
 
     err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
     if (FSP_SUCCESS != err)
