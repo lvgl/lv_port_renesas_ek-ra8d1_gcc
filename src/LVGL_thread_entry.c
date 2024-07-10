@@ -99,7 +99,6 @@ void LVGL_thread_entry(void *pvParameters)
     while (1)
     {
         lv_timer_handler();
-        lv_obj_invalidate(lv_screen_active());
         vTaskDelay (1);
     }
 }

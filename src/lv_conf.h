@@ -201,7 +201,7 @@
 #endif
 
 /* Use Renesas Dave2D on RA  platforms. */
-#define LV_USE_DRAW_DAVE2D 0
+#define LV_USE_DRAW_DAVE2D 1
 
 /* Draw using cached SDL textures*/
 #define LV_USE_DRAW_SDL 0
@@ -348,7 +348,7 @@
 #define LV_COLOR_MIX_ROUND_OFS  0
 
 /* Add 2 x 32 bit variables to each lv_obj_t to speed up getting style properties */
-#define LV_OBJ_STYLE_CACHE      0
+#define LV_OBJ_STYLE_CACHE      1
 
 /* Add `id` field to `lv_obj_t` */
 #define LV_USE_OBJ_ID           0
@@ -810,7 +810,7 @@
 #define LV_USE_SYSMON   1
 #if LV_USE_SYSMON
     /*Get the idle percentage. E.g. uint32_t my_get_idle(void);*/
-    #define LV_SYSMON_GET_IDLE lv_timer_get_idle
+    #define LV_SYSMON_GET_IDLE lv_os_get_idle_percent
 
     /*1: Show CPU usage and FPS count
      * Requires `LV_USE_SYSMON = 1`*/
