@@ -45,7 +45,7 @@
                     "default": "true"
                 }
             ],
-            "action": [
+            "actions": [
                 {
                     "toReplace": "#define DIRECT_MODE \\d+",
                     "newContent": "#define DIRECT_MODE {value}",
@@ -56,10 +56,10 @@
         {
             "type": "checkbox",
             "label": "Use Dave2D GPU",
-            "action": [
+            "actions": [
                 {
                     "toReplace": "#define LV_USE_DRAW_DAVE2D .*",
-                    "newContent": "#define LV_USE_DRAW_DAVE2D (0|1)",
+                    "newContent": "#define LV_USE_DRAW_DAVE2D {value}",
                     "filePath": "src/lv_conf.h"
                 }
             ]
@@ -67,10 +67,10 @@
         {
             "type": "checkbox",
             "label": "Show performance monitor",
-            "action": [
+            "actions": [
                 {
                     "toReplace": "#define LV_USE_PERF_MONITOR .*",
-                    "newContent": "#define LV_USE_PERF_MONITOR (0|1)",
+                    "newContent": "#define LV_USE_PERF_MONITOR {value}",
                     "filePath": "src/lv_conf.h"
                 }
             ]
