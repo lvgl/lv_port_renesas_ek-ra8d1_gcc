@@ -31,6 +31,9 @@
     "shortDescription": "Cortex-M85 based 480 MHz MCU driving a 480x854 display.",
     "urlToClone": "https://github.com/lvgl/lv_port_renesas_ek-ra8d1_gcc",
     "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/renesas/logo.svg",
+    "branches": [
+        "release/v9.2"
+    ],
     "settings": [
         {
             "type": "dropdown",
