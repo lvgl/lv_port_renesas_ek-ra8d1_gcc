@@ -30,7 +30,13 @@
     "description": "The EK-RA8D1 evaluation kit enables users to effortlessly evaluate the features of the RA8D1 MCU Group and develop embedded systems applications using Renesas’ Flexible Software Package (FSP) and e2 studio IDE. Utilize rich on-board features along with your choice of popular ecosystem add-ons to bring your big ideas to life.  The MCU has a Cortex-M85 core which utilizes the Helium (SIMD) instruction set of Arm. Besides that the chip is equipped with a GPU (called DAVE2D) to off load the MCU.",
     "shortDescription": "Cortex-M85 based 480 MHz MCU driving a 480x854 display.",
     "urlToClone": "https://github.com/lvgl/lv_port_renesas_ek-ra8d1_gcc",
-    "logos": ["https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/renesas/logo.svg"],
+    "logos": [
+        "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/renesas/logo.svg"
+    ],
+    "image": "https://raw.githubusercontent.com/lvgl/lv_port_renesas_ek-ra8d1_gcc/master/board_images/renesas-EK-RA8D1.webp",
+    "buy_now_links": [
+        "https://renesas.com/ek-ra8d1"
+    ],
     "branches": [
         "release/v9.2"
     ],
