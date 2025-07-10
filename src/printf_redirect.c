@@ -114,23 +114,3 @@ int _read(int file, char *ptr, int len)
     FSP_PARAMETER_NOT_USED(len);
     return 0;
 }
-
-
-void _exit(void)
-{
-
-}
-
-void _kill(void)
-{
-
-}
-
-void _getpid(void)
-{
-
-}
-void _open(void)
-{
-
-}

@@ -95,7 +95,7 @@ FSP Configuration
     Clocks: MSTP Change Delays: Enabled
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
-    Cache settings: Data cache: Enabled
+    Cache settings: Data cache: Disabled
     
   RA8D1 event data
   RA Common
@@ -138,7 +138,7 @@ FSP Configuration
     I3CCLK Disabled
     UCK Disabled
     U60CK Disabled
-    OCTASPICLK Disabled
+    OCTASPICLK Src: PLL2P
     CPUCLK Div /1
     ICLK Div /2
     PCLKA Div /4
@@ -158,7 +158,7 @@ FSP Configuration
     I3CCLK Div /3
     UCK Div /5
     U60CK Div /5
-    OCTASPICLK Div /4
+    OCTASPICLK Div /2
     
   Pin Configurations
     RA8D1 EK -> g_bsp_pin_cfg
@@ -657,6 +657,18 @@ FSP Configuration
     Parameter Checking: Default (BSP)
     Linker section to keep DTC vector table: .fsp_dtc_vector_table
     
+  Module "OSPI Flash (r_ospi_b)"
+    Parameter Checking: Default (BSP)
+    DMAC Support: Enable
+    Autocalibration Support: Enable
+    Memory-mapping Support: Prefetch Function: Enable
+    Memory-mapping Support: Combination Function: 64 Byte
+    Memory-mapping Support: XiP Support: Disable
+    DOTF Support: Disable
+    
+  Module "Transfer (r_dmac)"
+    Parameter Checking: Default (BSP)
+    
   FreeRTOS
     General: Custom FreeRTOSConfig.h: User_FreeRTOSConfig.h
     General: Use Preemption: Enabled
@@ -1103,6 +1115,70 @@ FSP Configuration
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
       
+    Instance "g_ospi_b OSPI Flash (r_ospi_b)"
+      General: Name: g_ospi_b
+      General: Unit: OSPI_B0
+      General: Channel: CS1
+      General: Initial Protocol Mode: SPI (1S-1S-1S)
+      General: Initial Address Bytes: 4
+      General: Write Status Bit: 0
+      General: Write Enable Bit: 1
+      General: Sector Erase Size: 4096
+      General: Block Erase Size: 262144
+      Defaults: Command Definitions: Page Program Command: 0x12
+      Defaults: Command Definitions: Read Command: 0x0B
+      Defaults: Command Definitions: Write Enable Command: 0x06
+      Defaults: Command Definitions: Status Command: 0x05
+      Defaults: Erase Command Definitions: Sector Erase Command: 0x2121
+      Defaults: Erase Command Definitions: Block Erase Command: 0xDCDC
+      Defaults: Erase Command Definitions: Chip Erase Command: 0x6060
+      Defaults: Dummy Cycles: Memory Read Dummy Cycles: 3
+      Defaults: Dummy Cycles: Status Read Dummy Cycles: 0
+      General: Command Set Table: 
+      General: Command Set Table Length: 0
+      High-speed Mode: Protocol: Dual data rate OPI (8D-8D-8D)
+      High-speed Mode: Command Length Bytes: 2
+      High-speed Mode: Auto-Calibration: Data latching delay: 0x00
+      High-speed Mode: Auto-Calibration: Auto-Calibration Address: 0x90002000
+      High-speed Mode: Command Definitions: Page Program Command: 0x1212
+      High-speed Mode: Command Definitions: Dual Read Command: 0xEEEE
+      High-speed Mode: Command Definitions: Write Enable Command: 0x0606
+      High-speed Mode: Command Definitions: Status Command: 0x0505
+      High-speed Mode: Command Definitions: Sector Erase Command: 0x2121
+      High-speed Mode: Command Definitions: Block Erase Command: 0xDCDC
+      High-speed Mode: Command Definitions: Chip Erase Command: 0x6060
+      High-speed Mode: Memory Read Dummy Cycles: 10
+      High-speed Mode: Status Read Dummy Cycles: 4
+      Chip Select Timing Setting: Command Interval: 2
+      Chip Select Timing Setting: Pull-up Timing: No Extension
+      Chip Select Timing Setting: Pull-down Timing: No Extension
+      XiP Mode: XiP Enter Code: 0
+      XiP Mode: XiP Exit Code: 0
+      DOTF: Name: g_ospi_dotf
+      DOTF: AES Key: g_ospi_dotf_key
+      DOTF: AES IV: g_ospi_dotf_iv
+      DOTF: AES Key Length: 128
+      DOTF: Key Format: Plaintext
+      DOTF: Decryption start address: 0x90000000
+      DOTF: Decryption end address: 0x90001FFF
+      
+      Instance "g_transfer1 Transfer (r_dmac) No ELC Trigger"
+        Name: g_transfer1
+        Channel: 0
+        Mode: Block
+        Transfer Size: 1 Byte
+        Destination Address Mode: Incremented
+        Source Address Mode: Incremented
+        Repeat Area (Unused in Normal Mode): Source
+        Number of Transfers: 64
+        Number of Blocks (Valid only in Repeat,Block or Repeat-Block Mode): 1
+        Activation Source: No ELC Trigger
+        Callback: NULL
+        Transfer End Interrupt Priority: Disabled
+        Interrupt Frequency: Interrupt after all transfers have completed
+        Offset value (Valid only when address mode is \'Offset\'): 0
+        Source Buffer Size: 0
+        
   Object "g_reset_binary_semaphore Binary Semaphore"
     Symbol: g_reset_binary_semaphore
     Memory Allocation: Static

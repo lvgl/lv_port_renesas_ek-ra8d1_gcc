@@ -134,7 +134,7 @@
       <property id="config.bsp.fsp.mcu.sci_b_lin.max_baud" value="7500000"/>
       <property id="config.bsp.fsp.mcu.ospi_b.spi_dspi_qspi_mode_max_freq_hz" value="100000000"/>
       <property id="config.bsp.fsp.mcu.ospi_b.qspi_dopi_mode_max_freq_hz" value="200000000"/>
-      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.enabled"/>
+      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.disabled"/>
     </config>
     <config id="config.bsp.ra">
       <property id="config.bsp.common.main" value="0x400"/>
@@ -188,7 +188,7 @@
     <node id="board.clock.i3cclk.source" option="board.clock.i3cclk.source.disabled"/>
     <node id="board.clock.uck.source" option="board.clock.uck.source.disabled"/>
     <node id="board.clock.u60ck.source" option="board.clock.u60ck.source.disabled"/>
-    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.disabled"/>
+    <node id="board.clock.octaspiclk.source" option="board.clock.octaspiclk.source.pll2p"/>
     <node id="board.clock.cpuclk.div" option="board.clock.cpuclk.div.1"/>
     <node id="board.clock.iclk.div" option="board.clock.iclk.div.2"/>
     <node id="board.clock.pclka.div" option="board.clock.pclka.div.4"/>
@@ -208,7 +208,7 @@
     <node id="board.clock.i3cclk.div" option="board.clock.i3cclk.div.3"/>
     <node id="board.clock.uck.div" option="board.clock.uck.div.5"/>
     <node id="board.clock.u60ck.div" option="board.clock.u60ck.div.5"/>
-    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.4"/>
+    <node id="board.clock.octaspiclk.div" option="board.clock.octaspiclk.div.2"/>
     <node id="board.clock.cpuclk.display" option="board.clock.cpuclk.display.value"/>
     <node id="board.clock.iclk.display" option="board.clock.iclk.display.value"/>
     <node id="board.clock.pclka.display" option="board.clock.pclka.display.value"/>
@@ -310,6 +310,14 @@
     <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.5.8.0">
       <description>FreeRTOS - Memory Management - Heap 4</description>
       <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.5.8.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dmac" variant="" vendor="Renesas" version="5.8.0">
+      <description>Direct Memory Access Controller</description>
+      <originalPack>Renesas.RA.5.8.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ospi_b" variant="" vendor="Renesas" version="5.8.0">
+      <description>Octa Serial Peripheral Interface Flash</description>
+      <originalPack>Renesas.RA.5.8.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -683,6 +691,70 @@
       <property id="module.driver.transfer.number_of_descriptors" value="1"/>
       <property id="module.driver.transfer.activation_source" value="_disabled"/>
     </module>
+    <module id="module.driver.ospi_on_ospi_b.1236629163">
+      <property id="module.driver.ospi_b.name" value="g_ospi_b"/>
+      <property id="module.driver.ospi_b.unit" value="module.driver.ospi_b.unit.0"/>
+      <property id="module.driver.ospi_b.channel" value="module.driver.ospi_b.channel.1"/>
+      <property id="module.driver.ospi_b.spi_protocol" value="module.driver.ospi_b.protocol_mode.protocol_1S_1S_1S"/>
+      <property id="module.driver.ospi_b.address_bytes" value="module.driver.ospi_b.address_bytes.address_bytes_4"/>
+      <property id="module.driver.ospi_b.write_status_bit" value="0"/>
+      <property id="module.driver.ospi_b.write_enable_bit" value="1"/>
+      <property id="module.driver.ospi_b.sector_erase_size" value="4096"/>
+      <property id="module.driver.ospi_b.block_erase_size" value="262144"/>
+      <property id="module.driver.ospi_b.spi_page_program_command" value="0x12"/>
+      <property id="module.driver.ospi_b.spi_read_command" value="0x0B"/>
+      <property id="module.driver.ospi_b.spi_write_enable_command" value="0x06"/>
+      <property id="module.driver.ospi_b.spi_status_command" value="0x05"/>
+      <property id="module.driver.ospi_b.sector_erase_command" value="0x2121"/>
+      <property id="module.driver.ospi_b.block_erase_command" value="0xDCDC"/>
+      <property id="module.driver.ospi_b.chip_erase_command" value="0x6060"/>
+      <property id="module.driver.ospi_b.default_mem_read_dummy_cycles" value="3"/>
+      <property id="module.driver.ospi_b.default_status_read_dummy_cycles" value="0"/>
+      <property id="module.driver.ospi_b.command_set_table" value=""/>
+      <property id="module.driver.ospi_b.command_set_table_length" value="0"/>
+      <property id="module.driver.ospi_b.high_speed_protocol" value="module.driver.ospi_b.protocol_mode.protocol_8D_8D_8D"/>
+      <property id="module.driver.ospi_b.high_speed_command_length" value="module.driver.opi.high_speed_command_length.2"/>
+      <property id="module.driver.ospi_b.data_latch_delay_setting" value="0x00"/>
+      <property id="module.driver.ospi_b.auto_callibration_address" value="0x90002000"/>
+      <property id="module.driver.ospi_b.high_speed_page_program_command" value="0x1212"/>
+      <property id="module.driver.ospi_b.high_speed_read_command" value="0xEEEE"/>
+      <property id="module.driver.ospi_b.high_speed_write_enable_command" value="0x0606"/>
+      <property id="module.driver.ospi_b.high_speed_status_command" value="0x0505"/>
+      <property id="module.driver.ospi_b.high_speed_sector_erase_command" value="0x2121"/>
+      <property id="module.driver.ospi_b.high_speed_block_erase_command" value="0xDCDC"/>
+      <property id="module.driver.ospi_b.high_speed_chip_erase_command" value="0x6060"/>
+      <property id="module.driver.ospi_b.mem_read_dummy_cycles" value="10"/>
+      <property id="module.driver.ospi_b.status_read_dummy_cycles" value="4"/>
+      <property id="module.driver.ospi_b.command_interval_clocks" value="module.driver.ospi_b.command_interval_clocks.clocks_2"/>
+      <property id="module.driver.ospi_b.pull_up_timing" value="module.driver.ospi_b.pull_up_timing.clocks_5"/>
+      <property id="module.driver.ospi_b.pull_down_timing" value="module.driver.ospi_b.pull_down_timing.clocks_3"/>
+      <property id="module.driver.ospi_b.xip.enter_code" value="0"/>
+      <property id="module.driver.ospi_b.xip.exit_code" value="0"/>
+      <property id="module.driver.ospi_b.dotf.name" value="g_ospi_dotf"/>
+      <property id="module.driver.ospi_b.dotf.key" value="g_ospi_dotf_key"/>
+      <property id="module.driver.ospi_b.dotf.iv" value="g_ospi_dotf_iv"/>
+      <property id="module.driver.ospi_b.dotf.aes_key_length" value="config.driver.dotf.aes_key_length.128"/>
+      <property id="module.driver.ospi_b.dotf.key_format" value="config.driver.dotf.key_format.plaintext"/>
+      <property id="module.driver.ospi_b.dotf.start_address" value="0x90000000"/>
+      <property id="module.driver.ospi_b.dotf.end_address" value="0x90001FFF"/>
+    </module>
+    <module id="module.driver.transfer_on_dmac.1478293275">
+      <property id="module.driver.transfer.name" value="g_transfer1"/>
+      <property id="module.driver.transfer.channel" value="0"/>
+      <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
+      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
+      <property id="module.driver.transfer.dest_addr_mode" value="module.driver.transfer.dest_addr_mode.addr_mode_fixed"/>
+      <property id="module.driver.transfer.src_addr_mode" value="module.driver.transfer.src_addr_mode.addr_mode_fixed"/>
+      <property id="module.driver.transfer.repeat_area" value="module.driver.transfer.repeat_area.repeat_area_source"/>
+      <property id="module.driver.transfer.length" value="1"/>
+      <property id="module.driver.transfer.num_blocks" value="0"/>
+      <property id="module.driver.transfer.activation_event" value="enum.elc_none.none"/>
+      <property id="module.driver.transfer.p_callback" value="NULL"/>
+      <property id="module.driver.transfer.ipl" value="_disabled"/>
+      <property id="module.driver.transfer.interrupt" value="module.driver.transfer.interrupt.interrupt_end"/>
+      <property id="module.driver.transfer.offset" value="1"/>
+      <property id="module.driver.transfer.src.buffer" value="1"/>
+    </module>
     <object id="rtos.awsfreertos.object.binary_semaphore.2022269661">
       <property id="rtos.awsfreertos.object.binary_semaphore.symbol" value="g_reset_binary_semaphore"/>
       <property id="rtos.awsfreertos.object.binary_semaphore.allocation" value="rtos.awsfreertos.object.binary_semaphore.allocation.static"/>
@@ -738,12 +810,27 @@
       <stack module="module.driver.i2c_on_iic_master.122911187"/>
       <stack module="module.driver.external_irq_on_icu.1660628024"/>
       <stack module="module.driver.timer_on_gpt.580957540"/>
+      <stack module="module.driver.ospi_on_ospi_b.1236629163">
+        <stack module="module.driver.transfer_on_dmac.1478293275" requires="module.driver.ospi_on_ospi_b.requires.transfer"/>
+      </stack>
     </context>
+    <config id="config.driver.ospi_b">
+      <property id="config.driver.ospi_b.param_checking_enable" value="config.driver.ospi_b.param_checking_enable.bsp"/>
+      <property id="config.driver.ospi_b.dmac_support" value="config.driver.ospi_b.dmac_support.enabled"/>
+      <property id="config.driver.ospi_b.autocalibration_support" value="config.driver.ospi_b.autocalibration_support.enabled"/>
+      <property id="config.driver.ospi_b.prefetch_function" value="config.driver.ospi_b.prefetch_function.enabled"/>
+      <property id="config.driver.ospi_b.combination_function" value="config.driver.ospi_b.combination_function.64_BYTE"/>
+      <property id="config.driver.ospi_b.xip_support" value="config.driver.ospi_b.xip_support.disabled"/>
+      <property id="config.driver.ospi_b.dotf_support" value="config.driver.ospi_b.dotf_support.disabled"/>
+    </config>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
       <property id="config.driver.sci_b_uart.fifo_support" value="config.driver.sci_b_uart.fifo_support.disabled"/>
       <property id="config.driver.sci_b_uart.dtc_support" value="config.driver.sci_b_uart.dtc_support.enabled"/>
       <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
+    </config>
+    <config id="config.driver.dmac">
+      <property id="config.driver.dmac.param_checking_enable" value="config.driver.dmac.param_checking_enable.bsp"/>
     </config>
     <config id="config.driver.iic_master">
       <property id="config.driver.iic_master.param_checking_enable" value="config.driver.iic_master.param_checking_enable.bsp"/>

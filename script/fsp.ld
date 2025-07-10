@@ -537,6 +537,8 @@ SECTIONS
         __ospi_device_1_start__ = .;
         KEEP(*(.ospi_device_1*))
         KEEP(*(.code_in_ospi_device_1*))
+        /* Graphical assets section in the OSPI */
+        KEEP(*(.graphical_assets*))
         __ospi_device_1_end__ = .;
     } > OSPI_DEVICE_1
     __ospi_device_1_code_size__ = __ospi_device_1_end__ - __ospi_device_1_start__;
