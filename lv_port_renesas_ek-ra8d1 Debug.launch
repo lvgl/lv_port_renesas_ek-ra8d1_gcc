@@ -27,8 +27,10 @@
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R7FA8D1BH"/>
     <booleanAttribute key="com.renesas.cdt.core.useRemoteTarget" value="true"/>
     <booleanAttribute key="com.renesas.cdt.core.verboseMode" value="false"/>
-    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;selectedRegisterList ioFilePath=&quot;/home/kisvegabor/.eclipse/com.renesas.platform_203115376/DebugComp/RA/IoFiles/R7FA8D1BH.svd&quot;/&gt;&#10;"/>
+    <stringAttribute key="com.renesas.cdt.debug.ioview.dsf.registerSelection0" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#10;&lt;selectedRegisterList ioFilePath=&quot;/home/ulipe/.eclipse/com.renesas.platform_1219880833/DebugComp/RA/IoFiles/R7FA8D1BH.svd&quot;/&gt;&#10;"/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.ASyncTarget" value=""/>
     <stringAttribute key="com.renesas.cdt.launch.dsf.IO_MAP" value="${support_area_loc}../../../.."/>
+    <stringAttribute key="com.renesas.cdt.launch.dsf.SyncMode" value="sync"/>
     <booleanAttribute key="com.renesas.cdt.launch.dsf.USE_DEFAULT_IO_MAP" value="true"/>
     <listAttribute key="com.renesas.cdt.launch.dsf.downloadImages">
         <listEntry value="|true|true|true|0|true|No core|INTERNAL_MEMORY||false"/>
@@ -79,6 +81,8 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.setTZAuthLevel" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.e2lite.setTZBoundaries" value="false"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.supply.voltage" value="3.3"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.swoCoreSelect" value="CPU0"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.e2lite.trace.enable.cores" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.e2litecom.renesas.hardwaredebug.timemeasurement" value="true"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.e2liteworkRam.startAddr" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.break.allowSimulation" value="false"/>
@@ -138,11 +142,10 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthLevel" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZBoundaries" value="true"/>
     <booleanAttribute key="com.renesas.hardwaredebug.timemeasurement" value="true"/>
-    <stringAttribute key="null.trace.enable.cores" value=""/>
     <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="/home/kisvegabor/projects/lvgl/e2_studio-workspace2/lv_port_renesas_ek-ra8d1_gcc/Debug/lv_port_renesas_ek-ra8d1_gcc.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="/home/jimbo/git/lv_port_renesas_ek-ra8d1_gcc/Debug/lv_port_renesas_ek-ra8d1.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value="0"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="true"/>
@@ -153,7 +156,7 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="/home/kisvegabor/projects/lvgl/e2_studio-workspace2/lv_port_renesas_ek-ra8d1_gcc/Debug/lv_port_renesas_ek-ra8d1_gcc.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="/home/jimbo/git/lv_port_renesas_ek-ra8d1_gcc/Debug/lv_port_renesas_ek-ra8d1.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value="0"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
@@ -166,13 +169,13 @@
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
     <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/lv_port_renesas_ek-ra8d1_gcc.elf"/>
-    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="lv_port_renesas_ek-ra8d1_gcc"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/lv_port_renesas_ek-ra8d1.elf"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="lv_port_renesas_ek-ra8d1"/>
     <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
     <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/lv_port_renesas_ek-ra8d1_gcc"/>
+        <listEntry value="/lv_port_renesas_ek-ra8d1"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>

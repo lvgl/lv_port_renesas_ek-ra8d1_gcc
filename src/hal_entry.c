@@ -51,7 +51,10 @@ void R_BSP_WarmStart(bsp_warm_start_event_t event)
                    SCB_SHCSR_MEMFAULTENA_Msk |
                    SCB_SHCSR_SECUREFAULTENA_Msk);
 
-        bsp_sdram_init(); //SDRAM pins need to be set to HIGH drive strength in pin configuration
+#if BSP_CFG_SDRAM_ENABLED
+        /* Setup SDRAM and initialize it. Must configure pins first. */
+        R_BSP_SdramInit(true);
+#endif
     }
 }
 

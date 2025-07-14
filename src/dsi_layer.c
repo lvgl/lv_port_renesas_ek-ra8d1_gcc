@@ -127,7 +127,7 @@ static fsp_err_t  dsi_layer_set_peripheral_max_return_msg_size()
     fsp_err_t err;
     uint8_t msg_buffer[] = {0x02, 0x00};
     mipi_dsi_cmd_t return_size_msg = { .channel = 0,
-                                       .cmd_id = MIPI_DSI_CMD_ID_SET_MAXIMUM_RETURN_PACKET_SIZE,
+                                       .cmd_id = MIPI_CMD_ID_SET_MAXIMUM_RETURN_PACKET_SIZE,
                                        .flags = MIPI_DSI_CMD_FLAG_LOW_POWER,
                                        .tx_len = 2,
                                        .p_tx_buffer = msg_buffer, };
