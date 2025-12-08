@@ -2323,6 +2323,13 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.renesas.core.RenesasCompilerAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.core.buildRunnerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -2330,7 +2337,7 @@
 					<folderInfo id="com.arm.eclipse.build.config.v6.exe.debug.base.var.arm_compiler_6-6.21.208855860." name="/" resourcePath="">
 						<toolChain id="com.arm.toolchain.v6.base.var.arm_compiler_6-6.22.1416272793" name="ARM Compiler 6.22">
 							<targetPlatform id="com.arm.toolchain.v6.base.var.arm_compiler_6-6.22.1416272793.1033189157" name=""/>
-							<builder buildPath="${workspace_loc:/lv_ek_ra8d1}/Debug" id="com.arm.toolchain.v6.builder.351423869" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.arm.toolchain.v6.builder"/>
+							<builder buildPath="${workspace_loc:/lv_ek_ra8d1}/Debug" id="com.arm.toolchain.v6.builder.351423869" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" parallelBuildOn="true"/>
 							<tool id="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.22.967116772" name="ARM C Compiler 6.22">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.arm.tool.c.compiler.v6.base.option.incpath.512509794" name="Include path (-I)" superClass="com.arm.tool.c.compiler.v6.base.option.incpath" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
@@ -2367,8 +2374,8 @@
 								<option id="com.arm.tool.c.compiler.v6.base.option.flags.889435136" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" useByScannerDiscovery="true" value="-Omax -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -mfloat-abi=hard -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1154356467" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.vector.1543445326" name="Vectorization (-fvectorize)" superClass="com.arm.tool.c.compiler.v6.base.option.vector" useByScannerDiscovery="false" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.424191790" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1687393720" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.424191790"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1687393720"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.22.819726544" name="ARM C++ Compiler 6.22">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.min" id="com.arm.tool.c.compiler.v6.base.option.optlevel.1030532797" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" valueType="enumerated"/>
@@ -2392,8 +2399,8 @@
 									<listOptionValue builtIn="false" value="_RA_CORE=CM85"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.1270816628" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1013153993" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.1270816628"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1013153993"/>
 							</tool>
 							<tool command="armclang" id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.22.1549853453" name="ARM Assembler 6.22">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.arm.tool.assembler.v6.base.option.incpath.241447310" name="Include path (-I)" superClass="com.arm.tool.assembler.v6.base.option.incpath" valueType="includePath">
@@ -2423,7 +2430,7 @@
 								<option id="com.arm.tool.assembler.v6.base.option.cpu.567161650" name="CPU (-mcpu)" superClass="com.arm.tool.assembler.v6.base.option.cpu" value="Cortex-M85" valueType="string"/>
 								<option id="com.arm.tool.assembler.v6.base.option.warnall.2033749599" name="All Warnings (-Wall)" superClass="com.arm.tool.assembler.v6.base.option.warnall" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.assembler.v6.base.option.flags.2033145874" name="Other flags" superClass="com.arm.tool.assembler.v6.base.option.flags" value="-x assembler-with-cpp" valueType="string"/>
-								<inputType id="com.arm.tool.assembler.v6.base.input.1700053537" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.1700053537"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.22.1123239540" name="ARM Linker 6.22">
 								<option id="com.arm.tool.c.linker.option.cpu.1779713021" name="Target CPU (--cpu)" superClass="com.arm.tool.c.linker.option.cpu" value="Cortex-M85" valueType="string"/>
@@ -2469,15 +2476,15 @@
 								<option id="com.arm.tool.c.compiler.v6.base.option.flags.1571040823" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" value="-Omax -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -mfloat-abi=hard -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1670123652" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.vector.58265429" name="Vectorization (-fvectorize)" superClass="com.arm.tool.c.compiler.v6.base.option.vector" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.175025912" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1598973171" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.175025912"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1598973171"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.22.1669063223" name="ARM C++ Compiler 6.22">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.min" id="com.arm.tool.c.compiler.v6.base.option.optlevel.1404491859" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" valueType="enumerated"/>
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.options.debug.level.std" id="com.arm.tool.c.compiler.v6.base.options.debug.level.1820850029" name="Debug Level" superClass="com.arm.tool.c.compiler.v6.base.options.debug.level" valueType="enumerated"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.450624025" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.632065411" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1144598135" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.632065411"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1144598135"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.22.1718753541" name="ARM Assembler 6.22">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.arm.tool.assembler.v6.base.option.incpath.662360085" name="Include path (-I)" superClass="com.arm.tool.assembler.v6.base.option.incpath" valueType="includePath">
@@ -2505,7 +2512,7 @@
 								<option id="com.arm.tool.assembler.v6.base.option.cpu.1188147185" name="CPU (-mcpu)" superClass="com.arm.tool.assembler.v6.base.option.cpu" value="Cortex-M85" valueType="string"/>
 								<option id="com.arm.tool.assembler.v6.base.option.warnall.478480512" name="All Warnings (-Wall)" superClass="com.arm.tool.assembler.v6.base.option.warnall" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.assembler.v6.base.option.flags.157103777" name="Other flags" superClass="com.arm.tool.assembler.v6.base.option.flags" value="-x assembler-with-cpp" valueType="string"/>
-								<inputType id="com.arm.tool.assembler.v6.base.input.854559008" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.854559008"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.22.1983331083" name="ARM Linker 6.22">
 								<option id="com.arm.tool.c.linker.option.cpu.884639814" name="Target CPU (--cpu)" superClass="com.arm.tool.c.linker.option.cpu" value="Cortex-M85" valueType="string"/>
@@ -2551,15 +2558,15 @@
 								<option id="com.arm.tool.c.compiler.v6.base.option.flags.1137621515" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" value="-Omax -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -mfloat-abi=hard -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.409544456" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.vector.331216645" name="Vectorization (-fvectorize)" superClass="com.arm.tool.c.compiler.v6.base.option.vector" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.1967624799" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.140179692" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.1967624799"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.140179692"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.22.1249756177" name="ARM C++ Compiler 6.22">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.min" id="com.arm.tool.c.compiler.v6.base.option.optlevel.5893409" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" valueType="enumerated"/>
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.options.debug.level.std" id="com.arm.tool.c.compiler.v6.base.options.debug.level.226274942" name="Debug Level" superClass="com.arm.tool.c.compiler.v6.base.options.debug.level" valueType="enumerated"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1705779200" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.413457553" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.305127235" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.413457553"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.305127235"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.22.209966382" name="ARM Assembler 6.22">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.arm.tool.assembler.v6.base.option.incpath.486518632" name="Include path (-I)" superClass="com.arm.tool.assembler.v6.base.option.incpath" valueType="includePath">
@@ -2587,7 +2594,7 @@
 								<option id="com.arm.tool.assembler.v6.base.option.cpu.461732593" name="CPU (-mcpu)" superClass="com.arm.tool.assembler.v6.base.option.cpu" value="Cortex-M85" valueType="string"/>
 								<option id="com.arm.tool.assembler.v6.base.option.warnall.721665545" name="All Warnings (-Wall)" superClass="com.arm.tool.assembler.v6.base.option.warnall" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.assembler.v6.base.option.flags.1283689668" name="Other flags" superClass="com.arm.tool.assembler.v6.base.option.flags" value="-x assembler-with-cpp" valueType="string"/>
-								<inputType id="com.arm.tool.assembler.v6.base.input.717066102" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.717066102"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.22.515910706" name="ARM Linker 6.22">
 								<option id="com.arm.tool.c.linker.option.cpu.1570382602" name="Target CPU (--cpu)" superClass="com.arm.tool.c.linker.option.cpu" value="Cortex-M85" valueType="string"/>
@@ -2633,15 +2640,15 @@
 								<option id="com.arm.tool.c.compiler.v6.base.option.flags.1046083791" name="Other flags" superClass="com.arm.tool.c.compiler.v6.base.option.flags" value="-Omax -flto -Wno-int-conversion -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wfloat-equal -Waggregate-return -Wshadow -Wpointer-arith -Wconversion -Wmissing-declarations -Wuninitialized -Wunused -Wno-license-management -Wextra -Wno-implicit-int-conversion -Wno-sign-conversion -mfloat-abi=hard -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/Include/&quot; -I&quot;/home/kisvegabor/projects/lvgl/e2_studio-workspace/lv_port_renesas_ek-ra8d1/ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/&quot;" valueType="string"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1537344051" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.vector.1321619503" name="Vectorization (-fvectorize)" superClass="com.arm.tool.c.compiler.v6.base.option.vector" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.1271378389" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1899944098" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.1271378389"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1899944098"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.22.782676283" name="ARM C++ Compiler 6.22">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.min" id="com.arm.tool.c.compiler.v6.base.option.optlevel.846599220" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" valueType="enumerated"/>
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.options.debug.level.std" id="com.arm.tool.c.compiler.v6.base.options.debug.level.1269545223" name="Debug Level" superClass="com.arm.tool.c.compiler.v6.base.options.debug.level" valueType="enumerated"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1272991707" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.1896276052" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1709790683" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.1896276052"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1709790683"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.22.1663137936" name="ARM Assembler 6.22">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.arm.tool.assembler.v6.base.option.incpath.708394226" name="Include path (-I)" superClass="com.arm.tool.assembler.v6.base.option.incpath" valueType="includePath">
@@ -2669,7 +2676,7 @@
 								<option id="com.arm.tool.assembler.v6.base.option.cpu.623527309" name="CPU (-mcpu)" superClass="com.arm.tool.assembler.v6.base.option.cpu" value="Cortex-M85" valueType="string"/>
 								<option id="com.arm.tool.assembler.v6.base.option.warnall.591642044" name="All Warnings (-Wall)" superClass="com.arm.tool.assembler.v6.base.option.warnall" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.assembler.v6.base.option.flags.1083936045" name="Other flags" superClass="com.arm.tool.assembler.v6.base.option.flags" value="-x assembler-with-cpp" valueType="string"/>
-								<inputType id="com.arm.tool.assembler.v6.base.input.43830982" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.43830982"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.22.165451584" name="ARM Linker 6.22">
 								<option id="com.arm.tool.c.linker.option.cpu.1501296544" name="Target CPU (--cpu)" superClass="com.arm.tool.c.linker.option.cpu" value="Cortex-M85" valueType="string"/>
@@ -2698,6 +2705,13 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.renesas.core.RenesasCompilerAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.renesas.cdt.managedbuild.core.buildRunnerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -2705,7 +2719,7 @@
 					<folderInfo id="com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084." name="/" resourcePath="">
 						<toolChain id="com.arm.toolchain.v6.exe.release.base.var.arm_compiler_6-6.21.1026292862" name="ARM Compiler 6.21">
 							<targetPlatform id="com.arm.eclipse.build.config.v6.exe.release.base.var.arm_compiler_6-6.21.376080084..2093035792" name=""/>
-							<builder buildPath="${workspace_loc:/lv_ek_ra8d1}/Release" id="com.arm.toolchain.v6.builder.52909966" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.arm.toolchain.v6.builder"/>
+							<builder buildPath="${workspace_loc:/lv_ek_ra8d1}/Release" id="com.arm.toolchain.v6.builder.52909966" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" parallelBuildOn="true"/>
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -x c -std=c99 ${INPUTS} ${EXTRA_FLAGS}" id="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.1877524227" name="ARM C Compiler 6.21">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.high" id="com.arm.tool.c.compiler.v6.base.option.optlevel.1491050220" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.options.debug.level.none" id="com.arm.tool.c.compiler.v6.base.options.debug.level.884328630" name="Debug Level" superClass="com.arm.tool.c.compiler.v6.base.options.debug.level" useByScannerDiscovery="false" valueType="enumerated"/>
@@ -2736,8 +2750,8 @@
 								</option>
 								<option id="com.arm.tool.c.compiler.v6.base.option.warnall.1971310666" name="All Warnings (-Wall)" superClass="com.arm.tool.c.compiler.v6.base.option.warnall" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.c.compiler.v6.base.option.optfor.1531879449" name="Optimize for" superClass="com.arm.tool.c.compiler.v6.base.option.optfor" useByScannerDiscovery="false" value="com.arm.tool.c.compiler.v6.base.option.optfor.size" valueType="enumerated"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.699904552" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1093230620" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.699904552"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1093230620"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.593970091" name="ARM C++ Compiler 6.21">
 								<option defaultValue="com.arm.tool.c.compiler.v6.base.option.optlevel.high" id="com.arm.tool.c.compiler.v6.base.option.optlevel.2086726600" name="Optimization level" superClass="com.arm.tool.c.compiler.v6.base.option.optlevel" valueType="enumerated"/>
@@ -2766,8 +2780,8 @@
 									<listOptionValue builtIn="false" value="_RA_CORE=CM85"/>
 									<listOptionValue builtIn="false" value="_RA_ORDINAL=1"/>
 								</option>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.668534102" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.981791370" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.668534102"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.981791370"/>
 							</tool>
 							<tool command="armclang" id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.636024002" name="ARM Assembler 6.21">
 								<option defaultValue="com.arm.tool.assembler.v6.base.options.debug.level.none" id="com.arm.tool.assembler.v6.base.options.debug.level.953943750" name="Debug Level" superClass="com.arm.tool.assembler.v6.base.options.debug.level" valueType="enumerated"/>
@@ -2797,7 +2811,7 @@
 								</option>
 								<option id="com.arm.tool.assembler.v6.base.option.warnall.1725568274" name="All Warnings (-Wall)" superClass="com.arm.tool.assembler.v6.base.option.warnall" value="true" valueType="boolean"/>
 								<option id="com.arm.tool.assembler.v6.base.option.flags.389484823" name="Other flags" superClass="com.arm.tool.assembler.v6.base.option.flags" value="-x assembler-with-cpp" valueType="string"/>
-								<inputType id="com.arm.tool.assembler.v6.base.input.1973568332" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.1973568332"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.10275059" name="ARM Linker 6.21">
 								<option id="com.arm.tool.c.linker.option.entry.1664103366" name="Image entry point (--entry)" superClass="com.arm.tool.c.linker.option.entry" value="Reset_Handler" valueType="string"/>
@@ -2815,16 +2829,16 @@
 						<toolChain id="com.arm.toolchain.v6.exe.release.base.var.arm_compiler_6-6.21.1750903551" name="ARM Compiler 6.21" unusedChildren="">
 							<tool id="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.1799732924" name="ARM C Compiler 6.21" superClass="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.1877524227">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.192875946" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.612250752" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1665604410" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.612250752"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1665604410"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.204351082" name="ARM C++ Compiler 6.21" superClass="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.593970091">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.651573266" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.1631100274" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1748968384" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.1631100274"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1748968384"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.1793098211" name="ARM Assembler 6.21" superClass="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.636024002">
-								<inputType id="com.arm.tool.assembler.v6.base.input.2135437450" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.2135437450"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.752471765" name="ARM Linker 6.21" superClass="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.10275059"/>
 							<tool id="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1325347924" name="ARM Librarian 6.21" superClass="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1036272084"/>
@@ -2834,16 +2848,16 @@
 						<toolChain id="com.arm.toolchain.v6.exe.release.base.var.arm_compiler_6-6.21.371465772" name="ARM Compiler 6.21" unusedChildren="">
 							<tool id="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.10892943" name="ARM C Compiler 6.21" superClass="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.1877524227">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.2079721940" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.349700956" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1780275334" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.349700956"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1780275334"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.2115466981" name="ARM C++ Compiler 6.21" superClass="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.593970091">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1617118539" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.958957620" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1039020098" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.958957620"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1039020098"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.387215808" name="ARM Assembler 6.21" superClass="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.636024002">
-								<inputType id="com.arm.tool.assembler.v6.base.input.2030917701" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.2030917701"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.1710276239" name="ARM Linker 6.21" superClass="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.10275059"/>
 							<tool id="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1773161091" name="ARM Librarian 6.21" superClass="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1036272084"/>
@@ -2853,16 +2867,16 @@
 						<toolChain id="com.arm.toolchain.v6.exe.release.base.var.arm_compiler_6-6.21.2008891660" name="ARM Compiler 6.21" unusedChildren="">
 							<tool id="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.253755528" name="ARM C Compiler 6.21" superClass="com.arm.tool.c.compiler.v6.base.var.arm_compiler_6-6.21.1877524227">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.1019122524" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.2028508772" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1227646344" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.2028508772"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.1227646344"/>
 							</tool>
 							<tool id="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.647370640" name="ARM C++ Compiler 6.21" superClass="com.arm.tool.cpp.compiler.v6.base.var.arm_compiler_6-6.21.593970091">
 								<option id="com.arm.tool.c.compiler.v6.base.option.suppresswarn.241395903" name="Suppress all warnings (-w)" superClass="com.arm.tool.c.compiler.v6.base.option.suppresswarn" value="true" valueType="boolean"/>
-								<inputType id="com.arm.tool.c.compiler.v6.base.input.763407304" superClass="com.arm.tool.c.compiler.v6.base.input"/>
-								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.2110948978" superClass="com.arm.tool.cpp.compiler.v6.base.input"/>
+								<inputType id="com.arm.tool.c.compiler.v6.base.input.763407304"/>
+								<inputType id="com.arm.tool.cpp.compiler.v6.base.input.2110948978"/>
 							</tool>
 							<tool id="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.1944819690" name="ARM Assembler 6.21" superClass="com.arm.tool.assembler.v6.base.var.arm_compiler_6-6.21.636024002">
-								<inputType id="com.arm.tool.assembler.v6.base.input.2040529318" superClass="com.arm.tool.assembler.v6.base.input"/>
+								<inputType id="com.arm.tool.assembler.v6.base.input.2040529318"/>
 							</tool>
 							<tool id="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.1345246288" name="ARM Linker 6.21" superClass="com.arm.tool.c.linker.v6.base.var.arm_compiler_6-6.21.10275059"/>
 							<tool id="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1357942762" name="ARM Librarian 6.21" superClass="com.arm.tool.librarian.v6.base.var.arm_compiler_6-6.21.1036272084"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<raConfiguration version="11">
+<raConfiguration version="12">
   <generalSettings>
     <option key="#Board#" value="board.ra8d1ek"/>
     <option key="CPU" value="RA8D1"/>
@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R7FA8D1BH"/>
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R7FA8D1BHECBD.pincfg"/>
-    <option key="#FSPVersion#" value="6.0.0"/>
+    <option key="#FSPVersion#" value="6.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##ra8d1_ek##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.2.1.arm-13-7"/>
@@ -165,6 +165,22 @@
       <property id="config.bsp.option_setting.bps_sel.1" value=""/>
       <property id="config.bsp.option_setting.bps_sel.2" value=""/>
       <property id="config.bsp.option_setting.bps_sel.3" value=""/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl0" value="config.bsp.option_setting_data_flash.fsblctrl0.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl0.FSBLEN" value="config.bsp.option_setting_data_flash.fsblctrl0.FSBLEN.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl0.FSBLSKIPSW" value="config.bsp.option_setting_data_flash.fsblctrl0.FSBLSKIPSW.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl0.FSBLSKIPDS" value="config.bsp.option_setting_data_flash.fsblctrl0.FSBLSKIPDS.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl0.FSBLCLK" value="config.bsp.option_setting_data_flash.fsblctrl0.FSBLCLK.7"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl1" value="config.bsp.option_setting_data_flash.fsblctrl1.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl1.FSBLEXMD" value="config.bsp.option_setting_data_flash.fsblctrl1.FSBLEXMD.secure_report"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl2" value="config.bsp.option_setting_data_flash.fsblctrl2.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl2.PORTPN" value="config.bsp.option_setting_data_flash.fsblctrl2.PORTPN.15"/>
+      <property id="config.bsp.option_setting_data_flash.fsblctrl2.PORTGN" value="config.bsp.option_setting_data_flash.fsblctrl2.PORTGN.reserved"/>
+      <property id="config.bsp.option_setting_data_flash.sacc0" value="config.bsp.option_setting_data_flash.sacc0.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.sacc0.address" value="0xFFFFFFFF"/>
+      <property id="config.bsp.option_setting_data_flash.sacc1" value="config.bsp.option_setting_data_flash.sacc1.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.sacc1.address" value="0xFFFFFFFF"/>
+      <property id="config.bsp.option_setting_data_flash.samr" value="config.bsp.option_setting_data_flash.samr.disabled"/>
+      <property id="config.bsp.option_setting_data_flash.samr.address" value="0xFFFFFFFF"/>
     </config>
     <config id="config.bsp.ra">
       <property id="config.bsp.common.main" value="0x400"/>
@@ -262,101 +278,101 @@
     <node id="board.clock.octaspiclk.display" option="board.clock.octaspiclk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.6.0.0">
-      <description>FreeRTOS</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.6.0.0">
-      <description>FreeRTOS - Memory Management - Heap 4</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="R7FA8D1BHECBD" vendor="Renesas" version="6.0.0">
-      <description>Board support package for R7FA8D1BHECBD</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="" vendor="Renesas" version="6.0.0">
-      <description>Board support package for RA8D1</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="fsp" variant="" vendor="Renesas" version="6.0.0">
-      <description>Board support package for RA8D1 - FSP Data</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="events" variant="" vendor="Renesas" version="6.0.0">
-      <description>Board support package for RA8D1 - Events</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="linker" variant="" vendor="Renesas" version="6.0.0">
-      <description>Board support package for RA8D1 - Linker</description>
-      <originalPack>Renesas.RA_mcu_ra8d1.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="GUI" condition="" group="all" subgroup="lvgl" variant="" vendor="LVGL" version="9.3.0+renesas.0.fsp.6.0.0">
-      <description>LVGL</description>
-      <originalPack>LVGL.lvgl.9.3.0+renesas.0.fsp.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra8d1_ek" variant="" vendor="Renesas" version="6.0.0">
-      <description>RA8D1-EK Board Support Files</description>
-      <originalPack>Renesas.RA_board_ra8d1_ek.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.6.0.0">
-      <description>TES DAVE 2D Drawing Engine</description>
-      <originalPack>TES.Dave2D.3.8.0+fsp.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="CMSIS" condition="" group="Main" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.6.0.0">
+    <component apiversion="" class="CMSIS" condition="" group="Main" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.6.1.0">
       <description>Arm CMSIS Version 6 - Core (M)</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.6.0.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.6.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="6.0.0">
+    <component apiversion="" class="GUI" condition="" group="all" subgroup="lvgl" variant="" vendor="LVGL" version="9.3.0+renesas.0.fsp.6.1.0">
+      <description>LVGL</description>
+      <originalPack>LVGL.lvgl.9.3.0+renesas.0.fsp.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.6.1.0">
+      <description>FreeRTOS</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.6.1.0">
+      <description>FreeRTOS - Memory Management - Heap 4</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="TES" condition="" group="all" subgroup="dave2d" variant="" vendor="Renesas" version="3.8.0+fsp.6.1.0">
+      <description>TES DAVE 2D Drawing Engine</description>
+      <originalPack>TES.Dave2D.3.8.0+fsp.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="ra8d1_ek" variant="" vendor="Renesas" version="6.1.0">
+      <description>RA8D1-EK Board Support Files</description>
+      <originalPack>Renesas.RA_board_ra8d1_ek.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="6.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="6.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_drw" variant="" vendor="Renesas" version="6.1.0">
       <description>TES D/AVE 2D Port</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dtc" variant="" vendor="Renesas" version="6.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_dtc" variant="" vendor="Renesas" version="6.1.0">
       <description>Data Transfer Controller</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="6.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_glcdc" variant="" vendor="Renesas" version="6.1.0">
       <description>Graphics LCD Controller</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="6.0.0">
-      <description>External Interrupt</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="6.0.0">
-      <description>I2C Master Interface</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="6.0.0">
-      <description>I/O Port</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_dsi" variant="" vendor="Renesas" version="6.0.0">
-      <description>MIPI DSI Host</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_phy" variant="" vendor="Renesas" version="6.0.0">
-      <description>MIPI PHY Host</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="6.0.0">
-      <description>SCI UART</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="6.0.0">
-      <description>FreeRTOS Port</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_lvgl_port" variant="" vendor="Renesas" version="6.0.0">
-      <description>LVGL Port</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="6.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="6.1.0">
       <description>General PWM Timer</description>
-      <originalPack>Renesas.RA.6.0.0.pack</originalPack>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="6.1.0">
+      <description>External Interrupt</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="6.1.0">
+      <description>I2C Master Interface</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_ioport" variant="" vendor="Renesas" version="6.1.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_dsi" variant="" vendor="Renesas" version="6.1.0">
+      <description>MIPI DSI Host</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_mipi_phy" variant="" vendor="Renesas" version="6.1.0">
+      <description>MIPI PHY Host</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_uart" variant="" vendor="Renesas" version="6.1.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="6.1.0">
+      <description>FreeRTOS Port</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_lvgl_port" variant="" vendor="Renesas" version="6.1.0">
+      <description>LVGL Port</description>
+      <originalPack>Renesas.RA.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="R7FA8D1BHECBD" vendor="Renesas" version="6.1.0">
+      <description>Board support package for R7FA8D1BHECBD</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="device" variant="" vendor="Renesas" version="6.1.0">
+      <description>Board support package for RA8D1</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="fsp" variant="" vendor="Renesas" version="6.1.0">
+      <description>Board support package for RA8D1 - FSP Data</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="events" variant="" vendor="Renesas" version="6.1.0">
+      <description>Board support package for RA8D1 - Events</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.6.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="ra8d1" subgroup="linker" variant="" vendor="Renesas" version="6.1.0">
+      <description>Board support package for RA8D1 - Linker</description>
+      <originalPack>Renesas.RA_mcu_ra8d1.6.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -773,6 +789,7 @@
     </config>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
+      <property id="config.driver.ioport.ccd_support_enable" value="config.driver.ioport.ccd_support_enable.disabled"/>
     </config>
     <config id="config.lvgl.lvgl">
       <property id="config.lvgl.lvgl.custom_lv_conf" value="lv_conf_user.h"/>
