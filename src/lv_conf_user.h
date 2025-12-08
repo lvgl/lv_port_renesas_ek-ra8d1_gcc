@@ -11,5 +11,8 @@
 
 #endif
 
+#define LV_USE_SYSMON 1
+#define LV_USE_PERF_MONITOR 1
+#define LV_USE_MEM_MONITOR 1
 
 #endif /* LV_CONF_USER_H_ */
