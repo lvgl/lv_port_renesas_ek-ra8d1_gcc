@@ -5,8 +5,6 @@
 
 #if LV_USE_OS == LV_OS_FREERTOS
 
-#define configUSE_TRACE_FACILITY 1
-
 void lv_freertos_task_switch_in(const char * name);
 void lv_freertos_task_switch_out(void);
 
