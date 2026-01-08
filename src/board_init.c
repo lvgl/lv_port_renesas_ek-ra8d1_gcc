@@ -57,7 +57,7 @@ void board_init(void)
     }
 #else
     static uint8_t partial_draw_buf[64*1024] BSP_PLACE_IN_SECTION(".dtcm_bss") BSP_ALIGN_VARIABLE(1024);
-    lv_displasssy_t * disp = lv_renesas_glcdc_partial_create(partial_draw_buf, NULL, sizeof(partial_draw_buf));
+    lv_display_t * disp = lv_renesas_glcdc_partial_create(partial_draw_buf, NULL, sizeof(partial_draw_buf));
 #endif
 
 #if DIRECT_MODE

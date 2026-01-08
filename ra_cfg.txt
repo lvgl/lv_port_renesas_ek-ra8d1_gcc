@@ -7,6 +7,10 @@ FSP Configuration
     data_flash_size_bytes: 12288
     package_style: BGA
     package_pins: 224
+    ospi0_cs0_start_address: 2147483648
+    ospi0_cs0_size_bytes: 268435456
+    ospi0_cs1_start_address: 2415919104
+    ospi0_cs1_size_bytes: 268435456
     number of cores: 1
     
   R7FA8D1BHECBD
@@ -30,6 +34,7 @@ FSP Configuration
     SDRAM: Endian Mode: Little Endian
     SDRAM: Continuous Access Mode: Enabled
     SDRAM: Bus Width: 16-bit
+    OSPI_B: Startup Support: Disabled
     Security: Exceptions: Exception Response: Non-Maskable Interrupt
     Security: Exceptions: BusFault, HardFault, and NMI Target: Secure State
     Security: System Reset Request Accessibility: Secure State
@@ -52,6 +57,8 @@ FSP Configuration
     Clocks: Settling Delay (us): 150
     Main Oscillator Wait Time: 8163 cycles
     Cache settings: Data cache: Enabled
+    I/O Ports: Voltage Mode: VCC: High (VCC >= 2.7 V)
+    I/O Ports: Voltage Mode: VCC2: High (VCC2 >= 2.7 V)
     
   RA8D1 Device Options
     OFS Registers: OFS0 (Option Function Select Register 0) Settings: Enabled
@@ -785,7 +792,7 @@ FSP Configuration
     General: Max Priorities: 5
     General: Minimal Stack Size: 128
     General: Max Task Name Len: 16
-    Stats: Use Trace Facility: Disabled
+    Stats: Use Trace Facility: Enabled
     Stats: Use Stats Formatting Functions: Disabled
     General: Use 16-bit Ticks: Disabled
     General: Idle Should Yield: Enabled
