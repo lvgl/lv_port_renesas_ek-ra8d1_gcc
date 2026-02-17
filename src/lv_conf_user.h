@@ -11,7 +11,7 @@
 
 #endif
 
-#define LV_USE_DRAW_DAVE2D 0
+#define LV_USE_DRAW_DAVE2D 1
 
 #define LV_USE_SYSMON 1
 #define LV_USE_PERF_MONITOR 1
