@@ -124,6 +124,12 @@ To see all the possible LVGL configs, look at `./ra/lvgl/lvgl/lv_conf_template.h
 LVGL comes from the FSP so the source code will appear upon building. It can be edited
 in-place, but changes will be lost if a "clean" is performed.
 
+If you ever change the FSP version, run **Project > Clean** before building. Clicking the
+debug icon does not force a full rebuild, and object files left over from the previous FSP
+(and its bundled LVGL) will link successfully but hard fault at boot with no display output.
+A build that finishes in seconds after an FSP version change is the tell — a full build takes
+minutes.
+
 Debug `printf` output is via the J-Link VCOM port, 921600 8,n,1.
 You can open any serial terminal on your PC to view it.
 
