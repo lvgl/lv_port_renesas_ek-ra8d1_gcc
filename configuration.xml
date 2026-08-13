@@ -815,7 +815,7 @@
       <property id="config.lvgl.lvgl.lv_use_draw_dave2d" value="config.lvgl.lvgl.lv_use_draw_dave2d.enable"/>
       <property id="config.lvgl.lvgl.lv_assert_handler_include" value="&lt;stdint.h&gt;"/>
       <property id="config.lvgl.lvgl.lv_assert_handler" value=""/>
-      <property id="config.lvgl.lvgl.lv_use_obj_name" value="config.lvgl.lvgl.lv_use_obj_name.disable"/>
+      <property id="config.lvgl.lvgl.lv_use_obj_name" value="config.lvgl.lvgl.lv_use_obj_name.enable"/>
       <property id="config.lvgl.lvgl.lv_use_gesture_recognition" value="config.lvgl.lvgl.lv_use_gesture_recognition.disable"/>
       <property id="config.lvgl.lvgl.lv_font_montserrat_8" value="config.lvgl.lvgl.lv_font_montserrat_8.enable"/>
       <property id="config.lvgl.lvgl.lv_font_montserrat_10" value="config.lvgl.lvgl.lv_font_montserrat_10.enable"/>

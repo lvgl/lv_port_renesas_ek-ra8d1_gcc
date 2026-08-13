@@ -1,6 +1,6 @@
 # LVGL ported to Renesas EK-RA8D1
 
-**:rocket: This repository is available in the [LVGL Project Creator](https://lvgl.io/tools/project-creator), making it easy to create and customize a new project in just a few clicks.**
+**This repository is available in the [LVGL Project Creator](https://lvgl.io/tools/project-creator), making it easy to create and customize a new project in just a few clicks.**
 
 ## Overview
 
@@ -53,11 +53,14 @@ Check out EK-RA8D1 in action, running LVGL's benchmark demo:
 
 ### Software setup
 
-- [Install the FSP v6.5.0 Platform](https://www.renesas.com/en/software-tool/ra-flexible-software-package-fsp#overview).
+- [Install e2 studio](https://www.renesas.com/en/software-tool/e2studio-information-rz-family) for your OS.
   - When prompted, choose "Custom Install".
-  - Ensure "Renesas RA" is included in your selection of "Additional Software" to install.
-  - Ensure "Renesas FSP v6.5.0" and "GNU ARM Embedded 13.2-Rel1" are selected.
-- [Download the FSP v6.5.1 Pack](https://github.com/renesas/fsp/releases/tag/v6.5.1)
+  - Ensure "RA" is included in your selection of "Device Families" to install.
+  - Ensure "Renesas FSP Smart Configurator Core" and "Renesas FSP Smart Configurator ARM"
+    are included in your selection of "Customize Features".
+  - Ensure "GNU ARM Embedded 13.2-Rel1" is selected.
+- Install FSP Packs. **v6.5.1 is required.**
+  [Download it here](https://github.com/renesas/fsp/releases/tag/v6.5.1) under "Assets".
   - On **Windows**, download the `FSP_Packs_v6.5.1.exe` file and run it.
   - On **Linux**, download the `FSP_Packs_v6.5.1.zip` file and extract it into your packs folder:
     - Locate the e2 studio install location. The most reliable way is to go through
@@ -71,9 +74,8 @@ Check out EK-RA8D1 in action, running LVGL's benchmark demo:
       The `unzip` process will update the directory structure with the new FSP files from the ZIP
       and preserve any existing FSP packs.
 
-> **Note:** If you already have a recent e2 studio installed, the pack overlay on its own is
-> usually enough — you can skip the platform install and just check that "6.5.1" appears in the
-> FSP version dropdown. This was verified working on e2 studio 25.10.0.
+> **Note:** With a recent e2 studio already installed, adding the pack is usually all that is
+> needed. Check that "6.5.1" appears in the FSP version dropdown. Verified on e2 studio 25.10.0.
 
 ### Run the project
 

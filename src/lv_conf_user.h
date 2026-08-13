@@ -5,7 +5,6 @@
 #define LV_BUILD_DEMOS 1
 
 /* Required for LVGL Pro projects */
-#define LV_USE_OBJ_NAME 1
 #define LV_USE_TRANSLATION 1
 
 #if LV_BUILD_DEMOS
