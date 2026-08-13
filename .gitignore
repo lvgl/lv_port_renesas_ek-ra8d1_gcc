@@ -1,6 +1,17 @@
 /Debug
 /ra_gen
-/ra_cfg
+
+# ra_cfg is generated, except the LVGL configuration header, which is tracked so
+# the effective LVGL configuration is visible without regenerating the project.
+/ra_cfg/*
+!/ra_cfg/fsp_cfg
+/ra_cfg/fsp_cfg/*
+!/ra_cfg/fsp_cfg/lvgl
+/ra_cfg/fsp_cfg/lvgl/*
+!/ra_cfg/fsp_cfg/lvgl/lvgl
+/ra_cfg/fsp_cfg/lvgl/lvgl/*
+!/ra_cfg/fsp_cfg/lvgl/lvgl/lv_conf.h
+
 ra/*
 
 /JLinkLog.log
