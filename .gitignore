@@ -1,6 +1,10 @@
 /Debug
 /ra_gen
 
+# Generated FSP configuration report. Not refreshed by Generate Project Content,
+# so a tracked copy only goes stale.
+/ra_cfg.txt
+
 # ra_cfg is generated, except the LVGL configuration header, which is tracked so
 # the effective LVGL configuration is visible without regenerating the project.
 /ra_cfg/*
