@@ -4,6 +4,9 @@
 /** Build the demos */
 #define LV_BUILD_DEMOS 1
 
+/* Required for LVGL Pro projects */
+#define LV_USE_TRANSLATION 1
+
 #if LV_BUILD_DEMOS
     /** Show some widgets. This might be required to increase `LV_MEM_SIZE`. */
     #define LV_USE_DEMO_WIDGETS 1

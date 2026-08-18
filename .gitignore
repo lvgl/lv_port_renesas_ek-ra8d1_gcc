@@ -1,17 +1,12 @@
 /Debug
 /ra_gen
+
+# Generated FSP configuration report. Not refreshed by Generate Project Content,
+# so a tracked copy only goes stale.
+/ra_cfg.txt
+
 /ra_cfg
+
 ra/*
-!ra/fsp
-ra/fsp/*
-!ra/fsp/src
-ra/fsp/src/*
-!ra/fsp/src/r_drw
-ra/fsp/src/r_drw/*
-!ra/fsp/src/r_dtc
-ra/fsp/src/r_dtc/*
-!ra/fsp/src/r_drw/r_drw_memory.c
-!ra/fsp/src/r_dtc/r_dtc.c
-src/lvgl/*
 
 /JLinkLog.log
